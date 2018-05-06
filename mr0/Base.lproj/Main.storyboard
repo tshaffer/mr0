@@ -74,6 +74,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="THg-dM-JlL" kind="show" identifier="addRestaurantReviewSegue" id="rwH-kU-6qn"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="addPhotosCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="addPhotosCell" textLabel="fTD-Go-Fcv" style="IBUITableViewCellStyleDefault" id="iqM-kK-WxI">
                                         <rect key="frame" x="0.0" y="188" width="375" height="44"/>
@@ -105,6 +108,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hv6-Mq-KWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1509.5999999999999" y="115.59220389805098"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pTA-FK-Vac">
+            <objects>
+                <viewController id="THg-dM-JlL" sceneMemberID="viewController">
+                    <label key="view" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GKU-gG-AMV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xVh-m1-gaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2398" y="116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ga0-R8-Krq">

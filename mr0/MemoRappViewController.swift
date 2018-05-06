@@ -9,32 +9,27 @@
 import UIKit
 
 class MemoRappViewController: UITableViewController {
-
-    let commandArray = ["Show Map", "Add Restaurant Review", "Add Photo"]
     
     override func viewDidLoad() {
+        print ("MemoRappViewController viewDidLoad")
         super.viewDidLoad()
     }
 
-    //MARK TableView Datasource Methods
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return commandArray.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("prepare invoked")
+//        if segue.identifier == "Pizza"{
+//            let vc = segue.destination as! PizzaMenuTableViewController
+//            vc.delegate = self
+//        }
+//        if segue.identifier == "Deep Dish"{
+//            let vc = segue.destination as! PizzaMenuTableViewController
+//            vc.delegate = self
+//        }
+//        if segue.identifier == "Calzone"{
+//            let vc = segue.destination as! PizzaMenuTableViewController
+//            vc.delegate = self
+//        }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MemoRappItemCell", for: indexPath)
-        
-        cell.textLabel?.text = commandArray[indexPath.row]
-        
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
