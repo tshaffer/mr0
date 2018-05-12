@@ -14,6 +14,15 @@ class FoodTypeTableViewController: UITableViewController {
         super.viewDidLoad()
     }
 
+    override func viewWillDisappear(_ animated : Bool) {
+        super.viewWillDisappear(animated)
+        
+        print("foodTypeTableViewController::viewWillDisappear")
+        
+        if self.isMovingFromParentViewController {
+            print("isMovingFromParentViewController")
+        }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("food type prepare for segue invoked")
         //        if segue.identifier == "Pizza"{
@@ -42,4 +51,6 @@ class FoodTypeTableViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    
 }
