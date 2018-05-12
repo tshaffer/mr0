@@ -158,6 +158,14 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="specifyFoodTypeButton" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WwA-jZ-vCm">
+                                <rect key="frame" x="16" y="240" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Food type:"/>
+                                <connections>
+                                    <segue destination="peg-Cc-lf3" kind="show" identifier="specifyFoodTypeSegue" id="qQU-dI-hXo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="g2V-Pw-EYv"/>
@@ -170,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AnZ-Sj-WJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2324" y="-243"/>
+            <point key="canvasLocation" x="2263" y="-402"/>
         </scene>
         <!--Food Type Table View Controller-->
         <scene sceneID="c3h-Xt-XWO">
@@ -287,4 +295,7 @@
             <point key="canvasLocation" x="784.79999999999995" y="116.49175412293854"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="BKb-S4-sTD"/>
+    </inferredMetricsTieBreakers>
 </document>

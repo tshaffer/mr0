@@ -44,5 +44,22 @@ class RestaurantReviewViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("restaurant review prepare for segue invoked")
+        //        if segue.identifier == "Pizza"{
+        //            let vc = segue.destination as! PizzaMenuTableViewController
+        //            vc.delegate = self
+        //        }
+        //        if segue.identifier == "Deep Dish"{
+        //            let vc = segue.destination as! PizzaMenuTableViewController
+        //            vc.delegate = self
+        //        }
+        //        if segue.identifier == "Calzone"{
+        //            let vc = segue.destination as! PizzaMenuTableViewController
+        //            vc.delegate = self
+        //        }
+        
+    }
+
 
 }

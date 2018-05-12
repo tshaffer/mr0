@@ -15,7 +15,7 @@ class FoodTypeTableViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("prepare invoked")
+        print("food type prepare for segue invoked")
         //        if segue.identifier == "Pizza"{
         //            let vc = segue.destination as! PizzaMenuTableViewController
         //            vc.delegate = self
@@ -42,5 +42,4 @@ class FoodTypeTableViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
 }
