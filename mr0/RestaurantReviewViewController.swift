@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RestaurantReviewViewController: UIViewController {
+class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate {
 
     @IBOutlet weak var restaurantName: UITextField!
     @IBOutlet weak var comments: UITextView!
@@ -20,6 +20,10 @@ class RestaurantReviewViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    func specifyFoodType(foodType: String) {
+        print("specifyFoodType" + foodType)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -58,7 +62,10 @@ class RestaurantReviewViewController: UIViewController {
         //            let vc = segue.destination as! PizzaMenuTableViewController
         //            vc.delegate = self
         //        }
-        
+        if segue.identifier == "specifyFoodTypeSegue" {
+            let vc = segue.destination as! FoodTypeTableViewController
+            vc.specifyFoodTypeDelegate = self
+        }
     }
 
 
