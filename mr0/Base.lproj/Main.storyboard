@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -75,7 +76,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="THg-dM-JlL" kind="show" identifier="addRestaurantReviewSegue" id="rwH-kU-6qn"/>
+                                            <segue destination="tEk-eH-Sbt" kind="show" id="hb8-u0-NN9"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="addPhotosCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="addPhotosCell" textLabel="fTD-Go-Fcv" rowHeight="48" style="IBUITableViewCellStyleDefault" id="iqM-kK-WxI">
@@ -110,12 +111,28 @@
             <point key="canvasLocation" x="1509.5999999999999" y="115.59220389805098"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="pTA-FK-Vac">
+        <scene sceneID="iJf-00-5T4">
             <objects>
-                <viewController id="THg-dM-JlL" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xVh-m1-gaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="tEk-eH-Sbt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UQ9-Se-Zag">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restaurant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lId-SL-LaV">
+                                <rect key="frame" x="146" y="92" width="83" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="g2V-Pw-EYv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AnZ-Sj-WJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2398" y="116"/>
+            <point key="canvasLocation" x="2294" y="116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ga0-R8-Krq">
