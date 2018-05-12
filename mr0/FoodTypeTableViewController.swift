@@ -30,4 +30,17 @@ class FoodTypeTableViewController: UITableViewController {
         //        }
         
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cells = self.tableView.visibleCells
+        
+        for cell in cells {
+            cell.accessoryType = .none
+        }
+        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }
