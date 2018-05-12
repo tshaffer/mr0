@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A947578520A7A0AF003FE19E /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578420A7A0AF003FE19E /* Restaurant.swift */; };
 		A94EF9F3209E6A6800443AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EF9F2209E6A6800443AB3 /* AppDelegate.swift */; };
 		A94EF9F5209E6A6800443AB3 /* MemoRappViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EF9F4209E6A6800443AB3 /* MemoRappViewController.swift */; };
 		A94EF9F8209E6A6800443AB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94EF9F6209E6A6800443AB3 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		06DBC85C18745294B11BA196 /* Pods_mr0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mr0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A947578420A7A0AF003FE19E /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		A94EF9EF209E6A6800443AB3 /* mr0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mr0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94EF9F2209E6A6800443AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A94EF9F4209E6A6800443AB3 /* MemoRappViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoRappViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				A9BCD13E20A794890083BBF7 /* GoogleService-Info.plist */,
 				A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */,
 				A9BCD13C20A732BB0083BBF7 /* FoodTypeTableViewController.swift */,
+				A947578420A7A0AF003FE19E /* Restaurant.swift */,
 			);
 			path = mr0;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A947578520A7A0AF003FE19E /* Restaurant.swift in Sources */,
 				A94EF9F5209E6A6800443AB3 /* MemoRappViewController.swift in Sources */,
 				A9BCD13B20A71FD70083BBF7 /* RestaurantReviewViewController.swift in Sources */,
 				A9BCD13D20A732BB0083BBF7 /* FoodTypeTableViewController.swift in Sources */,
@@ -370,7 +374,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = mr0/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tedashaffer.mr0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -385,7 +392,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = mr0/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tedashaffer.mr0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
