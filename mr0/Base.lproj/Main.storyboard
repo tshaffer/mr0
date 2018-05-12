@@ -110,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="1509.5999999999999" y="115.59220389805098"/>
         </scene>
-        <!--View Controller-->
+        <!--Restaurant Review View Controller-->
         <scene sceneID="iJf-00-5T4">
             <objects>
-                <viewController id="tEk-eH-Sbt" sceneMemberID="viewController">
+                <viewController id="tEk-eH-Sbt" customClass="RestaurantReviewViewController" customModule="mr0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UQ9-Se-Zag">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,6 +136,9 @@
                                 <rect key="frame" x="154" y="604" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submit:" destination="tEk-eH-Sbt" eventType="touchUpInside" id="68n-jT-U6v"/>
+                                </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="restaurantVisitDatePicker" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="eUp-V3-FMF">
                                 <rect key="frame" x="16" y="477" width="343" height="109"/>
@@ -156,6 +159,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="g2V-Pw-EYv"/>
                     </view>
+                    <connections>
+                        <outlet property="comments" destination="5Cf-QQ-0WI" id="0y7-8W-Cga"/>
+                        <outlet property="restaurantName" destination="Z2j-w6-L7G" id="QKB-oL-9lg"/>
+                        <outlet property="visitDate" destination="eUp-V3-FMF" id="38r-Iy-5o2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AnZ-Sj-WJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

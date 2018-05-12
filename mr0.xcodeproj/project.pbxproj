@@ -12,6 +12,7 @@
 		A94EF9F8209E6A6800443AB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94EF9F6209E6A6800443AB3 /* Main.storyboard */; };
 		A94EF9FA209E6A6900443AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A94EF9F9209E6A6900443AB3 /* Assets.xcassets */; };
 		A94EF9FD209E6A6900443AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94EF9FB209E6A6900443AB3 /* LaunchScreen.storyboard */; };
+		A9BCD13B20A71FD70083BBF7 /* RestaurantReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		A94EF9F9209E6A6900443AB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A94EF9FC209E6A6900443AB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A94EF9FE209E6A6900443AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantReviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				A94EF9F9209E6A6900443AB3 /* Assets.xcassets */,
 				A94EF9FB209E6A6900443AB3 /* LaunchScreen.storyboard */,
 				A94EF9FE209E6A6900443AB3 /* Info.plist */,
+				A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */,
 			);
 			path = mr0;
 			sourceTree = "<group>";
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A94EF9F5209E6A6800443AB3 /* MemoRappViewController.swift in Sources */,
+				A9BCD13B20A71FD70083BBF7 /* RestaurantReviewViewController.swift in Sources */,
 				A94EF9F3209E6A6800443AB3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

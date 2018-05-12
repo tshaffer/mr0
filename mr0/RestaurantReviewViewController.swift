@@ -10,6 +10,10 @@ import UIKit
 
 class RestaurantReviewViewController: UIViewController {
 
+    @IBOutlet weak var restaurantName: UITextField!
+    @IBOutlet weak var comments: UITextView!
+    @IBOutlet weak var visitDate: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +25,16 @@ class RestaurantReviewViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func submit(_ sender: UIButton) {
+        print("button pressed")
+        print(restaurantName.text!)
+        print(comments.text!)
 
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        let selectedDate = dateFormatter.string(from: visitDate.date)
+        print(selectedDate)
+    }
     /*
     // MARK: - Navigation
 
