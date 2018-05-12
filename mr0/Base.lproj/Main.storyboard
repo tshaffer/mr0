@@ -172,10 +172,10 @@
             </objects>
             <point key="canvasLocation" x="2324" y="-243"/>
         </scene>
-        <!--Restaurant Table View Controller-->
+        <!--Food Type Table View Controller-->
         <scene sceneID="c3h-Xt-XWO">
             <objects>
-                <tableViewController id="peg-Cc-lf3" customClass="RestaurantTableViewController" customModule="mr0" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="peg-Cc-lf3" customClass="FoodTypeTableViewController" customModule="mr0" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dP2-6C-etv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
