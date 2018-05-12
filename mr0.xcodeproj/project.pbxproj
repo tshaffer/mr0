@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A947578520A7A0AF003FE19E /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578420A7A0AF003FE19E /* Restaurant.swift */; };
+		A947578920A7AB41003FE19E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578820A7AB41003FE19E /* LoginViewController.swift */; };
+		A947578B20A7ABA3003FE19E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578A20A7ABA3003FE19E /* RegisterViewController.swift */; };
 		A94EF9F3209E6A6800443AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EF9F2209E6A6800443AB3 /* AppDelegate.swift */; };
 		A94EF9F5209E6A6800443AB3 /* MemoRappViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EF9F4209E6A6800443AB3 /* MemoRappViewController.swift */; };
 		A94EF9F8209E6A6800443AB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94EF9F6209E6A6800443AB3 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		06DBC85C18745294B11BA196 /* Pods_mr0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mr0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A947578420A7A0AF003FE19E /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		A947578820A7AB41003FE19E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A947578A20A7ABA3003FE19E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A94EF9EF209E6A6800443AB3 /* mr0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mr0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94EF9F2209E6A6800443AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A94EF9F4209E6A6800443AB3 /* MemoRappViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoRappViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				A94EF9F2209E6A6800443AB3 /* AppDelegate.swift */,
 				A94EF9F4209E6A6800443AB3 /* MemoRappViewController.swift */,
 				A94EF9F6209E6A6800443AB3 /* Main.storyboard */,
+				A947578820A7AB41003FE19E /* LoginViewController.swift */,
+				A947578A20A7ABA3003FE19E /* RegisterViewController.swift */,
 				A94EF9F9209E6A6900443AB3 /* Assets.xcassets */,
 				A94EF9FB209E6A6900443AB3 /* LaunchScreen.storyboard */,
 				A94EF9FE209E6A6900443AB3 /* Info.plist */,
@@ -223,7 +229,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A947578920A7AB41003FE19E /* LoginViewController.swift in Sources */,
 				A947578520A7A0AF003FE19E /* Restaurant.swift in Sources */,
+				A947578B20A7ABA3003FE19E /* RegisterViewController.swift in Sources */,
 				A94EF9F5209E6A6800443AB3 /* MemoRappViewController.swift in Sources */,
 				A9BCD13B20A71FD70083BBF7 /* RestaurantReviewViewController.swift in Sources */,
 				A9BCD13D20A732BB0083BBF7 /* FoodTypeTableViewController.swift in Sources */,
