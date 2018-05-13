@@ -8,8 +8,27 @@
 
 import UIKit
 
+enum FoodType : CustomStringConvertible {
+    case Burrito
+    case Pizza
+    case IceCream
+    case Burgers
+    case Other
+    
+    var description : String {
+        switch self {
+        // Use Internationalization, as appropriate.
+        case .Burrito: return "Burrito"
+        case .Pizza: return "Pizza"
+        case .IceCream: return "Ice Cream"
+        case .Burgers: return "Burgers"
+        case .Other: return "Other"
+        }
+    }
+}
+
 protocol SpecifyFoodTypeDelegate {
-    func specifyFoodType(foodType: String)
+    func specifyFoodType(foodType: FoodType)
 }
 
 class FoodTypeTableViewController: UITableViewController, UINavigationControllerDelegate {
@@ -61,15 +80,15 @@ class FoodTypeTableViewController: UITableViewController, UINavigationController
         
         switch indexPath.row {
         case 0:
-            specifyFoodTypeDelegate?.specifyFoodType(foodType: "burrito")
+            specifyFoodTypeDelegate?.specifyFoodType(foodType: .Burrito)
         case 1:
-            specifyFoodTypeDelegate?.specifyFoodType(foodType: "pizza")
+            specifyFoodTypeDelegate?.specifyFoodType(foodType: .Pizza)
         case 2:
-            specifyFoodTypeDelegate?.specifyFoodType(foodType: "ice cream")
+            specifyFoodTypeDelegate?.specifyFoodType(foodType: .IceCream)
         case 3:
-            specifyFoodTypeDelegate?.specifyFoodType(foodType: "burgers")
+            specifyFoodTypeDelegate?.specifyFoodType(foodType: .Burgers)
         default:
-            specifyFoodTypeDelegate?.specifyFoodType(foodType: "some other food")
+            specifyFoodTypeDelegate?.specifyFoodType(foodType: .Other)
 
         }
     }

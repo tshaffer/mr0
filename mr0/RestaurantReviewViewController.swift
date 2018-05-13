@@ -20,8 +20,8 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
         // Do any additional setup after loading the view.
     }
 
-    func specifyFoodType(foodType: String) {
-        print("specifyFoodType" + foodType)
+    func specifyFoodType(foodType: FoodType) {
+        print("specifyFoodType = is \(foodType)")
     }
     
     override func didReceiveMemoryWarning() {
