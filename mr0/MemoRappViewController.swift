@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MemoRappViewController: UITableViewController {
     
@@ -15,6 +16,17 @@ class MemoRappViewController: UITableViewController {
         super.viewDidLoad()
     }
 
+    @IBAction func logOutPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            navigationController?.popToRootViewController(animated: true)
+            
+        }
+        catch {
+            print("error: there was a problem logging out")
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare invoked")
 //        if segue.identifier == "Pizza"{

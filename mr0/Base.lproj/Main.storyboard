@@ -240,7 +240,13 @@
                             <outlet property="delegate" destination="Vz0-CC-Gng" id="leM-IQ-w60"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="MemoRapp" id="kpq-UP-NLt"/>
+                    <navigationItem key="navigationItem" title="MemoRapp" id="kpq-UP-NLt">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="2kD-gf-ucR">
+                            <connections>
+                                <action selector="logOutPressed:" destination="Vz0-CC-Gng" id="lBI-qG-Y1D"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hv6-Mq-KWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
