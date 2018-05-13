@@ -48,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qbn-19-Y0l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2527" y="121"/>
+            <point key="canvasLocation" x="2569" y="121"/>
         </scene>
         <!--Login-->
         <scene sceneID="T5A-Tr-Mg3">
@@ -87,10 +87,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="aHP-cI-JLz"/>
                     </view>
+                    <navigationItem key="navigationItem" id="TIT-4E-iMu"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="emailTextField" destination="WSa-aR-4Hs" id="3nE-pV-4PY"/>
                         <outlet property="passwordTextField" destination="6JG-dE-pTC" id="dSm-kP-1pm"/>
+                        <segue destination="Vz0-CC-Gng" kind="show" identifier="goToMemoRapp" id="SNP-ti-0hR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRh-6L-4ZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -137,6 +139,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="e1B-ob-2EW" id="xN2-jT-pSZ"/>
                         <outlet property="passwordTextField" destination="Hji-KJ-fgd" id="Xcg-V4-cG2"/>
+                        <segue destination="Vz0-CC-Gng" kind="show" identifier="goToMemoRapp" id="rnb-3A-mL1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLI-Hl-yns" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -420,4 +423,7 @@
             <point key="canvasLocation" x="1800.8" y="120.98950524737631"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rnb-3A-mL1"/>
+    </inferredMetricsTieBreakers>
 </document>
