@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum FoodType : CustomStringConvertible {
+enum FoodType : Int, Codable, CustomStringConvertible {
     case Burrito
     case Pizza
     case IceCream
