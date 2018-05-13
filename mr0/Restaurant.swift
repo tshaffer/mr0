@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Restaurant {
+class Restaurant: Codable {
     
     var name : String = ""
-    var foodType : String = ""
+    var foodType : String = "Other"
     var comments : String = ""
     var dateVisited = Date()
 }
