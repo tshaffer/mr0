@@ -19,8 +19,7 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedAround()
     }
 
     func specifyFoodType(foodType: FoodType) {
