@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A903F93E20AA4FC300D94A14 /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A903F93D20AA4FC300D94A14 /* CameraHandler.swift */; };
 		A947578520A7A0AF003FE19E /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578420A7A0AF003FE19E /* Restaurant.swift */; };
 		A947578920A7AB41003FE19E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578820A7AB41003FE19E /* LoginViewController.swift */; };
 		A947578B20A7ABA3003FE19E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578A20A7ABA3003FE19E /* RegisterViewController.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		06DBC85C18745294B11BA196 /* Pods_mr0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mr0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A903F93D20AA4FC300D94A14 /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
 		A947578420A7A0AF003FE19E /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		A947578820A7AB41003FE19E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A947578A20A7ABA3003FE19E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */,
 				A9BCD13C20A732BB0083BBF7 /* FoodTypeTableViewController.swift */,
 				A947578420A7A0AF003FE19E /* Restaurant.swift */,
+				A903F93D20AA4FC300D94A14 /* CameraHandler.swift */,
 			);
 			path = mr0;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				A947578B20A7ABA3003FE19E /* RegisterViewController.swift in Sources */,
 				A94EF9F5209E6A6800443AB3 /* MemoRappViewController.swift in Sources */,
 				A9BCD13B20A71FD70083BBF7 /* RestaurantReviewViewController.swift in Sources */,
+				A903F93E20AA4FC300D94A14 /* CameraHandler.swift in Sources */,
 				A9BCD13D20A732BB0083BBF7 /* FoodTypeTableViewController.swift in Sources */,
 				A94EF9F3209E6A6800443AB3 /* AppDelegate.swift in Sources */,
 			);

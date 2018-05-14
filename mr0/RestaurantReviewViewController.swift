@@ -14,6 +14,7 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
     @IBOutlet weak var restaurantName: UITextField!
     @IBOutlet weak var comments: UITextView!
     @IBOutlet weak var visitDate: UIDatePicker!
+    @IBOutlet weak var foodImage: UIImageView!
     
     var foodType: FoodType = .Other
     
@@ -22,14 +23,23 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
         self.hideKeyboardWhenTappedAround()
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
     func specifyFoodType(foodType: FoodType) {
         print("specifyFoodType = is \(foodType)")
         self.foodType = foodType
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func addPhoto(_ sender: Any) {
+        CameraHandler.shared.showActionSheet(vc: self)
+        CameraHandler.shared.imagePickedBlock = { (image) in
+            /* get your image here */
+            print("image received")
+            self.foodImage.image = image
+        }
     }
     
     @IBAction func submit(_ sender: UIButton) {
