@@ -32,11 +32,6 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
     // A default location to use when location permission is not granted.
     let defaultLocation = CLLocation(latitude: -33.869405, longitude: 151.199)
     
-    // Update the map once the user has made their selection.
-    @IBAction func unwindToMain(segue: UIStoryboardSegue) {
-        listLikelyPlaces()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -52,11 +47,6 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
         placesClient = GMSPlacesClient.shared()
         
         listLikelyPlaces()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func specifyFoodType(foodType: FoodType) {
@@ -161,6 +151,16 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
 
         }
         
+    }
+    
+    // Update locaton / name
+    @IBAction func unwindToRestaurantReview(segue: UIStoryboardSegue) {
+         if selectedPlace != nil {
+            print("user selected: \(selectedPlace!)")
+//            marker.title = selectedPlace?.name
+        }
+        
+        listLikelyPlaces()
     }
 }
 

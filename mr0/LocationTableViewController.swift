@@ -43,14 +43,21 @@ class LocationTableViewController: UITableViewController {
         return cell
     }
     
-    /*
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedPlace = likelyPlaces[indexPath.row]
+        performSegue(withIdentifier: "unwindToRestaurantReview", sender: self)
+    }
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "unwindToRestaurantReview" {
+            if let nextViewController = segue.destination as? RestaurantReviewViewController {
+                nextViewController.selectedPlace = selectedPlace
+            }
+        }
     }
-    */
 
 }
