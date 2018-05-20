@@ -31,7 +31,7 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
     
     // A default location to use when location permission is not granted.
     let defaultLocation = CLLocation(latitude: -33.869405, longitude: 151.199)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -79,7 +79,7 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
             if let likelihoodList = placeLikelihoods {
                 for likelihood in likelihoodList.likelihoods {
                     let place = likelihood.place
-                    print("place: \(place)")
+//                    print("place: \(place)")
                     self.likelyPlaces.append(place)
                 }
             }
@@ -105,7 +105,10 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
         restaurant.foodType = self.foodType
         restaurant.comments = comments.text!
         restaurant.dateVisited = visitDate.date
-       
+//        restaurant.coordinates = (selectedPlace?.coordinate)!
+        restaurant.latitude = (selectedPlace?.coordinate)!.latitude
+        restaurant.longitude = (selectedPlace?.coordinate)!.longitude
+
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         
@@ -157,7 +160,13 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
     @IBAction func unwindToRestaurantReview(segue: UIStoryboardSegue) {
          if selectedPlace != nil {
             print("user selected: \(selectedPlace!)")
+            
+            print("restaurant name: \(String(describing: selectedPlace?.name))")
             restaurantName.text = selectedPlace?.name
+            
+            // retrieve gps coordinates
+            let coordinates : CLLocationCoordinate2D = (selectedPlace?.coordinate)!
+            print("coordinates of selected place: \(coordinates)")
         }
         
         listLikelyPlaces()

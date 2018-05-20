@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GooglePlaces
 
 class Restaurant: Codable {
     
@@ -14,4 +15,7 @@ class Restaurant: Codable {
     var foodType : FoodType = .Other
     var comments : String = ""
     var dateVisited = Date()
+//    var coordinates : CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var latitude : CLLocationDegrees = 0;
+    var longitude : CLLocationDegrees = 0;
 }
