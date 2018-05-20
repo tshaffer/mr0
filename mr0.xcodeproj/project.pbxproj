@@ -16,6 +16,7 @@
 		A94EF9F8209E6A6800443AB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94EF9F6209E6A6800443AB3 /* Main.storyboard */; };
 		A94EF9FA209E6A6900443AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A94EF9F9209E6A6900443AB3 /* Assets.xcassets */; };
 		A94EF9FD209E6A6900443AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94EF9FB209E6A6900443AB3 /* LaunchScreen.storyboard */; };
+		A96E1F1620B1A3580095C21E /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96E1F1520B1A3580095C21E /* LocationTableViewController.swift */; };
 		A9BCD13B20A71FD70083BBF7 /* RestaurantReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */; };
 		A9BCD13D20A732BB0083BBF7 /* FoodTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCD13C20A732BB0083BBF7 /* FoodTypeTableViewController.swift */; };
 		A9BCD13F20A794890083BBF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9BCD13E20A794890083BBF7 /* GoogleService-Info.plist */; };
@@ -35,6 +36,7 @@
 		A94EF9F9209E6A6900443AB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A94EF9FC209E6A6900443AB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A94EF9FE209E6A6900443AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A96E1F1520B1A3580095C21E /* LocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
 		A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantReviewViewController.swift; sourceTree = "<group>"; };
 		A9BCD13C20A732BB0083BBF7 /* FoodTypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypeTableViewController.swift; sourceTree = "<group>"; };
 		A9BCD13E20A794890083BBF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				A94EF9F2209E6A6800443AB3 /* AppDelegate.swift */,
 				A94EF9F4209E6A6800443AB3 /* MemoRappViewController.swift */,
 				A94EF9F6209E6A6800443AB3 /* Main.storyboard */,
+				A96E1F1520B1A3580095C21E /* LocationTableViewController.swift */,
 				A947578820A7AB41003FE19E /* LoginViewController.swift */,
 				A947578A20A7ABA3003FE19E /* RegisterViewController.swift */,
 				A94EF9F9209E6A6900443AB3 /* Assets.xcassets */,
@@ -121,6 +124,7 @@
 				A94EF9EC209E6A6800443AB3 /* Frameworks */,
 				A94EF9ED209E6A6800443AB3 /* Resources */,
 				5221BA62A32177F6C63ED263 /* [CP] Embed Pods Frameworks */,
+				5E99B3470583E541D37BC073 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,6 +211,28 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mr0/Pods-mr0-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5E99B3470583E541D37BC073 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-mr0/Pods-mr0-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Versions/A/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mr0/Pods-mr0-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A2FC6A641ADA12E2371D4EC7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -234,6 +260,7 @@
 			files = (
 				A947578920A7AB41003FE19E /* LoginViewController.swift in Sources */,
 				A947578520A7A0AF003FE19E /* Restaurant.swift in Sources */,
+				A96E1F1620B1A3580095C21E /* LocationTableViewController.swift in Sources */,
 				A947578B20A7ABA3003FE19E /* RegisterViewController.swift in Sources */,
 				A94EF9F5209E6A6800443AB3 /* MemoRappViewController.swift in Sources */,
 				A9BCD13B20A71FD70083BBF7 /* RestaurantReviewViewController.swift in Sources */,

@@ -13,6 +13,10 @@ pod 'Firebase/Database'
 pod 'SVProgressHUD'
 pod 'ChameleonFramework'
 
+pod 'GooglePlacePicker', '= 2.3.0'
+pod 'GooglePlaces', '= 2.3.0'
+pod 'GoogleMaps', '= 2.3.0'
+
 end
 
 post_install do |installer|
