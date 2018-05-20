@@ -44,39 +44,23 @@ class MemoRappViewController: UITableViewController {
                 let comments = restaurantDictionary["comments"]
                 let dateVisited = restaurantDictionary["dateVisited"]
                 let location = restaurantDictionary["location"]
-//                let latitude = restaurantDictionary["latitude"]
-//                let longitude = restaurantDictionary["longitude"]
-                
-//                var name : String = ""
-//                var foodType : FoodType = .Other
-//                var comments : String = ""
-//                var dateVisited = Date()
-//                var location : Location = Location(latitude : 0, longitude : 0);
                 
                 print(sender ?? "senderPoo")
                 print(dictionary!)
                 print(name as Any)
                 print(name!)
                 print(foodType!)
-                print(restaurantBodyJSON ?? "restaurantBodyPoo")
                 print(comments as Any)
                 print(comments!)
                 print(dateVisited!)
+                
                 print(location!)
                 let locationDictionary = location as! Dictionary<String, Double>
                 let latitude = locationDictionary["latitude"]
                 print(latitude!)
-//                let longitude = locationDictionary["longitude"]
-//                let loc : Location = location as! Location
-//                let latitude : Double = loc.latitude
-//                let longitude : Double = loc.longitude
+
                 let longitude = locationDictionary["longitude"]
                 print(longitude!)
-//                print((location as! Location).latitude)
-//                print((location as! Location).longitude)
-//                print(latitude!)
-//                print(longitude!)
-                
             }
         })
     }
