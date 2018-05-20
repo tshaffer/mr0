@@ -354,6 +354,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="S2S-cH-Hi5" kind="unwind" identifier="unwindToRestaurantReview" unwindAction="unwindToRestaurantReviewWithSegue:" id="AuK-u8-M5U"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -363,6 +366,7 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="plP-Hu-W3l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="S2S-cH-Hi5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6033" y="475"/>
         </scene>
