@@ -34,53 +34,49 @@ class MemoRappViewController: UITableViewController {
                 print(getData)
                 
                 let sender = getData["Sender"] as? String
-                print(sender ?? "senderPoo")
-                
-                let restaurantBody = getData["RestaurantBody"] as? String
-                print(restaurantBody ?? "restaurantBodyPoo")
-                
-                let jsonData = restaurantBody?.data(using: .utf8)
+                let restaurantBodyJSON = getData["RestaurantBody"] as? String
+                let jsonData = restaurantBodyJSON?.data(using: .utf8)
                 let dictionary = try? JSONSerialization.jsonObject(with: jsonData!, options: .mutableLeaves)
-                print(dictionary!)
-                let aD = dictionary as! Dictionary<String, AnyObject>
+                let restaurantDictionary = dictionary as! Dictionary<String, AnyObject>
                 
-                let name = aD["name"]
+                let name = restaurantDictionary["name"]
+                let foodType = restaurantDictionary["foodType"]
+                let comments = restaurantDictionary["comments"]
+                let dateVisited = restaurantDictionary["dateVisited"]
+                let location = restaurantDictionary["location"]
+//                let latitude = restaurantDictionary["latitude"]
+//                let longitude = restaurantDictionary["longitude"]
+                
+//                var name : String = ""
+//                var foodType : FoodType = .Other
+//                var comments : String = ""
+//                var dateVisited = Date()
+//                var location : Location = Location(latitude : 0, longitude : 0);
+                
+                print(sender ?? "senderPoo")
+                print(dictionary!)
                 print(name as Any)
                 print(name!)
-                let comments = aD["comments"]
+                print(foodType!)
+                print(restaurantBodyJSON ?? "restaurantBodyPoo")
                 print(comments as Any)
                 print(comments!)
+                print(dateVisited!)
+                print(location!)
+                let locationDictionary = location as! Dictionary<String, Double>
+                let latitude = locationDictionary["latitude"]
+                print(latitude!)
+//                let longitude = locationDictionary["longitude"]
+//                let loc : Location = location as! Location
+//                let latitude : Double = loc.latitude
+//                let longitude : Double = loc.longitude
+                let longitude = locationDictionary["longitude"]
+                print(longitude!)
+//                print((location as! Location).latitude)
+//                print((location as! Location).longitude)
+//                print(latitude!)
+//                print(longitude!)
                 
-//                let wins = getData["wins"] as? String
-                
-//                let jsonString = "{\"nacho\":[\"1\",\"2\",\"3\"]}"
-//                let jsonData = jsonString.data(using: .utf8)
-//                let dictionary = try? JSONSerialization.jsonObject(with: jsonData!, options: .mutableLeaves)
-//                print(dictionary!)
-                
-//                let encoder = JSONEncoder()
-//                encoder.outputFormatting = .prettyPrinted
-//
-//                do {
-//                    let data = try encoder.encode(getData)
-//                    print(String(data: data, encoding: .utf8)!)
-//                    let dataAsString = String(data: data, encoding: .utf8)!
-//                    print(dataAsString)
-//                    let restaurantDictionary = ["Sender": Auth.auth().currentUser?.email ?? "ted@roku.com",
-//                                                "RestaurantBody": dataAsString] as [String : Any]
-//                    restaurantsDB.childByAutoId().setValue(restaurantDictionary) {
-//                        (error, reference) in
-//                        if (error != nil) {
-//                            print(error!)
-//                        }
-//                        else {
-//                            print("Restaurant saved successfully")
-//                        }
-//                    }
-//                }
-//                catch {
-//                    print("encoder error")
-//                }
             }
         })
     }
