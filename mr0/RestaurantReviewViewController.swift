@@ -157,7 +157,7 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
     @IBAction func unwindToRestaurantReview(segue: UIStoryboardSegue) {
          if selectedPlace != nil {
             print("user selected: \(selectedPlace!)")
-//            marker.title = selectedPlace?.name
+            restaurantName.text = selectedPlace?.name
         }
         
         listLikelyPlaces()
