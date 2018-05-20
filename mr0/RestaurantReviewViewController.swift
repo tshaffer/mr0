@@ -100,14 +100,15 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
         // add restaurant information to the database
         let restaurantsDB = Database.database().reference().child("Restaurants")
         
-        let restaurant : Restaurant = Restaurant()
+        var restaurant : Restaurant = Restaurant()
         restaurant.name = restaurantName.text!
         restaurant.foodType = self.foodType
         restaurant.comments = comments.text!
         restaurant.dateVisited = visitDate.date
 //        restaurant.coordinates = (selectedPlace?.coordinate)!
-        restaurant.latitude = (selectedPlace?.coordinate)!.latitude
-        restaurant.longitude = (selectedPlace?.coordinate)!.longitude
+//        restaurant.latitude = (selectedPlace?.coordinate)!.latitude
+//        restaurant.longitude = (selectedPlace?.coordinate)!.longitude
+        restaurant.location = Location(latitude: (selectedPlace?.coordinate)!.latitude, longitude: (selectedPlace?.coordinate)!.longitude);
 
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted

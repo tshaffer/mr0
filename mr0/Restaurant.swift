@@ -9,13 +9,14 @@
 import Foundation
 import GooglePlaces
 
-class Restaurant: Codable {
+struct Restaurant: Codable {
     
     var name : String = ""
     var foodType : FoodType = .Other
     var comments : String = ""
     var dateVisited = Date()
 //    var coordinates : CLLocationCoordinate2D = CLLocationCoordinate2D()
-    var latitude : CLLocationDegrees = 0;
-    var longitude : CLLocationDegrees = 0;
+//    var latitude : CLLocationDegrees = 0;
+//    var longitude : CLLocationDegrees = 0;
+    var location : Location = Location(latitude : 0, longitude : 0);
 }

@@ -17,6 +17,7 @@
 		A94EF9FA209E6A6900443AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A94EF9F9209E6A6900443AB3 /* Assets.xcassets */; };
 		A94EF9FD209E6A6900443AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94EF9FB209E6A6900443AB3 /* LaunchScreen.storyboard */; };
 		A96E1F1620B1A3580095C21E /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96E1F1520B1A3580095C21E /* LocationTableViewController.swift */; };
+		A976F2D620B2024F00F3E604 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976F2D520B2024F00F3E604 /* Location.swift */; };
 		A9BCD13B20A71FD70083BBF7 /* RestaurantReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */; };
 		A9BCD13D20A732BB0083BBF7 /* FoodTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCD13C20A732BB0083BBF7 /* FoodTypeTableViewController.swift */; };
 		A9BCD13F20A794890083BBF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9BCD13E20A794890083BBF7 /* GoogleService-Info.plist */; };
@@ -37,6 +38,7 @@
 		A94EF9FC209E6A6900443AB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A94EF9FE209E6A6900443AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A96E1F1520B1A3580095C21E /* LocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		A976F2D520B2024F00F3E604 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantReviewViewController.swift; sourceTree = "<group>"; };
 		A9BCD13C20A732BB0083BBF7 /* FoodTypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypeTableViewController.swift; sourceTree = "<group>"; };
 		A9BCD13E20A794890083BBF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				A9BCD13C20A732BB0083BBF7 /* FoodTypeTableViewController.swift */,
 				A947578420A7A0AF003FE19E /* Restaurant.swift */,
 				A903F93D20AA4FC300D94A14 /* CameraHandler.swift */,
+				A976F2D520B2024F00F3E604 /* Location.swift */,
 			);
 			path = mr0;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			files = (
 				A947578920A7AB41003FE19E /* LoginViewController.swift in Sources */,
 				A947578520A7A0AF003FE19E /* Restaurant.swift in Sources */,
+				A976F2D620B2024F00F3E604 /* Location.swift in Sources */,
 				A96E1F1620B1A3580095C21E /* LocationTableViewController.swift in Sources */,
 				A947578B20A7ABA3003FE19E /* RegisterViewController.swift in Sources */,
 				A94EF9F5209E6A6800443AB3 /* MemoRappViewController.swift in Sources */,
