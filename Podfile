@@ -9,7 +9,9 @@ target 'mr0' do
 
 pod 'Firebase'
 pod 'Firebase/Auth'
+pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'Firebase/Storage'
 pod 'SVProgressHUD'
 pod 'ChameleonFramework'
 

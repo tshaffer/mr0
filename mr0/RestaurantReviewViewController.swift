@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 import GooglePlaces
 
 class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate {
@@ -60,6 +61,34 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
             /* get your image here */
             print("image received")
             self.foodImage.image = image
+            
+            // Get a reference to the storage service using the default Firebase App
+            let storage = Storage.storage()
+
+            // Create a storage reference from our storage service
+            let storageRef = storage.reference()
+            
+            // Create a child reference
+            // imagesRef now points to "images"
+            let imagesRef = storageRef.child("images")
+
+            let fileName = "test.jpg"
+            let testPhotoRef = imagesRef.child(fileName)
+
+            // Data in memory
+            let imageData = UIImageJPEGRepresentation(image, 1.0)
+            
+            // Upload the file to the path "images/test.jpg"
+            let uploadTask = testPhotoRef.putData(imageData!, metadata: nil) { (metadata, error) in
+                guard let metadata = metadata else {
+                    // Uh-oh, an error occurred!
+                    print("error")
+                    return
+                }
+                // Metadata contains file metadata such as size, content-type.
+                let size = metadata.size
+                print("size= \(size)")
+            }
         }
     }
     
