@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import FirebaseUI
 import GooglePlaces
 
 class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate {
@@ -58,37 +59,48 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
     @IBAction func addPhoto(_ sender: Any) {
         CameraHandler.shared.showActionSheet(vc: self)
         CameraHandler.shared.imagePickedBlock = { (image) in
-            /* get your image here */
-            print("image received")
-            self.foodImage.image = image
             
             // Get a reference to the storage service using the default Firebase App
             let storage = Storage.storage()
-
+            
             // Create a storage reference from our storage service
             let storageRef = storage.reference()
-            
-            // Create a child reference
-            // imagesRef now points to "images"
-            let imagesRef = storageRef.child("images")
 
-            let fileName = "test.jpg"
-            let testPhotoRef = imagesRef.child(fileName)
+            // Reference to an image file in Firebase Storage
+            let downloadImageRef = storageRef.child("images/test.jpg")
 
-            // Data in memory
-            let imageData = UIImageJPEGRepresentation(image, 1.0)
+            // Load the image using SDWebImage
+            // Placeholder image
+            let placeholderImage = UIImage(named: "xbutton.png")
+            self.foodImage.sd_setImage(with: downloadImageRef, placeholderImage: placeholderImage)
+
             
-            // Upload the file to the path "images/test.jpg"
-            let uploadTask = testPhotoRef.putData(imageData!, metadata: nil) { (metadata, error) in
-                guard let metadata = metadata else {
-                    // Uh-oh, an error occurred!
-                    print("error")
-                    return
-                }
-                // Metadata contains file metadata such as size, content-type.
-                let size = metadata.size
-                print("size= \(size)")
-            }
+//            /* get your image here */
+//            print("image received")
+//            self.foodImage.image = image
+//
+//
+//            // Create a child reference
+//            // imagesRef now points to "images"
+//            let imagesRef = storageRef.child("images")
+//
+//            let fileName = "test.jpg"
+//            let testPhotoRef = imagesRef.child(fileName)
+//
+//            // Data in memory
+//            let imageData = UIImageJPEGRepresentation(image, 1.0)
+//
+//            // Upload the file to the path "images/test.jpg"
+//            let uploadTask = testPhotoRef.putData(imageData!, metadata: nil) { (metadata, error) in
+//                guard let metadata = metadata else {
+//                    // Uh-oh, an error occurred!
+//                    print("error")
+//                    return
+//                }
+//                // Metadata contains file metadata such as size, content-type.
+//                let size = metadata.size
+//                print("size= \(size)")
+//            }
         }
     }
     

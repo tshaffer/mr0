@@ -298,7 +298,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="foodImage" translatesAutoresizingMaskIntoConstraints="NO" id="YAC-JR-eWl">
-                                <rect key="frame" x="22" y="328" width="286" height="157"/>
+                                <rect key="frame" x="82.335937499999091" y="328" width="209.00000000000045" height="156.99999999999997"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="restaurantVisitDatePicker" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="eUp-V3-FMF">
