@@ -12,8 +12,9 @@ import FirebaseStorage
 import FirebaseUI
 import GooglePlaces
 
-class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate {
+class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var photosTableView: UITableView!
     @IBOutlet weak var restaurantName: UITextField!
     @IBOutlet weak var comments: UITextView!
     @IBOutlet weak var visitDate: UIDatePicker!
@@ -34,6 +35,38 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
     // A default location to use when location permission is not granted.
     let defaultLocation = CLLocation(latitude: -33.869405, longitude: 151.199)
 
+    //a list to store photos
+    var photos = [PhotoItem]()
+    
+    //the method returning size of the list
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return photos.count
+    }
+   
+    //the method returning each cell of the list
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "photoItemCell", for: indexPath) as! PhotoItemTableViewCell
+        
+        //getting the photo for the specified position
+        let photo: PhotoItem
+        photo = photos[indexPath.row]
+        
+        //displaying values
+        cell.photoLabel.text = photo.label
+        
+        let placeholderImage = UIImage(named: "xbutton.png")
+        
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let downloadImageRef = storageRef.child("images/test.jpg")
+        
+        let imageView: UIImageView! = cell.photoImageView!
+        imageView.sd_setImage(with: downloadImageRef, placeholderImage: placeholderImage);
+ 
+        return cell
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -49,6 +82,32 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
         placesClient = GMSPlacesClient.shared()
         
         listLikelyPlaces()
+        
+        
+        // Get a reference to the storage service using the default Firebase App
+        let storage = Storage.storage()
+        
+        // Create a storage reference from our storage service
+        let storageRef = storage.reference()
+
+        let downloadImageRef = storageRef.child("images/test.jpg")
+        
+        self.photos.append(PhotoItem(
+            storageReference:downloadImageRef,
+            label: "photo 1",
+            caption: ""))
+        
+//        var imageRef = storageRef.child("images/test.jpg")
+//        self.photos.append(PhotoItem(imageRef, "photo 1", ""))
+//
+//        imageRef = storageRef.child("images/A31045A7-76C0-42C3-BCBD-B3BB529DD817-10276-000007C405A1DE7F.jpg")
+//        self.photos.append(PhotoItem(imageRef, "photo 2", ""))
+//
+//        imageRef = storageRef.child("images/EC5730D2-9799-47B4-9860-A328F45B4618-10285-000007C577F0F3F1.jpg")
+//        self.photos.append(PhotoItem(imageRef, "photo 3", ""))
+        
+        //displaying data in tableview
+        self.photosTableView.reloadData()
     }
 
     func specifyFoodType(foodType: FoodType) {
