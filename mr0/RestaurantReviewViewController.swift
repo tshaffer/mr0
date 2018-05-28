@@ -52,7 +52,7 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
     }
 
     func specifyFoodType(foodType: FoodType) {
-        print("specifyFoodType = is \(foodType)")
+        print("specifyFoodType is \(foodType)")
         self.foodType = foodType
     }
     
@@ -66,41 +66,42 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate 
             // Create a storage reference from our storage service
             let storageRef = storage.reference()
 
-            // Reference to an image file in Firebase Storage
-            let downloadImageRef = storageRef.child("images/test.jpg")
-
-            // Load the image using SDWebImage
-            // Placeholder image
-            let placeholderImage = UIImage(named: "xbutton.png")
-            self.foodImage.sd_setImage(with: downloadImageRef, placeholderImage: placeholderImage)
-
+// Example code to download and display test image
+//            // Reference to an image file in Firebase Storage
+//            let downloadImageRef = storageRef.child("images/test.jpg")
+//
+//            // Load the image using SDWebImage
+//            // Placeholder image
+//            let placeholderImage = UIImage(named: "xbutton.png")
+//            self.foodImage.sd_setImage(with: downloadImageRef, placeholderImage: placeholderImage)
+// end of example code
             
-//            /* get your image here */
-//            print("image received")
-//            self.foodImage.image = image
-//
-//
-//            // Create a child reference
-//            // imagesRef now points to "images"
-//            let imagesRef = storageRef.child("images")
-//
-//            let fileName = "test.jpg"
-//            let testPhotoRef = imagesRef.child(fileName)
-//
-//            // Data in memory
-//            let imageData = UIImageJPEGRepresentation(image, 1.0)
-//
-//            // Upload the file to the path "images/test.jpg"
-//            let uploadTask = testPhotoRef.putData(imageData!, metadata: nil) { (metadata, error) in
-//                guard let metadata = metadata else {
-//                    // Uh-oh, an error occurred!
-//                    print("error")
-//                    return
-//                }
-//                // Metadata contains file metadata such as size, content-type.
-//                let size = metadata.size
-//                print("size= \(size)")
-//            }
+            /* get your image here */
+            print("image received")
+            self.foodImage.image = image
+
+            // Create a child reference
+            // imagesRef now points to "images"
+            let imagesRef = storageRef.child("images")
+
+            let fileName = String.uniqueFilename() + ".jpg"
+            print("fileName = \(fileName)")
+            let testPhotoRef = imagesRef.child(fileName)
+
+            // Data in memory
+            let imageData = UIImageJPEGRepresentation(image, 1.0)
+
+            // Upload the file to the path "images/test.jpg"
+            testPhotoRef.putData(imageData!, metadata: nil) { (metadata, error) in
+                guard let metadata = metadata else {
+                    // Uh-oh, an error occurred!
+                    print("error")
+                    return
+                }
+                // Metadata contains file metadata such as size, content-type.
+                let size = metadata.size
+                print("size= \(size)")
+            }
         }
     }
     
@@ -242,3 +243,24 @@ extension RestaurantReviewViewController: CLLocationManagerDelegate {
         }
     }
 }
+
+extension String {
+    
+    /**
+     Generates a unique string that can be used as a filename for storing data objects that need to ensure they have a unique filename. It is guranteed to be unique.
+     
+     - parameter prefix: The prefix of the filename that will be added to every generated string.
+     - returns: A string that will consists of a prefix (if available) and a generated unique string.
+     */
+    static func uniqueFilename(withPrefix prefix: String? = nil) -> String {
+        let uniqueString = ProcessInfo.processInfo.globallyUniqueString
+        
+        if prefix != nil {
+            return "\(prefix!)-\(uniqueString)"
+        }
+        
+        return uniqueString
+    }
+    
+}
+
