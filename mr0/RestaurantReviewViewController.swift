@@ -49,21 +49,16 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate,
         let cell = tableView.dequeueReusableCell(withIdentifier: "photoItemCell", for: indexPath) as! PhotoItemTableViewCell
         
         //getting the photo for the specified position
-        let photo: PhotoItem
-        photo = photos[indexPath.row]
-        
-        //displaying values
-        cell.photoLabel.text = photo.label
+        let photoItem: PhotoItem
+        photoItem = photos[indexPath.row]
         
         let placeholderImage = UIImage(named: "xbutton.png")
-        
-        let storage = Storage.storage()
-        let storageRef = storage.reference()
-        let downloadImageRef = storageRef.child("images/test.jpg")
-        
+        let downloadImageRef = photoItem.storageReference!
         let imageView: UIImageView! = cell.photoImageView!
         imageView.sd_setImage(with: downloadImageRef, placeholderImage: placeholderImage);
- 
+
+        cell.photoLabel.text = photoItem.label
+
         return cell
     }
     
@@ -90,22 +85,24 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate,
         // Create a storage reference from our storage service
         let storageRef = storage.reference()
 
-        let downloadImageRef = storageRef.child("images/test.jpg")
-        
+        var imageRef = storageRef.child("images/test.jpg")
         self.photos.append(PhotoItem(
-            storageReference:downloadImageRef,
+            storageReference:imageRef,
             label: "photo 1",
             caption: ""))
-        
-//        var imageRef = storageRef.child("images/test.jpg")
-//        self.photos.append(PhotoItem(imageRef, "photo 1", ""))
-//
-//        imageRef = storageRef.child("images/A31045A7-76C0-42C3-BCBD-B3BB529DD817-10276-000007C405A1DE7F.jpg")
-//        self.photos.append(PhotoItem(imageRef, "photo 2", ""))
-//
-//        imageRef = storageRef.child("images/EC5730D2-9799-47B4-9860-A328F45B4618-10285-000007C577F0F3F1.jpg")
-//        self.photos.append(PhotoItem(imageRef, "photo 3", ""))
-        
+
+        imageRef = storageRef.child("images/A31045A7-76C0-42C3-BCBD-B3BB529DD817-10276-000007C405A1DE7F.jpg")
+        self.photos.append(PhotoItem(
+            storageReference:imageRef,
+            label: "photo 2",
+            caption: ""))
+
+        imageRef = storageRef.child("images/EC5730D2-9799-47B4-9860-A328F45B4618-10285-000007C577F0F3F1.jpg")
+        self.photos.append(PhotoItem(
+            storageReference:imageRef,
+            label: "photo 3",
+            caption: ""))
+       
         //displaying data in tableview
         self.photosTableView.reloadData()
     }
