@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A903F93E20AA4FC300D94A14 /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A903F93D20AA4FC300D94A14 /* CameraHandler.swift */; };
+		A92E084E20C2CD46007217A5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E084D20C2CD46007217A5 /* MapViewController.swift */; };
 		A93377CF20BA20E1003D95C5 /* xbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A93377CE20BA20E1003D95C5 /* xbutton.png */; };
 		A947578520A7A0AF003FE19E /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578420A7A0AF003FE19E /* Restaurant.swift */; };
 		A947578920A7AB41003FE19E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578820A7AB41003FE19E /* LoginViewController.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		06DBC85C18745294B11BA196 /* Pods_mr0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mr0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A903F93D20AA4FC300D94A14 /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
+		A92E084D20C2CD46007217A5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A93377CE20BA20E1003D95C5 /* xbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xbutton.png; sourceTree = "<group>"; };
 		A947578420A7A0AF003FE19E /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		A947578820A7AB41003FE19E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				A94EF9FE209E6A6900443AB3 /* Info.plist */,
 				A9BCD13E20A794890083BBF7 /* GoogleService-Info.plist */,
 				A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */,
+				A92E084D20C2CD46007217A5 /* MapViewController.swift */,
 				A9B2B1E720BC3BB000D5AB7F /* PhotoItemTableViewCell.swift */,
 				A9BCD13C20A732BB0083BBF7 /* FoodTypeTableViewController.swift */,
 				A947578420A7A0AF003FE19E /* Restaurant.swift */,
@@ -319,6 +322,7 @@
 				A976F2D620B2024F00F3E604 /* Location.swift in Sources */,
 				A96E1F1620B1A3580095C21E /* LocationTableViewController.swift in Sources */,
 				A947578B20A7ABA3003FE19E /* RegisterViewController.swift in Sources */,
+				A92E084E20C2CD46007217A5 /* MapViewController.swift in Sources */,
 				A94EF9F5209E6A6800443AB3 /* MemoRappViewController.swift in Sources */,
 				A9B2B1E820BC3BB000D5AB7F /* PhotoItemTableViewCell.swift in Sources */,
 				A9BCD13B20A71FD70083BBF7 /* RestaurantReviewViewController.swift in Sources */,

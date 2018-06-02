@@ -173,6 +173,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="eeG-ga-G34" kind="show" identifier="transitionToPlaces" id="OCl-4P-ku8"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="addSearchCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="searchCell" textLabel="XaU-lc-yil" style="IBUITableViewCellStyleDefault" id="koc-v3-Lqi">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
@@ -250,7 +253,22 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hv6-Mq-KWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4329" y="121"/>
+            <point key="canvasLocation" x="4345" y="121"/>
+        </scene>
+        <!--Places-->
+        <scene sceneID="QJQ-ZP-RVD">
+            <objects>
+                <viewController title="Places" id="eeG-ga-G34" customClass="MapViewController" customModule="mr0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vkC-8C-o7k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Fw7-7c-WOJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="twe-gE-MgF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5190" y="-163"/>
         </scene>
         <!--Restaurant-->
         <scene sceneID="iJf-00-5T4">
@@ -373,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AnZ-Sj-WJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5213.6000000000004" y="120.98950524737631"/>
+            <point key="canvasLocation" x="5193" y="555"/>
         </scene>
         <!--Locations-->
         <scene sceneID="3HL-kv-Km4">
@@ -405,7 +423,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="plP-Hu-W3l" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="S2S-cH-Hi5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6033" y="475"/>
+            <point key="canvasLocation" x="6030" y="868"/>
         </scene>
         <!--Food Type Table View Controller-->
         <scene sceneID="c3h-Xt-XWO">
@@ -497,7 +515,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgm-eT-xTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6030" y="-206"/>
+            <point key="canvasLocation" x="6030" y="176"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1pc-47-rU8">
