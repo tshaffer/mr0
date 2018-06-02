@@ -7,13 +7,39 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class MapViewController: UIViewController {
+
+    var mapView: GMSMapView!
+    var zoomLevel: Float = 15.0
+
+    let defaultLocation = CLLocation(latitude: -33.869405, longitude: 151.199)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Create a map.
+        let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude,
+                                              longitude: defaultLocation.coordinate.longitude,
+                                              zoom: zoomLevel)
+        mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
+        mapView.settings.myLocationButton = true
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.isMyLocationEnabled = true
+        
+        view.addSubview(mapView)
+//        mapView.isHidden = true
+        mapView.isHidden = false
+
+/*
+        if mapView.isHidden {
+            mapView.isHidden = false
+            mapView.camera = camera
+        } else {
+            mapView.animate(to: camera)
+        }
+ */
     }
 
     override func didReceiveMemoryWarning() {
