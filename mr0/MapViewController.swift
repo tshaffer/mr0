@@ -14,7 +14,7 @@ class MapViewController: UIViewController {
     var mapView: GMSMapView!
     var zoomLevel: Float = 15.0
 
-    let defaultLocation = CLLocation(latitude: -33.869405, longitude: 151.199)
+    let defaultLocation = CLLocation(latitude: 37.397686, longitude: -122.061104)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +40,10 @@ class MapViewController: UIViewController {
             mapView.animate(to: camera)
         }
  */
+        let marker = GMSMarker(position: (defaultLocation.coordinate))
+        marker.title = "La Costena"
+        marker.snippet = "Best burritos"
+        marker.map = mapView
     }
 
     override func didReceiveMemoryWarning() {
