@@ -22,7 +22,9 @@ extension UIViewController {
 }
 
 class MemoRappViewController: UITableViewController {
-        
+    
+    var restaurants = [Restaurant]()
+
     override func viewDidLoad() {
         print ("MemoRappViewController viewDidLoad")
         super.viewDidLoad()
@@ -61,6 +63,15 @@ class MemoRappViewController: UITableViewController {
 
                 let longitude = locationDictionary["longitude"]
                 print(longitude!)
+                
+                var restaurant : Restaurant = Restaurant()
+                restaurant.name = name as! String
+                
+                restaurant.foodType = FoodType(rawValue: (foodType as! Int))!
+                restaurant.location = Location(latitude: latitude!, longitude: longitude!)
+                restaurant.comments = comments as! String
+//                restaurant.dateVisited = dateVisited as! Date
+                self.restaurants.append(restaurant)
             }
         })
     }
@@ -78,6 +89,12 @@ class MemoRappViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare invoked")
+        print("segue.identifier ===  \(segue.identifier!)")
+        if (segue.identifier == "transitionToPlaces")
+        {
+            let vc = segue.destination as! MapViewController
+            vc.restaurants = restaurants
+        }
 //        if segue.identifier == "Pizza"{
 //            let vc = segue.destination as! PizzaMenuTableViewController
 //            vc.delegate = self

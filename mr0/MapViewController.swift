@@ -16,6 +16,8 @@ class MapViewController: UIViewController {
 
     let defaultLocation = CLLocation(latitude: 37.397686, longitude: -122.061104)
 
+    var restaurants = [Restaurant]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,10 +42,21 @@ class MapViewController: UIViewController {
             mapView.animate(to: camera)
         }
  */
-        let marker = GMSMarker(position: (defaultLocation.coordinate))
-        marker.title = "La Costena"
-        marker.snippet = "Best burritos"
-        marker.map = mapView
+//        let marker = GMSMarker(position: (defaultLocation.coordinate))
+//        marker.title = "La Costena"
+//        marker.snippet = "Best burritos"
+//        marker.map = mapView
+        
+        for restaurant in restaurants {
+            var coordinates : CLLocationCoordinate2D = CLLocationCoordinate2D()
+            coordinates.latitude = restaurant.location.latitude;
+            coordinates.longitude = restaurant.location.longitude;
+
+            let marker = GMSMarker(position: (coordinates))
+            marker.title = restaurant.name
+            marker.snippet = restaurant.comments
+            marker.map = mapView
+        }
     }
 
     override func didReceiveMemoryWarning() {
