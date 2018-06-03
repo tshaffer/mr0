@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
                 
                 SVProgressHUD.dismiss()
                 
-//                self.performSegue(withIdentifier: "gotoLandingPage", sender: self)
+                self.performSegue(withIdentifier: "gotoLandingPage", sender: self)
                 
             }
         }
