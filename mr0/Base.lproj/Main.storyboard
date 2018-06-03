@@ -81,6 +81,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginPressed:" destination="6wf-oq-7PZ" eventType="touchUpInside" id="EyW-Z8-AKo"/>
+                                    <segue destination="kO5-MS-ynv" kind="show" identifier="gotoLandingPage" id="wWh-PZ-C9O"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -92,7 +93,6 @@
                     <connections>
                         <outlet property="emailTextField" destination="WSa-aR-4Hs" id="3nE-pV-4PY"/>
                         <outlet property="passwordTextField" destination="6JG-dE-pTC" id="dSm-kP-1pm"/>
-                        <segue destination="Vz0-CC-Gng" kind="show" identifier="goToMemoRapp" id="SNP-ti-0hR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRh-6L-4ZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -254,6 +254,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hv6-Mq-KWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4345" y="121"/>
+        </scene>
+        <!--Landing Page View Controller-->
+        <scene sceneID="aaW-E2-Qcm">
+            <objects>
+                <viewController id="kO5-MS-ynv" customClass="LandingPageViewController" customModule="mr0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ly8-2f-bzp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="mapView" translatesAutoresizingMaskIntoConstraints="NO" id="Hd6-BT-Pgg">
+                                <rect key="frame" x="16" y="114" width="343" height="506"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Landing Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAC-Zf-CSr">
+                                <rect key="frame" x="16" y="64" width="343" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="KQY-QR-QdV"/>
+                    </view>
+                    <connections>
+                        <outlet property="landingPageMapView" destination="Hd6-BT-Pgg" id="0JN-Pw-zUd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z65-TV-PX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4341.6000000000004" y="-539.28035982008998"/>
         </scene>
         <!--Places-->
         <scene sceneID="QJQ-ZP-RVD">
@@ -537,7 +569,4 @@
             <point key="canvasLocation" x="1800.8" y="120.98950524737631"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="SNP-ti-0hR"/>
-    </inferredMetricsTieBreakers>
 </document>
