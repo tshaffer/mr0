@@ -14,6 +14,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
 
     @IBOutlet weak var landingPageMapView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var resultsView: UIView!
     
     var mapView: GMSMapView!
     var zoomLevel: Float = 15.0
