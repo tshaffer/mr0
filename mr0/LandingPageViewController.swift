@@ -91,8 +91,16 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate {
         print("You didLongPressAt \(location.latitude)/\(location.longitude)")
     }
 
-    private func mapView(_ mapView: GMSMapView, didTapMarker marker: GMSMarker) {
+    func mapView(_ mapView: GMSMapView, didTapMarker marker: GMSMarker) {
         print("You didTapMarker")
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        print("You didTapInfoWindowOf")
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTap overlay: GMSOverlay) {
+        print("You didTap")
     }
     
     override func didReceiveMemoryWarning() {
