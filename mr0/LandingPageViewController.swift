@@ -91,8 +91,9 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate {
         print("You didLongPressAt \(location.latitude)/\(location.longitude)")
     }
 
-    func mapView(_ mapView: GMSMapView, didTapMarker marker: GMSMarker) {
-        print("You didTapMarker")
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        print("Marker tapped")
+        return true
     }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
