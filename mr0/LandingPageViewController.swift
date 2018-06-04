@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import GoogleMaps
 
 class LandingPageViewController: UIViewController, GMSMapViewDelegate {
@@ -22,8 +23,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
         // Create a map.
         let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude,
                                               longitude: defaultLocation.coordinate.longitude,
@@ -33,11 +33,49 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate {
         mapView.settings.myLocationButton = true
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.isMyLocationEnabled = true
-
+        
         landingPageMapView.addSubview(mapView)
-
+        
         mapView.isHidden = false
+        
+        // load restaurants from firebase
+        let restaurantsDB = Database.database().reference().child("Restaurants")
+        restaurantsDB.observe(.childAdded, with: { (snapshot) in
+            if let getData = snapshot.value as? [String:Any] {
+                _ = getData["Sender"] as? String
+                let restaurantBodyJSON = getData["RestaurantBody"] as? String
+                let jsonData = restaurantBodyJSON?.data(using: .utf8)
+                let dictionary = try? JSONSerialization.jsonObject(with: jsonData!, options: .mutableLeaves)
+                let restaurantDictionary = dictionary as! Dictionary<String, AnyObject>
+                
+                let name = restaurantDictionary["name"]
+                let foodType = restaurantDictionary["foodType"]
+                let comments = restaurantDictionary["comments"]
+                _ = restaurantDictionary["dateVisited"]
+                
+                let location = restaurantDictionary["location"]
+                let locationDictionary = location as! Dictionary<String, Double>
+                let latitude = locationDictionary["latitude"]
+                let longitude = locationDictionary["longitude"]
+                
+                var restaurant : Restaurant = Restaurant()
+                restaurant.name = name as! String
+                restaurant.foodType = FoodType(rawValue: (foodType as! Int))!
+                restaurant.location = Location(latitude: latitude!, longitude: longitude!)
+                restaurant.comments = comments as! String
+                //                restaurant.dateVisited = dateVisited as! Date
+                self.restaurants.append(restaurant)
+                
+                var coordinates : CLLocationCoordinate2D = CLLocationCoordinate2D()
+                coordinates.latitude = restaurant.location.latitude;
+                coordinates.longitude = restaurant.location.longitude;
 
+                let marker = GMSMarker(position: (coordinates))
+                marker.title = restaurant.name
+                marker.snippet = restaurant.comments
+                marker.map = self.mapView
+            }
+        })
     }
 
     func mapView(_ mapView: GMSMapView, didTapPOIWithPlaceID placeID: String,
