@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class LandingPageViewController: UIViewController {
+class LandingPageViewController: UIViewController, GMSMapViewDelegate {
 
     @IBOutlet weak var landingPageMapView: UIView!
     
@@ -29,6 +29,7 @@ class LandingPageViewController: UIViewController {
                                               longitude: defaultLocation.coordinate.longitude,
                                               zoom: zoomLevel)
         mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
+        mapView.delegate = self
         mapView.settings.myLocationButton = true
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.isMyLocationEnabled = true
@@ -39,6 +40,23 @@ class LandingPageViewController: UIViewController {
 
     }
 
+    func mapView(_ mapView: GMSMapView, didTapPOIWithPlaceID placeID: String,
+                 name: String, location: CLLocationCoordinate2D) {
+        print("You didTapPOIWithPlaceID \(name): \(placeID), \(location.latitude)/\(location.longitude)")
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapAt location: CLLocationCoordinate2D) {
+        print("You didTapAt \(location.latitude)/\(location.longitude)")
+    }
+
+    func mapView(_ mapView: GMSMapView, didLongPressAt location: CLLocationCoordinate2D) {
+        print("You didLongPressAt \(location.latitude)/\(location.longitude)")
+    }
+
+    private func mapView(_ mapView: GMSMapView, didTapMarker marker: GMSMarker) {
+        print("You didTapMarker")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
