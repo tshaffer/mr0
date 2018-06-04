@@ -10,19 +10,24 @@ import UIKit
 import Firebase
 import GoogleMaps
 
-class LandingPageViewController: UIViewController, GMSMapViewDelegate {
+class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var landingPageMapView: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var mapView: GMSMapView!
     var zoomLevel: Float = 15.0
     
     let defaultLocation = CLLocation(latitude: 37.397686, longitude: -122.061104)
     
+    var searchText: String = ""
+    
     var restaurants = [Restaurant]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
         
         // Create a map.
         let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude,
@@ -75,6 +80,8 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate {
                 marker.snippet = restaurant.comments
                 marker.map = self.mapView
             }
+            
+            self.landingPageMapView.bringSubview(toFront: self.searchBar)
         })
     }
 
@@ -93,6 +100,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate {
 
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         print("Marker tapped")
+        print ("marker is: \(marker)")
         return true
     }
     
@@ -109,7 +117,14 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("searchBar: \(searchText)")
+        self.searchText = searchText
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("searchBar search clicked: \(self.searchText)")
+    }
     /*
     // MARK: - Navigation
 
