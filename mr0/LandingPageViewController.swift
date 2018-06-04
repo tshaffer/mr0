@@ -112,11 +112,6 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         print("You didTap")
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("searchBar: \(searchText)")
         self.searchText = searchText
