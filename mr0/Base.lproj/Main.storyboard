@@ -276,20 +276,17 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xqn-zY-QPM">
-                                <rect key="frame" x="16" y="604" width="343" height="43"/>
+                                <rect key="frame" x="16" y="604" width="343" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MO0-4z-DTs">
-                                        <rect key="frame" x="281" y="11" width="42" height="21"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGR-Rn-lje">
+                                        <rect key="frame" x="293" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AddIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Z6A-Ku-kXr">
-                                        <rect key="frame" x="0.0" y="-2" width="52" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                        <state key="normal" title="Button" image="AddIcon"/>
+                                        <connections>
+                                            <action selector="addButtonPressed:" destination="kO5-MS-ynv" eventType="touchUpInside" id="NCc-jc-SPY"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -298,6 +295,7 @@
                         <viewLayoutGuide key="safeArea" id="KQY-QR-QdV"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="PGR-Rn-lje" id="0pw-pP-2A9"/>
                         <outlet property="landingPageMapView" destination="Hd6-BT-Pgg" id="0JN-Pw-zUd"/>
                         <outlet property="resultsView" destination="Xqn-zY-QPM" id="tSH-1V-8Sl"/>
                         <outlet property="searchBar" destination="sRw-ub-lwF" id="z96-cR-fi5"/>

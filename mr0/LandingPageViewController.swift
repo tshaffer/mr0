@@ -15,6 +15,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     @IBOutlet weak var landingPageMapView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var resultsView: UIView!
+    @IBOutlet weak var addButton: UIButton!
     
     var mapView: GMSMapView!
     var zoomLevel: Float = 15.0
@@ -121,6 +122,11 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("searchBar search clicked: \(self.searchText)")
     }
+    
+    @IBAction func addButtonPressed(_ sender: Any) {
+        print("addButton pressed")
+    }
+    
     /*
     // MARK: - Navigation
 
