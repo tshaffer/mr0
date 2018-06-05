@@ -17,6 +17,8 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var resultsView: UIView!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var resultsNameLabel: UILabel!
+    @IBOutlet weak var resultsLabel2: UILabel!
     
     var mapView: GMSMapView!
     var zoomLevel: Float = 15.0
@@ -93,6 +95,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
             }
             
             self.landingPageMapView.bringSubview(toFront: self.searchBar)
+            self.landingPageMapView.bringSubview(toFront: self.resultsView)
         })
     }
 
@@ -112,6 +115,10 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
             }
             
             self.selectedPlace = place
+            self.selectedLocation = location
+            
+            self.resultsNameLabel.text = place.name
+            self.resultsLabel2.text = place.formattedAddress!
 //            print("Place name \(place.name)")
 //            print("Place address \(place.formattedAddress)")
 //            print("Place placeID \(place.placeID)")
@@ -157,6 +164,8 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         if let selectedPlace = selectedPlace {
             print(selectedPlace.name)
             print(selectedPlace.formattedAddress)
+            print(selectedLocation.longitude)
+            print(selectedLocation.latitude)
         }
         else
         {
