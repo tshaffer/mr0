@@ -311,6 +311,8 @@
                     <connections>
                         <outlet property="addButton" destination="PGR-Rn-lje" id="0pw-pP-2A9"/>
                         <outlet property="landingPageMapView" destination="Hd6-BT-Pgg" id="0JN-Pw-zUd"/>
+                        <outlet property="resultsLabel1" destination="JPw-Mv-Ggo" id="het-R4-xvC"/>
+                        <outlet property="resultsLabel2" destination="fQe-5m-9Xu" id="RKv-io-k7r"/>
                         <outlet property="resultsView" destination="Xqn-zY-QPM" id="tSH-1V-8Sl"/>
                         <outlet property="searchBar" destination="sRw-ub-lwF" id="z96-cR-fi5"/>
                     </connections>
