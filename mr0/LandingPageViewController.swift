@@ -114,6 +114,11 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
             }
             
             self.selectedPlace = place
+            self.selectedLocation = location
+            
+            self.resultsLabel1.text = place.name
+            self.resultsLabel2.text = place.formattedAddress!
+
 //            print("Place name \(place.name)")
 //            print("Place address \(place.formattedAddress)")
 //            print("Place placeID \(place.placeID)")
