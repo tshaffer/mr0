@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleMaps
+import GooglePlaces
 
 class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelegate {
 
@@ -22,6 +23,11 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     
     let defaultLocation = CLLocation(latitude: 37.397686, longitude: -122.061104)
     
+    var placesClient: GMSPlacesClient!
+    
+    var selectedPlace: GMSPlace?
+    var selectedLocation = CLLocationCoordinate2D()
+
     var searchText: String = ""
     
     var restaurants = [Restaurant]()
@@ -31,6 +37,8 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         
         searchBar.delegate = self
         
+        placesClient = GMSPlacesClient.shared()
+
         // Create a map.
         let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude,
                                               longitude: defaultLocation.coordinate.longitude,
@@ -81,6 +89,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
                 marker.title = restaurant.name
                 marker.snippet = restaurant.comments
                 marker.map = self.mapView
+                marker.userData = restaurant
             }
             
             self.landingPageMapView.bringSubview(toFront: self.searchBar)
@@ -90,6 +99,24 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     func mapView(_ mapView: GMSMapView, didTapPOIWithPlaceID placeID: String,
                  name: String, location: CLLocationCoordinate2D) {
         print("You didTapPOIWithPlaceID \(name): \(placeID), \(location.latitude)/\(location.longitude)")
+        
+        placesClient.lookUpPlaceID(placeID, callback: { (place, error) -> Void in
+            if let error = error {
+                print("lookup place id query error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let place = place else {
+                print("No place details for \(placeID)")
+                return
+            }
+            
+            self.selectedPlace = place
+//            print("Place name \(place.name)")
+//            print("Place address \(place.formattedAddress)")
+//            print("Place placeID \(place.placeID)")
+//            print("Place attributions \(place.attributions)")
+        })
     }
     
     func mapView(_ mapView: GMSMapView, didTapAt location: CLLocationCoordinate2D) {
@@ -98,6 +125,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
 
     func mapView(_ mapView: GMSMapView, didLongPressAt location: CLLocationCoordinate2D) {
         print("You didLongPressAt \(location.latitude)/\(location.longitude)")
+        selectedLocation = location
     }
 
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
@@ -113,7 +141,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     func mapView(_ mapView: GMSMapView, didTap overlay: GMSOverlay) {
         print("You didTap")
     }
-    
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("searchBar: \(searchText)")
         self.searchText = searchText
@@ -125,6 +153,15 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     
     @IBAction func addButtonPressed(_ sender: Any) {
         print("addButton pressed")
+        
+        if let selectedPlace = selectedPlace {
+            print(selectedPlace.name)
+            print(selectedPlace.formattedAddress)
+        }
+        else
+        {
+            print("selected place nil")
+        }
     }
     
     /*
