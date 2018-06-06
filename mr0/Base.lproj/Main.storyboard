@@ -315,11 +315,65 @@
                         <outlet property="resultsLabel2" destination="fQe-5m-9Xu" id="RKv-io-k7r"/>
                         <outlet property="resultsView" destination="Xqn-zY-QPM" id="tSH-1V-8Sl"/>
                         <outlet property="searchBar" destination="sRw-ub-lwF" id="z96-cR-fi5"/>
+                        <segue destination="GMk-AB-hRC" kind="show" identifier="addRestaurantSegue" id="QqA-Zg-Rgr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z65-TV-PX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4341.6000000000004" y="-539.28035982008998"/>
+        </scene>
+        <!--Restaurant-->
+        <scene sceneID="gyL-sz-JB7">
+            <objects>
+                <viewController title="Restaurant" id="GMk-AB-hRC" customClass="RestaurantViewController" customModule="mr0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5yn-gN-KBc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Az-tf-UWD">
+                                <rect key="frame" x="16" y="44" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Nn-la-sho">
+                                <rect key="frame" x="16" y="73" width="343" height="131"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCP-LL-AcY">
+                                <rect key="frame" x="16" y="227" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Specify food types"/>
+                                <connections>
+                                    <action selector="setFoodTypes:" destination="GMk-AB-hRC" eventType="touchUpInside" id="wC1-Fd-vHz"/>
+                                    <segue destination="peg-Cc-lf3" kind="show" identifier="specifyFoodTypeSegue" id="bwZ-NY-maU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLy-Ku-8Zn">
+                                <rect key="frame" x="16" y="276" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="setVisitDate:" destination="GMk-AB-hRC" eventType="touchUpInside" id="F0J-z2-VIP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="OYH-xZ-w7H"/>
+                    </view>
+                    <connections>
+                        <outlet property="comments" destination="4Nn-la-sho" id="iTF-pb-boP"/>
+                        <outlet property="restaurantName" destination="1Az-tf-UWD" id="ZMD-7R-2AU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRl-8G-SXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5192.8000000000002" y="-830.73463268365822"/>
         </scene>
         <!--Places-->
         <scene sceneID="QJQ-ZP-RVD">
@@ -334,7 +388,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="twe-gE-MgF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5190" y="-163"/>
+            <point key="canvasLocation" x="5193" y="-105"/>
         </scene>
         <!--Restaurant-->
         <scene sceneID="iJf-00-5T4">
@@ -581,7 +635,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgm-eT-xTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6030" y="176"/>
+            <point key="canvasLocation" x="5998" y="-105"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1pc-47-rU8">
@@ -620,4 +674,7 @@
     <resources>
         <image name="AddIcon" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="bwZ-NY-maU"/>
+    </inferredMetricsTieBreakers>
 </document>

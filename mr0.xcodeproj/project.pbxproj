@@ -26,6 +26,7 @@
 		A9BCD13B20A71FD70083BBF7 /* RestaurantReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */; };
 		A9BCD13D20A732BB0083BBF7 /* FoodTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCD13C20A732BB0083BBF7 /* FoodTypeTableViewController.swift */; };
 		A9BCD13F20A794890083BBF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9BCD13E20A794890083BBF7 /* GoogleService-Info.plist */; };
+		A9E3AF0320C743220027BF06 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3AF0220C743220027BF06 /* RestaurantViewController.swift */; };
 		B2A991AA84B304D13F74C8E6 /* Pods_mr0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DBC85C18745294B11BA196 /* Pods_mr0.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantReviewViewController.swift; sourceTree = "<group>"; };
 		A9BCD13C20A732BB0083BBF7 /* FoodTypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypeTableViewController.swift; sourceTree = "<group>"; };
 		A9BCD13E20A794890083BBF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9E3AF0220C743220027BF06 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		CFC3A796DB3C51727B13BFD2 /* Pods-mr0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mr0.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mr0/Pods-mr0.debug.xcconfig"; sourceTree = "<group>"; };
 		D0AD3A1DA0C7C82A1861E97B /* Pods-mr0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mr0.release.xcconfig"; path = "Pods/Target Support Files/Pods-mr0/Pods-mr0.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 				A94EF9F2209E6A6800443AB3 /* AppDelegate.swift */,
 				A94EF9F4209E6A6800443AB3 /* MemoRappViewController.swift */,
 				A94EF9F6209E6A6800443AB3 /* Main.storyboard */,
+				A9E3AF0220C743220027BF06 /* RestaurantViewController.swift */,
 				A92E084F20C45051007217A5 /* LandingPageViewController.swift */,
 				A96E1F1520B1A3580095C21E /* LocationTableViewController.swift */,
 				A947578820A7AB41003FE19E /* LoginViewController.swift */,
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A947578920A7AB41003FE19E /* LoginViewController.swift in Sources */,
+				A9E3AF0320C743220027BF06 /* RestaurantViewController.swift in Sources */,
 				A947578520A7A0AF003FE19E /* Restaurant.swift in Sources */,
 				A9B2B1E620BC391400D5AB7F /* PhotoItem.swift in Sources */,
 				A976F2D620B2024F00F3E604 /* Location.swift in Sources */,

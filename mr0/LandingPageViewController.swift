@@ -163,7 +163,10 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         
         if let selectedPlace = selectedPlace {
             print(selectedPlace.name)
-            print(selectedPlace.formattedAddress)
+            print(selectedPlace.formattedAddress!)
+            
+            performSegue(withIdentifier: "addRestaurantSegue", sender: self)
+
         }
         else
         {
@@ -171,14 +174,17 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        print("restaurant review prepare for segue invoked")
+        
+        if (segue.identifier == "addRestaurantSegue") {
+            if let nextViewController = segue.destination as? RestaurantViewController {
+                nextViewController.selectedPlace = selectedPlace
+                nextViewController.selectedLocation = selectedLocation
+//                (nextViewController.restaurantName as UILabel).text = selectedPlace!.name
+            }
+        }
+        
     }
-    */
-
 }
