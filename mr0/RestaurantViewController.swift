@@ -16,18 +16,26 @@ class RestaurantViewController: UIViewController, SpecifyFoodTypeDelegate {
 
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var comments: UITextView!
+    @IBOutlet weak var visitDateBtn: UIButton!
     
     var selectedPlace: GMSPlace?
     var selectedLocation = CLLocationCoordinate2D()
 
     var foodType: FoodType = .Other
 
+    var visitDate : Date = Date.init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         restaurantName.text = selectedPlace!.name
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        let selectedDate = dateFormatter.string(from: visitDate)
+        visitDateBtn.setTitle(selectedDate,for: .normal)
+
         self.hideKeyboardWhenTappedAround()
     }
     

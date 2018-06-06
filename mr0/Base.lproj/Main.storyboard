@@ -368,6 +368,7 @@
                     <connections>
                         <outlet property="comments" destination="4Nn-la-sho" id="iTF-pb-boP"/>
                         <outlet property="restaurantName" destination="1Az-tf-UWD" id="ZMD-7R-2AU"/>
+                        <outlet property="visitDateBtn" destination="xLy-Ku-8Zn" id="Ayn-pB-CZT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRl-8G-SXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -398,7 +399,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="submitRestaurantButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63I-XX-JxI">
-                                <rect key="frame" x="154" y="637" width="49" height="30"/>
+                                <rect key="frame" x="150" y="637" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -674,6 +675,6 @@
         <image name="AddIcon" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bwZ-NY-maU"/>
+        <segue reference="qQU-dI-hXo"/>
     </inferredMetricsTieBreakers>
 </document>
