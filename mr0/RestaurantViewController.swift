@@ -20,11 +20,12 @@ class RestaurantViewController: UIViewController, SpecifyFoodTypeDelegate {
     
     var selectedPlace: GMSPlace?
     var selectedLocation = CLLocationCoordinate2D()
+    var selectedDate: String = ""
 
     var foodType: FoodType = .Other
 
     var visitDate : Date = Date.init()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +34,7 @@ class RestaurantViewController: UIViewController, SpecifyFoodTypeDelegate {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
-        let selectedDate = dateFormatter.string(from: visitDate)
+        selectedDate = dateFormatter.string(from: visitDate)
         visitDateBtn.setTitle(selectedDate,for: .normal)
 
         self.hideKeyboardWhenTappedAround()
@@ -60,6 +61,44 @@ class RestaurantViewController: UIViewController, SpecifyFoodTypeDelegate {
         
         
     }
+
+    @IBAction func submitRestaurantBtn(_ sender: Any) {
+        
+        // add restaurant information to the database
+        let restaurantsDB = Database.database().reference().child("Restaurants")
+        
+        var restaurant : Restaurant = Restaurant()
+        restaurant.name = restaurantName.text!
+        restaurant.foodType = self.foodType
+        restaurant.comments = comments.text!
+        restaurant.dateVisited = visitDate
+        restaurant.location = Location(latitude: (selectedPlace?.coordinate)!.latitude, longitude: (selectedPlace?.coordinate)!.longitude);
+        
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        
+        do {
+            let data = try encoder.encode(restaurant)
+            print(String(data: data, encoding: .utf8)!)
+            let dataAsString = String(data: data, encoding: .utf8)!
+            print(dataAsString)
+            let restaurantDictionary = ["Sender": Auth.auth().currentUser?.email ?? "ted@roku.com",
+                                        "RestaurantBody": dataAsString] as [String : Any]
+            restaurantsDB.childByAutoId().setValue(restaurantDictionary) {
+                (error, reference) in
+                if (error != nil) {
+                    print(error!)
+                }
+                else {
+                    print("Restaurant saved successfully")
+                }
+            }
+        }
+        catch {
+            print("encoder error")
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
