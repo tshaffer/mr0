@@ -17,7 +17,8 @@ class RestaurantViewController: UIViewController, SpecifyFoodTypeDelegate {
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var comments: UITextView!
     @IBOutlet weak var visitDateBtn: UIButton!
-    
+    @IBOutlet weak var foodImage: UIImageView!
+
     var selectedPlace: GMSPlace?
     var selectedLocation = CLLocationCoordinate2D()
     var selectedDate: String = ""
@@ -45,6 +46,55 @@ class RestaurantViewController: UIViewController, SpecifyFoodTypeDelegate {
     
     @IBAction func setVisitDate(_ sender: Any) {
     }
+    
+    @IBAction func addPhotoClicked(_ sender: Any) {
+        
+        CameraHandler.shared.showActionSheet(vc: self)
+        CameraHandler.shared.imagePickedBlock = { (image) in
+            
+            // Get a reference to the storage service using the default Firebase App
+            let storage = Storage.storage()
+            
+            // Create a storage reference from our storage service
+            let storageRef = storage.reference()
+            
+            // Example code to download and display test image
+            //            // Reference to an image file in Firebase Storage
+            //            let downloadImageRef = storageRef.child("images/test.jpg")
+            //
+            //            // Load the image using SDWebImage
+            //            // Placeholder image
+            //            let placeholderImage = UIImage(named: "xbutton.png")
+            //            self.foodImage.sd_setImage(with: downloadImageRef, placeholderImage: placeholderImage)
+            // end of example code
+            
+            /* get your image here */
+            print("image received")
+            self.foodImage.image = image
+            
+            // Create a child reference
+            // imagesRef now points to "images"
+            let imagesRef = storageRef.child("images")
+            
+            let fileName = String.uniqueFilename() + ".jpg"
+            print("fileName = \(fileName)")
+            let testPhotoRef = imagesRef.child(fileName)
+            
+            // Data in memory
+            let imageData = UIImageJPEGRepresentation(image, 1.0)
+            
+            // Upload the file to the path "images/test.jpg"
+            testPhotoRef.putData(imageData!, metadata: nil) { (metadata, error) in
+                guard let metadata = metadata else {
+                    // Uh-oh, an error occurred!
+                    print("error")
+                    return
+                }
+                // Metadata contains file metadata such as size, content-type.
+                let size = metadata.size
+                print("size= \(size)")
+            }
+        }}
     
     func specifyFoodType(foodType: FoodType) {
         print("specifyFoodType is \(foodType)")
