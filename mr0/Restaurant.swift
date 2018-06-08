@@ -19,4 +19,5 @@ struct Restaurant: Codable {
 //    var latitude : CLLocationDegrees = 0;
 //    var longitude : CLLocationDegrees = 0;
     var location : Location = Location(latitude : 0, longitude : 0);
+    var restaurantVisits = [RestaurantVisit]()
 }
