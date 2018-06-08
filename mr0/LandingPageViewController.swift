@@ -189,4 +189,9 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         }
         
     }
+    
+    @IBAction func unwindToLandingPage(unwindSegue: UIStoryboardSegue) {
+        
+    }
+
 }

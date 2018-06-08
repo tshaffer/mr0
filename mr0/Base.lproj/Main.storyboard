@@ -351,6 +351,7 @@
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitRestaurantBtn:" destination="GMk-AB-hRC" eventType="touchUpInside" id="Laj-41-ga3"/>
+                                    <segue destination="gWE-Z9-Ntb" kind="unwind" unwindAction="unwindToLandingPageWithUnwindSegue:" id="sng-1b-MTh"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uoO-09-CZ4">
@@ -407,6 +408,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRl-8G-SXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gWE-Z9-Ntb" userLabel="Exit" sceneMemberID="exit"/>
                 <swipeGestureRecognizer direction="left" id="JpJ-jR-Doa">
                     <connections>
                         <action selector="swipeVisitLeft:" destination="GMk-AB-hRC" id="Lqv-gm-4XV"/>
