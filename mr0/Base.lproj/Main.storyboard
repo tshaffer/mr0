@@ -380,6 +380,11 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="JpJ-jR-Doa" appends="YES" id="H3w-tq-mG3"/>
+                                    <outletCollection property="gestureRecognizers" destination="qxb-6Y-ovn" appends="YES" id="I48-es-C3F"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCP-LL-AcY">
                                 <rect key="frame" x="16" y="198" width="343" height="30"/>
@@ -402,8 +407,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRl-8G-SXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="JpJ-jR-Doa">
+                    <connections>
+                        <action selector="swipeVisitLeft:" destination="GMk-AB-hRC" id="Lqv-gm-4XV"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="qxb-6Y-ovn">
+                    <connections>
+                        <action selector="swipeVisitRight:" destination="GMk-AB-hRC" id="OrM-xB-nEc"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5192.8000000000002" y="-830.73463268365822"/>
+            <point key="canvasLocation" x="5204" y="-832"/>
         </scene>
         <!--Places-->
         <scene sceneID="QJQ-ZP-RVD">
