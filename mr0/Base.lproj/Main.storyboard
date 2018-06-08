@@ -338,33 +338,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Comments:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Nn-la-sho">
-                                <rect key="frame" x="16" y="109" width="343" height="131"/>
+                                <rect key="frame" x="16" y="93" width="343" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="1W6-ij-j5A" appends="YES" id="8P6-Rb-mnD"/>
-                                </connections>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCP-LL-AcY">
-                                <rect key="frame" x="16" y="266" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Specify food types"/>
-                                <connections>
-                                    <action selector="setFoodTypes:" destination="GMk-AB-hRC" eventType="touchUpInside" id="wC1-Fd-vHz"/>
-                                    <segue destination="peg-Cc-lf3" kind="show" identifier="specifyFoodTypeSegue" id="bwZ-NY-maU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLy-Ku-8Zn">
-                                <rect key="frame" x="16" y="304" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Date Visit"/>
-                                <connections>
-                                    <action selector="setVisitDate:" destination="GMk-AB-hRC" eventType="touchUpInside" id="F0J-z2-VIP"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXr-Mm-8tG">
                                 <rect key="frame" x="16" y="617" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -373,22 +353,43 @@
                                     <action selector="submitRestaurantBtn:" destination="GMk-AB-hRC" eventType="touchUpInside" id="Laj-41-ga3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DuH-6v-AVv">
-                                <rect key="frame" x="16" y="342" width="343" height="30"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uoO-09-CZ4">
+                                <rect key="frame" x="16" y="290" width="343" height="319"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Photo"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLy-Ku-8Zn">
+                                        <rect key="frame" x="-8" y="0.0" width="343" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Date of visit"/>
+                                        <connections>
+                                            <action selector="setVisitDate:" destination="GMk-AB-hRC" eventType="touchUpInside" id="F0J-z2-VIP"/>
+                                        </connections>
+                                    </button>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="foodImage" translatesAutoresizingMaskIntoConstraints="NO" id="BwA-f6-zwU">
+                                        <rect key="frame" x="38.490613266582841" y="119" width="266" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DuH-6v-AVv">
+                                        <rect key="frame" x="0.0" y="81" width="343" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Add Photo"/>
+                                        <connections>
+                                            <action selector="addPhotoClicked:" destination="GMk-AB-hRC" eventType="touchUpInside" id="Cfs-In-rDW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCP-LL-AcY">
+                                <rect key="frame" x="16" y="198" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Specify food types"/>
                                 <connections>
-                                    <action selector="addPhotoClicked:" destination="GMk-AB-hRC" eventType="touchUpInside" id="Cfs-In-rDW"/>
+                                    <action selector="setFoodTypes:" destination="GMk-AB-hRC" eventType="touchUpInside" id="wC1-Fd-vHz"/>
+                                    <segue destination="peg-Cc-lf3" kind="show" identifier="specifyFoodTypeSegue" id="bwZ-NY-maU"/>
                                 </connections>
                             </button>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="foodImage" translatesAutoresizingMaskIntoConstraints="NO" id="BwA-f6-zwU">
-                                <rect key="frame" x="54" y="396" width="266" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="rIN-lH-aFn" appends="YES" id="Vx6-q1-Exj"/>
-                                </connections>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="OYH-xZ-w7H"/>
@@ -401,16 +402,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRl-8G-SXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="rIN-lH-aFn">
-                    <connections>
-                        <action selector="swipeOccurred:" destination="GMk-AB-hRC" id="vVN-6b-7do"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="1W6-ij-j5A">
-                    <connections>
-                        <action selector="commentsSwipe:" destination="GMk-AB-hRC" id="5JO-fR-MB9"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5192.8000000000002" y="-830.73463268365822"/>
         </scene>
