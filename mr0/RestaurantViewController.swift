@@ -27,6 +27,13 @@ class RestaurantViewController: UIViewController, SpecifyFoodTypeDelegate {
 
     var visitDate : Date = Date.init()
 
+    @IBAction func swipeOccurred(_ sender: Any) {
+    }
+    
+    @IBAction func commentsSwipe(_ sender: UISwipeGestureRecognizer) {
+        print("swipe right occurred")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

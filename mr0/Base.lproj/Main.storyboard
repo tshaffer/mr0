@@ -341,8 +341,12 @@
                                 <rect key="frame" x="16" y="109" width="343" height="131"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="1W6-ij-j5A" appends="YES" id="8P6-Rb-mnD"/>
+                                </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCP-LL-AcY">
                                 <rect key="frame" x="16" y="266" width="343" height="30"/>
@@ -377,9 +381,13 @@
                                     <action selector="addPhotoClicked:" destination="GMk-AB-hRC" eventType="touchUpInside" id="Cfs-In-rDW"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="foodImage" translatesAutoresizingMaskIntoConstraints="NO" id="BwA-f6-zwU">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="foodImage" translatesAutoresizingMaskIntoConstraints="NO" id="BwA-f6-zwU">
                                 <rect key="frame" x="54" y="396" width="266" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="rIN-lH-aFn" appends="YES" id="Vx6-q1-Exj"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -393,6 +401,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRl-8G-SXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="rIN-lH-aFn">
+                    <connections>
+                        <action selector="swipeOccurred:" destination="GMk-AB-hRC" id="vVN-6b-7do"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="1W6-ij-j5A">
+                    <connections>
+                        <action selector="commentsSwipe:" destination="GMk-AB-hRC" id="5JO-fR-MB9"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5192.8000000000002" y="-830.73463268365822"/>
         </scene>
