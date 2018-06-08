@@ -48,6 +48,8 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
         mapView.delegate = self
         mapView.settings.myLocationButton = true
+        mapView.isMyLocationEnabled = true
+
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.isMyLocationEnabled = true
         
