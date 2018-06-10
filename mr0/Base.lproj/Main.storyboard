@@ -315,7 +315,7 @@
                         <outlet property="resultsLabel2" destination="fQe-5m-9Xu" id="RKv-io-k7r"/>
                         <outlet property="resultsView" destination="Xqn-zY-QPM" id="tSH-1V-8Sl"/>
                         <outlet property="searchBar" destination="sRw-ub-lwF" id="z96-cR-fi5"/>
-                        <segue destination="GMk-AB-hRC" kind="show" identifier="addRestaurantSegue" id="QqA-Zg-Rgr"/>
+                        <segue destination="Fdt-4z-zMD" kind="show" identifier="addRestaurantSegue" id="niM-il-7Z0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z65-TV-PX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -421,6 +421,71 @@
                 </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5204" y="-832"/>
+        </scene>
+        <!--Restaurant-->
+        <scene sceneID="ZYK-UM-MA6">
+            <objects>
+                <tableViewController title="Restaurant" id="Fdt-4z-zMD" customClass="RestaurantTVC" customModule="mr0" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qdt-m6-Rg7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection headerTitle="General" id="dFL-ig-kd7">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Yqg-hU-Iog" style="IBUITableViewCellStyleDefault" id="FCP-EO-UFj">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FCP-EO-UFj" id="i5u-jK-Vho">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yqg-hU-Iog">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" editingAccessoryType="disclosureIndicator" textLabel="avF-AN-6Ag" style="IBUITableViewCellStyleDefault" id="Zb9-5u-WBF">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zb9-5u-WBF" id="6Gk-tp-PG2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="avF-AN-6Ag">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="peg-Cc-lf3" kind="show" id="or3-zF-tzZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Fdt-4z-zMD" id="bIg-Jn-ixP"/>
+                            <outlet property="delegate" destination="Fdt-4z-zMD" id="0Ls-xI-Rsb"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="restaurantName" destination="Yqg-hU-Iog" id="mN9-E0-WfH"/>
+                        <outlet property="restaurantTags" destination="avF-AN-6Ag" id="yha-lC-nCf"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Krz-jj-Fc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5204" y="-1482"/>
         </scene>
         <!--Places-->
         <scene sceneID="QJQ-ZP-RVD">
@@ -682,7 +747,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgm-eT-xTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5998" y="-105"/>
+            <point key="canvasLocation" x="6183" y="0.0"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1pc-47-rU8">
@@ -722,6 +787,6 @@
         <image name="AddIcon" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bwZ-NY-maU"/>
+        <segue reference="or3-zF-tzZ"/>
     </inferredMetricsTieBreakers>
 </document>

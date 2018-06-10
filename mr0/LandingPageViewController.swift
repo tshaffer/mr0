@@ -181,7 +181,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         print("restaurant review prepare for segue invoked")
         
         if (segue.identifier == "addRestaurantSegue") {
-            if let nextViewController = segue.destination as? RestaurantViewController {
+            if let nextViewController = segue.destination as? RestaurantTVC {
                 nextViewController.selectedPlace = selectedPlace
                 nextViewController.selectedLocation = selectedLocation
             }
