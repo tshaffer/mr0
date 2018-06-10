@@ -68,7 +68,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
                 let restaurantDictionary = dictionary as! Dictionary<String, AnyObject>
                 
                 let name = restaurantDictionary["name"]
-                let foodType = restaurantDictionary["foodType"]
+//                let foodType = restaurantDictionary["foodType"]
                 let comments = restaurantDictionary["comments"]
                 _ = restaurantDictionary["dateVisited"]
                 
@@ -79,7 +79,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
                 
                 var restaurant : Restaurant = Restaurant()
                 restaurant.name = name as! String
-                restaurant.foodType = FoodType(rawValue: (foodType as! Int))!
+//                restaurant.foodType = FoodType(rawValue: (foodType as! Int))!
                 restaurant.location = Location(latitude: latitude!, longitude: longitude!)
                 restaurant.comments = comments as! String
                 //                restaurant.dateVisited = dateVisited as! Date
@@ -184,7 +184,6 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
             if let nextViewController = segue.destination as? RestaurantViewController {
                 nextViewController.selectedPlace = selectedPlace
                 nextViewController.selectedLocation = selectedLocation
-//                (nextViewController.restaurantName as UILabel).text = selectedPlace!.name
             }
         }
         

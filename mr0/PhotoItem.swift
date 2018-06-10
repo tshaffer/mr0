@@ -9,15 +9,27 @@
 import Foundation
 import FirebaseStorage
 
-class PhotoItem {
+class PhotoItem : Codable {
     
-    var storageReference: StorageReference?
+//    var storageReference: StorageReference?
+    let fileName: String
     var label: String?
     var caption: String?
     
-    init(storageReference: StorageReference?, label: String?, caption: String?) {
-        self.storageReference = storageReference
+    init(fileName: String, label: String?, caption: String?) {
+        self.fileName = fileName
         self.label = label
         self.caption = caption
+    }
+    
+    func getStorageReference() -> StorageReference {
+        
+        // Get a reference to the storage service using the default Firebase App
+        let storage = Storage.storage()
+    
+        // Create a storage reference from our storage service
+        let storageRef = storage.reference()
+    
+        return storageRef.child("images/" + self.fileName)
     }
 }

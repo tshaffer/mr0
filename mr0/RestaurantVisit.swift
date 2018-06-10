@@ -10,7 +10,8 @@ import Foundation
 
 struct RestaurantVisit: Codable {
     
-//    var foodType : FoodType = .Other
-    var comments : String = ""
     var dateVisited = Date()
+    var comments : String = ""
+    var rating : Float = 0.0
+    var photos = [PhotoItem]()
 }

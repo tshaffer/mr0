@@ -53,7 +53,7 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate,
         photoItem = photos[indexPath.row]
         
         let placeholderImage = UIImage(named: "xbutton.png")
-        let downloadImageRef = photoItem.storageReference!
+        let downloadImageRef = photoItem.getStorageReference()
         let imageView: UIImageView! = cell.photoImageView!
         imageView.sd_setImage(with: downloadImageRef, placeholderImage: placeholderImage);
 
@@ -78,28 +78,18 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate,
         
         listLikelyPlaces()
         
-        
-        // Get a reference to the storage service using the default Firebase App
-        let storage = Storage.storage()
-        
-        // Create a storage reference from our storage service
-        let storageRef = storage.reference()
-
-        var imageRef = storageRef.child("images/test.jpg")
-        self.photos.append(PhotoItem(
-            storageReference:imageRef,
+                self.photos.append(PhotoItem(
+            fileName: "test.jpg",
             label: "photo 1",
             caption: ""))
 
-        imageRef = storageRef.child("images/A31045A7-76C0-42C3-BCBD-B3BB529DD817-10276-000007C405A1DE7F.jpg")
         self.photos.append(PhotoItem(
-            storageReference:imageRef,
+            fileName: "A31045A7-76C0-42C3-BCBD-B3BB529DD817-10276-000007C405A1DE7F.jpg",
             label: "photo 2",
             caption: ""))
 
-        imageRef = storageRef.child("images/EC5730D2-9799-47B4-9860-A328F45B4618-10285-000007C577F0F3F1.jpg")
         self.photos.append(PhotoItem(
-            storageReference:imageRef,
+            fileName: "EC5730D2-9799-47B4-9860-A328F45B4618-10285-000007C577F0F3F1.jpg",
             label: "photo 3",
             caption: ""))
        
@@ -200,9 +190,9 @@ class RestaurantReviewViewController: UIViewController, SpecifyFoodTypeDelegate,
         
         var restaurant : Restaurant = Restaurant()
         restaurant.name = restaurantName.text!
-        restaurant.foodType = self.foodType
+//        restaurant.foodType = self.foodType
         restaurant.comments = comments.text!
-        restaurant.dateVisited = visitDate.date
+//        restaurant.dateVisited = visitDate.date
 //        restaurant.coordinates = (selectedPlace?.coordinate)!
 //        restaurant.latitude = (selectedPlace?.coordinate)!.latitude
 //        restaurant.longitude = (selectedPlace?.coordinate)!.longitude

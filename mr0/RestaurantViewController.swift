@@ -126,14 +126,14 @@ class RestaurantViewController: UIViewController, SpecifyFoodTypeDelegate {
         
         var restaurant : Restaurant = Restaurant()
         restaurant.name = restaurantName.text!
-        restaurant.foodType = self.foodType
+//        restaurant.foodType = self.foodType
         restaurant.comments = comments.text!
-        restaurant.dateVisited = visitDate
+//        restaurant.dateVisited = visitDate
         restaurant.location = Location(latitude: (selectedPlace?.coordinate)!.latitude, longitude: (selectedPlace?.coordinate)!.longitude);
         
         var restaurantVisit : RestaurantVisit = RestaurantVisit()
         restaurantVisit.comments = restaurant.comments
-        restaurantVisit.dateVisited = restaurant.dateVisited
+//        restaurantVisit.dateVisited = restaurant.dateVisited
         restaurant.restaurantVisits.append(restaurantVisit)
         
         let encoder = JSONEncoder()

@@ -67,7 +67,7 @@ class MemoRappViewController: UITableViewController {
                 var restaurant : Restaurant = Restaurant()
                 restaurant.name = name as! String
                 
-                restaurant.foodType = FoodType(rawValue: (foodType as! Int))!
+//                restaurant.foodType = FoodType(rawValue: (foodType as! Int))!
                 restaurant.location = Location(latitude: latitude!, longitude: longitude!)
                 restaurant.comments = comments as! String
 //                restaurant.dateVisited = dateVisited as! Date
