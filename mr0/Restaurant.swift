@@ -12,20 +12,12 @@ import GooglePlaces
 struct Restaurant: Codable {
     
     var name : String = ""
-    
     var rating : Float = 0.0
-
     // cost? Priciness?
 
-    // variable name (items?), type?
-    var foodTypes = [String]()
-    
+    var tags = [String]()
     var comments : String = ""
-    
     var location : Location = Location(latitude : 0, longitude : 0);
-    // address?
-    
     var restaurantVisits = [RestaurantVisit]()
-
     var photos = [PhotoItem]()
  }
