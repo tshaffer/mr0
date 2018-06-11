@@ -10,18 +10,25 @@ import UIKit
 
 class DatePickerViewController: UIViewController {
 
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+   }
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @objc func dateChanged(_ sender: UIDatePicker) {
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
+        if let day = components.day, let month = components.month, let year = components.year {
+            print("\(day) \(month) \(year)")
+            
+            let calendar = Calendar(identifier: .gregorian)
+            let selectedDate = calendar.date(from: DateComponents(year: year, month: month, day: day))
+        }
     }
     
-
+    
     /*
     // MARK: - Navigation
 

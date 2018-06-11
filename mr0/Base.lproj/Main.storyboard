@@ -531,6 +531,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="beL-Jv-ZJC"/>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="KKw-Rn-5uC" id="rrI-uW-PU8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNj-Vn-hh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
