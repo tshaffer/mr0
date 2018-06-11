@@ -505,6 +505,7 @@
                     <connections>
                         <outlet property="restaurantName" destination="Yqg-hU-Iog" id="mN9-E0-WfH"/>
                         <outlet property="restaurantTags" destination="avF-AN-6Ag" id="yha-lC-nCf"/>
+                        <outlet property="visitDate" destination="ka3-ON-27p" id="sW6-cK-hL1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Krz-jj-Fc0" userLabel="First Responder" sceneMemberID="firstResponder"/>

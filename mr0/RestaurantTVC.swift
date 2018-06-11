@@ -16,6 +16,7 @@ class RestaurantTVC: UITableViewController {
     
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var restaurantTags: UILabel!
+    @IBOutlet weak var visitDate: UILabel!
     
     var selectedPlace: GMSPlace?
     var selectedLocation = CLLocationCoordinate2D()
@@ -25,6 +26,11 @@ class RestaurantTVC: UITableViewController {
         super.viewDidLoad()
         
         restaurantName.text = selectedPlace!.name
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        let defaultVisitDate : Date = Date.init()
+        let defaultVisitLbl = dateFormatter.string(from: defaultVisitDate)
+        visitDate.text = defaultVisitLbl
     }
-    
 }
