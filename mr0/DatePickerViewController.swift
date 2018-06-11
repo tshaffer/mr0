@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol SetVisitDateDelegate {
+    func specifyVisitDate(visitDate: Date)
+}
+
 class DatePickerViewController: UIViewController {
+
+    var setVisitDateDelegate : SetVisitDateDelegate?
 
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -25,6 +31,7 @@ class DatePickerViewController: UIViewController {
             
             let calendar = Calendar(identifier: .gregorian)
             let selectedDate = calendar.date(from: DateComponents(year: year, month: month, day: day))
+            setVisitDateDelegate?.specifyVisitDate(visitDate: selectedDate!)
         }
     }
     
