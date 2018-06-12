@@ -16,6 +16,7 @@ class RestaurantTVC: UITableViewController, SetVisitDateDelegate {
     
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var restaurantTags: UILabel!
+    @IBOutlet weak var restaurantComments: UITextView!
     @IBOutlet weak var visitDateLbl: UILabel!
 
     var selectedPlace: GMSPlace?

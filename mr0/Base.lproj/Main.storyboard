@@ -470,12 +470,29 @@
                                             <segue destination="peg-Cc-lf3" kind="show" id="or3-zF-tzZ"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FbD-wA-Ckb">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FbD-wA-Ckb" id="Qy2-Lx-FcH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Comments placeholder..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ej7-LO-ccK">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Visit Details" id="v5V-IE-Nh4">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ka3-ON-27p" style="IBUITableViewCellStyleDefault" id="c3u-EQ-tMO">
-                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="188" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c3u-EQ-tMO" id="FT2-5s-12Z">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -503,6 +520,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="restaurantComments" destination="ej7-LO-ccK" id="Ica-ja-ZKp"/>
                         <outlet property="restaurantName" destination="Yqg-hU-Iog" id="mN9-E0-WfH"/>
                         <outlet property="restaurantTags" destination="avF-AN-6Ag" id="yha-lC-nCf"/>
                         <outlet property="visitDateLbl" destination="ka3-ON-27p" id="mqG-Ea-xJ6"/>
