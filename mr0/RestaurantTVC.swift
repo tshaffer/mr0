@@ -12,7 +12,7 @@ import FirebaseUI
 import GooglePlaces
 
 
-class RestaurantTVC: UITableViewController, SetVisitDateDelegate {
+class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDelegate {
     
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var restaurantTags: UILabel!
@@ -29,6 +29,12 @@ class RestaurantTVC: UITableViewController, SetVisitDateDelegate {
         
         restaurantName.text = selectedPlace!.name
         
+        restaurantComments.delegate = self
+        restaurantComments.text = "Placeholder"
+        restaurantComments.textColor = UIColor.lightGray
+        restaurantComments.becomeFirstResponder()
+        restaurantComments.selectedTextRange = restaurantComments.textRange(from: restaurantComments.beginningOfDocument, to: restaurantComments.beginningOfDocument)
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
         visitDate = Date.init()
@@ -43,6 +49,51 @@ class RestaurantTVC: UITableViewController, SetVisitDateDelegate {
         dateFormatter.dateFormat = "dd MMM yyyy"
         let dateVisitLbl = dateFormatter.string(from: visitDate!)
         visitDateLbl.text = dateVisitLbl
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        // Combine the textView text and the replacement text to
+        // create the updated text string
+        let currentText:String = textView.text
+        let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
+        
+        // If updated text view will be empty, add the placeholder
+        // and set the cursor to the beginning of the text view
+        if updatedText.isEmpty {
+            
+            textView.text = "Placeholder"
+            textView.textColor = UIColor.lightGray
+            
+            textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+        }
+            
+            // Else if the text view's placeholder is showing and the
+            // length of the replacement string is greater than 0, set
+            // the text color to black then set its text to the
+            // replacement string
+        else if textView.textColor == UIColor.lightGray && !text.isEmpty {
+            textView.textColor = UIColor.black
+            textView.text = text
+        }
+            
+            // For every other case, the text should change with the usual
+            // behavior...
+        else {
+            return true
+        }
+        
+        // ...otherwise return false since the updates have already
+        // been made
+        return false
+    }
+    
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        if self.view.window != nil {
+            if textView.textColor == UIColor.lightGray {
+                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+            }
+        }
     }
     
     func specifyVisitDate(visitDate: Date) {
