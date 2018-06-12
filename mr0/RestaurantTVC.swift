@@ -30,7 +30,7 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         restaurantName.text = selectedPlace!.name
         
         restaurantComments.delegate = self
-        restaurantComments.text = "Placeholder"
+        restaurantComments.text = "Add restaurant comments..."
         restaurantComments.textColor = UIColor.lightGray
         restaurantComments.becomeFirstResponder()
         restaurantComments.selectedTextRange = restaurantComments.textRange(from: restaurantComments.beginningOfDocument, to: restaurantComments.beginningOfDocument)
@@ -62,7 +62,7 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         // and set the cursor to the beginning of the text view
         if updatedText.isEmpty {
             
-            textView.text = "Placeholder"
+            textView.text = "Add restaurant comments..."
             textView.textColor = UIColor.lightGray
             
             textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
