@@ -29,6 +29,8 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         
         restaurantName.text = selectedPlace!.name
         
+        restaurantTags.textColor = UIColor.lightGray
+        
         restaurantComments.delegate = self
         restaurantComments.text = "Add restaurant comments..."
         restaurantComments.textColor = UIColor.lightGray
