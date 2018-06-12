@@ -16,11 +16,12 @@ class RestaurantTVC: UITableViewController, SetVisitDateDelegate {
     
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var restaurantTags: UILabel!
-    @IBOutlet weak var visitDate: UILabel!
-    
+    @IBOutlet weak var visitDateLbl: UILabel!
+
     var selectedPlace: GMSPlace?
     var selectedLocation = CLLocationCoordinate2D()
-    var selectedDate: String = ""
+    
+    var visitDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,20 +30,25 @@ class RestaurantTVC: UITableViewController, SetVisitDateDelegate {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
-        let defaultVisitDate : Date = Date.init()
-        let defaultVisitLbl = dateFormatter.string(from: defaultVisitDate)
-        visitDate.text = defaultVisitLbl
+        visitDate = Date.init()
+        let dateVisitLbl = dateFormatter.string(from: visitDate!)
+        visitDateLbl.text = dateVisitLbl
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        let dateVisitLbl = dateFormatter.string(from: visitDate!)
+        visitDateLbl.text = dateVisitLbl
+    }
     
     func specifyVisitDate(visitDate: Date) {
-        print("specifyVisitDate is \(visitDate)")
-//        self.foodType = foodType
+         self.visitDate = visitDate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("restaurant tvc prepare for segue invoked")
-        
         if segue.identifier == "setVisitDateSegue" {
             let vc = segue.destination as! DatePickerViewController
             vc.setVisitDateDelegate = self

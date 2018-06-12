@@ -19,11 +19,20 @@ class DatePickerViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        super.viewDidLoad()        
         datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
    }
 
+//    override func viewWillDisappear(_ animated : Bool) {
+//        super.viewWillDisappear(animated)
+//
+//        print("DatePickerViewController::viewWillDisappear")
+//
+//        if self.isMovingFromParentViewController {
+//            print("isMovingFromParentViewController")
+//        }
+//    }
+    
     @objc func dateChanged(_ sender: UIDatePicker) {
         let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
         if let day = components.day, let month = components.month, let year = components.year {
@@ -34,16 +43,4 @@ class DatePickerViewController: UIViewController {
             setVisitDateDelegate?.specifyVisitDate(visitDate: selectedDate!)
         }
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
