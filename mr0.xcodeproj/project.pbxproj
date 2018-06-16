@@ -20,6 +20,7 @@
 		A94EF9FA209E6A6900443AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A94EF9F9209E6A6900443AB3 /* Assets.xcassets */; };
 		A94EF9FD209E6A6900443AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94EF9FB209E6A6900443AB3 /* LaunchScreen.storyboard */; };
 		A96E1F1620B1A3580095C21E /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96E1F1520B1A3580095C21E /* LocationTableViewController.swift */; };
+		A97688B420D53F070032287D /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97688B320D53F070032287D /* TagsViewController.swift */; };
 		A976F2D620B2024F00F3E604 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976F2D520B2024F00F3E604 /* Location.swift */; };
 		A9B2B1E620BC391400D5AB7F /* PhotoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2B1E520BC391400D5AB7F /* PhotoItem.swift */; };
 		A9B2B1E820BC3BB000D5AB7F /* PhotoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2B1E720BC3BB000D5AB7F /* PhotoItemTableViewCell.swift */; };
@@ -50,6 +51,7 @@
 		A94EF9FC209E6A6900443AB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A94EF9FE209E6A6900443AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A96E1F1520B1A3580095C21E /* LocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		A97688B320D53F070032287D /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		A976F2D520B2024F00F3E604 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		A9B2B1E520BC391400D5AB7F /* PhotoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItem.swift; sourceTree = "<group>"; };
 		A9B2B1E720BC3BB000D5AB7F /* PhotoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				A94EF9F2209E6A6800443AB3 /* AppDelegate.swift */,
 				A94EF9F4209E6A6800443AB3 /* MemoRappViewController.swift */,
 				A94EF9F6209E6A6800443AB3 /* Main.storyboard */,
+				A97688B320D53F070032287D /* TagsViewController.swift */,
 				A9E3AF0220C743220027BF06 /* RestaurantViewController.swift */,
 				A92E084F20C45051007217A5 /* LandingPageViewController.swift */,
 				A96E1F1520B1A3580095C21E /* LocationTableViewController.swift */,
@@ -347,6 +350,7 @@
 				A92E085020C45051007217A5 /* LandingPageViewController.swift in Sources */,
 				A9BCD13B20A71FD70083BBF7 /* RestaurantReviewViewController.swift in Sources */,
 				A903F93E20AA4FC300D94A14 /* CameraHandler.swift in Sources */,
+				A97688B420D53F070032287D /* TagsViewController.swift in Sources */,
 				A9BCD13D20A732BB0083BBF7 /* FoodTypeTableViewController.swift in Sources */,
 				A94EF9F3209E6A6800443AB3 /* AppDelegate.swift in Sources */,
 			);
