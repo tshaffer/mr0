@@ -116,6 +116,7 @@
 		A94EF9F1209E6A6800443AB3 /* mr0 */ = {
 			isa = PBXGroup;
 			children = (
+				A97688B620D561FD0032287D /* Models */,
 				A94EF9F9209E6A6900443AB3 /* Assets.xcassets */,
 				A94EF9F2209E6A6800443AB3 /* AppDelegate.swift */,
 				A903F93D20AA4FC300D94A14 /* CameraHandler.swift */,
@@ -125,25 +126,32 @@
 				A94EF9FE209E6A6900443AB3 /* Info.plist */,
 				A92E084F20C45051007217A5 /* LandingPageViewController.swift */,
 				A94EF9FB209E6A6900443AB3 /* LaunchScreen.storyboard */,
-				A976F2D520B2024F00F3E604 /* Location.swift */,
 				A96E1F1520B1A3580095C21E /* LocationTableViewController.swift */,
 				A947578820A7AB41003FE19E /* LoginViewController.swift */,
 				A94EF9F4209E6A6800443AB3 /* MemoRappViewController.swift */,
 				A94EF9F6209E6A6800443AB3 /* Main.storyboard */,
 				A92E084D20C2CD46007217A5 /* MapViewController.swift */,
-				A9B2B1E520BC391400D5AB7F /* PhotoItem.swift */,
 				A9B2B1E720BC3BB000D5AB7F /* PhotoItemTableViewCell.swift */,
 				A947578A20A7ABA3003FE19E /* RegisterViewController.swift */,
-				A947578420A7A0AF003FE19E /* Restaurant.swift */,
 				A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */,
 				A9B5AF6A20CDEB2600806F7B /* RestaurantTVC.swift */,
 				A9E3AF0220C743220027BF06 /* RestaurantViewController.swift */,
-				A9E3AF0420CB00970027BF06 /* RestaurantVisit.swift */,
 				A97688B320D53F070032287D /* TagsViewController.swift */,
 				A93377CE20BA20E1003D95C5 /* xbutton.png */,
 			);
 			path = mr0;
 			sourceTree = "<group>";
+		};
+		A97688B620D561FD0032287D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A947578420A7A0AF003FE19E /* Restaurant.swift */,
+				A976F2D520B2024F00F3E604 /* Location.swift */,
+				A9B2B1E520BC391400D5AB7F /* PhotoItem.swift */,
+				A9E3AF0420CB00970027BF06 /* RestaurantVisit.swift */,
+			);
+			path = Models;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
