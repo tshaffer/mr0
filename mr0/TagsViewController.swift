@@ -8,22 +8,22 @@
 
 import UIKit
 
+protocol SetTagsDelegate {
+    func setTagIndices(tagIndices: [Int])
+}
+
 class TagsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    var setTagsDelegate : SetTagsDelegate?
 
     @IBOutlet weak var tagsTableView: UITableView!
     @IBOutlet weak var newTagNameTextField: UITextField!
     
-    private var tags: [String] = []
-    
+    var tags: [String] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // phoney data
-        tags.append("Burgers")
-        tags.append("Ice Cream")
-        tags.append("Coffee")
-        
-        // Do any additional setup after loading the view.
         tagsTableView.delegate = self
         tagsTableView.dataSource = self
     }
@@ -49,19 +49,18 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-//        switch indexPath.row {
-//        case 0:
-//            specifyFoodTypeDelegate?.specifyFoodType(foodType: .Burrito)
-//        case 1:
-//            specifyFoodTypeDelegate?.specifyFoodType(foodType: .Pizza)
-//        case 2:
-//            specifyFoodTypeDelegate?.specifyFoodType(foodType: .IceCream)
-//        case 3:
-//            specifyFoodTypeDelegate?.specifyFoodType(foodType: .Burgers)
-//        default:
-//            specifyFoodTypeDelegate?.specifyFoodType(foodType: .Other)
-//
-//        }
+        let cells = tableView.visibleCells
+        var cellIndex = 0
+        var selectedTagIndices: [Int] = []
+        
+        for cell in cells {
+            if (cell.accessoryType == .checkmark) {
+                selectedTagIndices.append(cellIndex)
+            }
+            cellIndex += 1
+        }
+        
+        setTagsDelegate?.setTagIndices(tagIndices: selectedTagIndices)
     }
     
     @IBAction func addTagButton(_ sender: Any) {

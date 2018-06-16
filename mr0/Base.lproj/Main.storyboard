@@ -527,7 +527,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="xZE-HM-MxJ" kind="show" identifier="showTagsViewController" id="fGy-Ro-z9F"/>
+                                            <segue destination="xZE-HM-MxJ" kind="show" identifier="showTagsViewControllerSegue" id="fGy-Ro-z9F"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FbD-wA-Ckb">

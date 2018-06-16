@@ -12,7 +12,7 @@ import FirebaseUI
 import GooglePlaces
 
 
-class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDelegate {
+class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDelegate, SetTagsDelegate {
     
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var restaurantTags: UILabel!
@@ -102,10 +102,25 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
          self.visitDate = visitDate
     }
     
+    func setTagIndices(tagIndices: [Int]) {
+        print(tagIndices)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "setVisitDateSegue" {
             let vc = segue.destination as! DatePickerViewController
             vc.setVisitDateDelegate = self
+        }
+        else if segue.identifier == "showTagsViewControllerSegue" {
+            let vc = segue.destination as! TagsViewController
+            vc.setTagsDelegate = self
+
+            var tags: [String] = []
+            tags.append("Burgers")
+            tags.append("Ice Cream")
+            tags.append("Coffee")
+            tags.append("Pizza")
+            vc.tags = tags
         }
     }
 }
