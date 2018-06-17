@@ -29,6 +29,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     
     var selectedPlace: GMSPlace?
     var selectedLocation = CLLocationCoordinate2D()
+    var selectedRestaurant: Restaurant?
 
     var searchText: String = ""
     
@@ -56,9 +57,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         landingPageMapView.addSubview(mapView)
         
         mapView.isHidden = false
-        
-        // flibbet
-        
+                
         // load restaurants from firebase
         let restaurantsTable = Database.database().reference().child("Restaurants")
         restaurantsTable.observe(.childAdded, with: { (snapshot) in
@@ -90,7 +89,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
                 var coordinates : CLLocationCoordinate2D = CLLocationCoordinate2D()
                 coordinates.latitude = restaurant.location.latitude;
                 coordinates.longitude = restaurant.location.longitude;
-
+                
                 let marker = GMSMarker(position: (coordinates))
                 marker.title = restaurant.name
                 marker.snippet = restaurant.comments
@@ -117,11 +116,15 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
                 return
             }
             
+            // flibbet
+            
             self.selectedPlace = place
             self.selectedLocation = location
             
             self.resultsLabel1.text = place.name
             self.resultsLabel2.text = place.formattedAddress!
+
+            self.selectedRestaurant = nil
 
 //            print("Place name \(place.name)")
 //            print("Place address \(place.formattedAddress)")
@@ -139,9 +142,20 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         selectedLocation = location
     }
 
+    // flibbet
+    
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         print("Marker tapped")
         print ("marker is: \(marker)")
+        print("Marker userData: \(marker.userData)")
+        
+        let restaurant = (marker.userData as! Restaurant)
+        let location = restaurant.location
+        self.selectedLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        self.resultsLabel1.text = restaurant.name
+        self.resultsLabel2.text = ""
+        self.selectedRestaurant = restaurant
+
         return true
     }
     
@@ -161,6 +175,8 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("searchBar search clicked: \(self.searchText)")
     }
+    
+    // flibbet
     
     @IBAction func addButtonPressed(_ sender: Any) {
         print("addButton pressed")
