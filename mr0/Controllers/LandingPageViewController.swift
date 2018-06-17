@@ -57,9 +57,27 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         
         mapView.isHidden = false
         
+        // flibbet
+        
+        // load restaurant type tags from firebase
+        let restaurantTypeTagsTable = Database.database().reference().child("RestaurantTypeTags")
+        restaurantTypeTagsTable.observe(.childAdded, with: { (snapshot) in
+            if let getData = snapshot.value as? [String:Any] {
+                _ = getData["Sender"] as? String
+                let restaurantTypeTagsJSON = getData["Tag"] as? String
+                let jsonData = restaurantTypeTagsJSON?.data(using: .utf8)
+                let dictionary = try? JSONSerialization.jsonObject(with: jsonData!, options: .mutableLeaves)
+                let restaurantTypeTagsDictionary = dictionary as! Dictionary<String, AnyObject>
+                
+                let tagLabel = restaurantTypeTagsDictionary["label"]
+                let tag = Tag(label: tagLabel as! String)
+                print(tag)
+            }
+        })
+        
         // load restaurants from firebase
-        let restaurantsDB = Database.database().reference().child("Restaurants")
-        restaurantsDB.observe(.childAdded, with: { (snapshot) in
+        let restaurantsTable = Database.database().reference().child("Restaurants")
+        restaurantsTable.observe(.childAdded, with: { (snapshot) in
             if let getData = snapshot.value as? [String:Any] {
                 _ = getData["Sender"] as? String
                 let restaurantBodyJSON = getData["RestaurantBody"] as? String
