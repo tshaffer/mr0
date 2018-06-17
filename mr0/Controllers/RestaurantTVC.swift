@@ -102,8 +102,8 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
          self.visitDate = visitDate
     }
     
-    func setTagIndices(tagIndices: [Int]) {
-        print(tagIndices)
+    func setTagIndices(tags: [String]) {
+        print(tags)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

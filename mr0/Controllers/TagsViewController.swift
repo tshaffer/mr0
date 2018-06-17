@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SetTagsDelegate {
-    func setTagIndices(tagIndices: [Int])
+    func setTagIndices(tags: [String])
 }
 
 class TagsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -51,16 +51,16 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cells = tableView.visibleCells
         var cellIndex = 0
-        var selectedTagIndices: [Int] = []
+        var selectedTags: [String] = []
         
         for cell in cells {
             if (cell.accessoryType == .checkmark) {
-                selectedTagIndices.append(cellIndex)
+                selectedTags.append(self.tags[cellIndex])
             }
             cellIndex += 1
         }
         
-        setTagsDelegate?.setTagIndices(tagIndices: selectedTagIndices)
+        setTagsDelegate?.setTagIndices(tags: selectedTags)
     }
     
     @IBAction func addTagButton(_ sender: Any) {
