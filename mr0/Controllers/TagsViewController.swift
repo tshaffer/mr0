@@ -22,8 +22,7 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tagsTableView: UITableView!
     @IBOutlet weak var newTagNameTextField: UITextField!
     
-//    var tags: [String] = []
-    var restaurantTypeTags = [Tag]()
+    var tags = [Tag]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,20 +43,19 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let tagLabel = restaurantTypeTagsDictionary["label"]
                 let tag = Tag(label: tagLabel as! String)
                 
-                print("append to restaurantTypeTags in viewDidLoad")
-                self.restaurantTypeTags.append(tag)
+                self.tags.append(tag)
             }
             self.tagsTableView.reloadData()
         })
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restaurantTypeTags.count
+        return tags.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier", for: indexPath)
-        cell.textLabel?.text = restaurantTypeTags[indexPath.row].label
+        cell.textLabel?.text = tags[indexPath.row].label
         return cell
     }
     
@@ -78,8 +76,7 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         for cell in cells {
             if (cell.accessoryType == .checkmark) {
-                print("append to selectedTags")
-                selectedTags.append(self.restaurantTypeTags[cellIndex])
+                selectedTags.append(self.tags[cellIndex])
             }
             cellIndex += 1
         }
@@ -92,9 +89,7 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
         let newTag : Tag = Tag(label: newTagNameTextField.text!)
         tagsTableView.reloadData()
         
-//        flibbet
-        
-        // add restaurant information to the database
+        // add new tag to database
         let restaurantTypeTagsTable = Database.database().reference().child("RestaurantTypeTags")
         
         let encoder = JSONEncoder()
@@ -114,8 +109,6 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 else {
                     print("Tag saved successfully")
-                    print("addTagButton savedTag")
-
                 }
             }
         }
