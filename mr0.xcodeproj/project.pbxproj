@@ -118,10 +118,10 @@
 			children = (
 				A97688B920D6894A0032287D /* Controllers */,
 				A97688B820D688D60032287D /* Models */,
-				A94EF9F9209E6A6900443AB3 /* Assets.xcassets */,
 				A97688BD20D689A70032287D /* Obsolete */,
 				A97688BE20D68AA70032287D /* Supporting Files */,
 				A97688BC20D6898B0032287D /* Views */,
+				A94EF9F9209E6A6900443AB3 /* Assets.xcassets */,
 				A9BCD13E20A794890083BBF7 /* GoogleService-Info.plist */,
 			);
 			path = mr0;

@@ -64,6 +64,8 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func addTagButton(_ sender: Any) {
+        tags.append(newTagNameTextField.text!)
+        tagsTableView.reloadData()
     }
     
 
