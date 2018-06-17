@@ -181,7 +181,10 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     @IBAction func addButtonPressed(_ sender: Any) {
         print("addButton pressed")
         
-        if let selectedPlace = selectedPlace {
+        if selectedRestaurant != nil {
+            print("selectedRestaurant: \(String(describing: selectedRestaurant))")
+        }
+        else if let selectedPlace = selectedPlace {
             print(selectedPlace.name)
             print(selectedPlace.formattedAddress!)
             
