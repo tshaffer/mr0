@@ -102,7 +102,7 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
          self.visitDate = visitDate
     }
     
-    func setTagIndices(tags: [String]) {
+    func setTags(tags: [Tag]) {
         print(tags)
     }
     
@@ -115,12 +115,12 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
             let vc = segue.destination as! TagsViewController
             vc.setTagsDelegate = self
 
-            var tags: [String] = []
-            tags.append("Burgers")
-            tags.append("Ice Cream")
-            tags.append("Coffee")
-            tags.append("Pizza")
-            vc.tags = tags
+//            var tags: [String] = []
+//            tags.append("Burgers")
+//            tags.append("Ice Cream")
+//            tags.append("Coffee")
+//            tags.append("Pizza")
+//            vc.restaurantTypeTags = tags
         }
     }
 }

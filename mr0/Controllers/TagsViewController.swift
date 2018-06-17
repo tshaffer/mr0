@@ -12,7 +12,7 @@ import FirebaseStorage
 import FirebaseUI
 
 protocol SetTagsDelegate {
-    func setTagIndices(tags: [String])
+    func setTags(tags: [Tag])
 }
 
 class TagsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -22,22 +22,46 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tagsTableView: UITableView!
     @IBOutlet weak var newTagNameTextField: UITextField!
     
-    var tags: [String] = []
+//    var tags: [String] = []
+    var restaurantTypeTags = [Tag]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tagsTableView.delegate = self
         tagsTableView.dataSource = self
+        
+        // load restaurant type tags from firebase
+        let restaurantTypeTagsTable = Database.database().reference().child("RestaurantTypeTags")
+        restaurantTypeTagsTable.observe(.childAdded, with: { (snapshot) in
+            if let getData = snapshot.value as? [String:Any] {
+                _ = getData["Sender"] as? String
+                let restaurantTypeTagsJSON = getData["Tag"] as? String
+                let jsonData = restaurantTypeTagsJSON?.data(using: .utf8)
+                let dictionary = try? JSONSerialization.jsonObject(with: jsonData!, options: .mutableLeaves)
+                let restaurantTypeTagsDictionary = dictionary as! Dictionary<String, AnyObject>
+                
+                let tagLabel = restaurantTypeTagsDictionary["label"]
+                let tag = Tag(label: tagLabel as! String)
+                
+                self.restaurantTypeTags.append(tag)
+                
+                print("append tag")
+            }
+            print ("after if statement")
+            self.tagsTableView.reloadData()
+            print("viewDidLoad reloadData")
+        })
+        print("after observe section")
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tags.count
+        return restaurantTypeTags.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier", for: indexPath)
-        cell.textLabel?.text = tags[indexPath.row]
+        cell.textLabel?.text = restaurantTypeTags[indexPath.row].label
         return cell
     }
     
@@ -54,24 +78,26 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cells = tableView.visibleCells
         var cellIndex = 0
-        var selectedTags: [String] = []
+        var selectedTags: [Tag] = []
         
         for cell in cells {
             if (cell.accessoryType == .checkmark) {
-                selectedTags.append(self.tags[cellIndex])
+                selectedTags.append(self.restaurantTypeTags[cellIndex])
             }
             cellIndex += 1
         }
         
-        setTagsDelegate?.setTagIndices(tags: selectedTags)
+        setTagsDelegate?.setTags(tags: selectedTags)
     }
     
     @IBAction func addTagButton(_ sender: Any) {
 
-        let newTag : String = newTagNameTextField.text!
+        let newTag : Tag = Tag(label: newTagNameTextField.text!)
 
-        tags.append(newTag)
+        print("addTagButton appendTag")
+        restaurantTypeTags.append(newTag)
         
+        print("addTagButton reloadData")
         tagsTableView.reloadData()
         
 //        flibbet
@@ -83,8 +109,8 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
         encoder.outputFormatting = .prettyPrinted
         
         do {
-            let tagObj = Tag(label : newTag)
-            let data = try encoder.encode(tagObj)
+//            let tagObj = Tag(label : newTag)
+            let data = try encoder.encode(newTag)
             print(String(data: data, encoding: .utf8)!)
             let dataAsString = String(data: data, encoding: .utf8)!
             print(dataAsString)
@@ -97,6 +123,8 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 else {
                     print("Tag saved successfully")
+                    print("addTagButton savedTag")
+
                 }
             }
         }
