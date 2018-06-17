@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
+import FirebaseUI
 
 protocol SetTagsDelegate {
     func setTagIndices(tags: [String])
@@ -64,9 +67,41 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func addTagButton(_ sender: Any) {
-        tags.append(newTagNameTextField.text!)
-        tagsTableView.reloadData()
-    }
-    
 
+        let newTag : String = newTagNameTextField.text!
+
+        tags.append(newTag)
+        
+        tagsTableView.reloadData()
+        
+//        flibbet
+        
+        // add restaurant information to the database
+        let restaurantTypeTagsTable = Database.database().reference().child("RestaurantTypeTags")
+        
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        
+        do {
+            let tagObj = Tag(label : newTag)
+            let data = try encoder.encode(tagObj)
+            print(String(data: data, encoding: .utf8)!)
+            let dataAsString = String(data: data, encoding: .utf8)!
+            print(dataAsString)
+            let restaurantTypeTagsDictionary = ["Sender": Auth.auth().currentUser?.email ?? "ted@roku.com",
+                                        "Tag": dataAsString] as [String : Any]
+            restaurantTypeTagsTable.childByAutoId().setValue(restaurantTypeTagsDictionary) {
+                (error, reference) in
+                if (error != nil) {
+                    print(error!)
+                }
+                else {
+                    print("Tag saved successfully")
+                }
+            }
+        }
+        catch {
+            print("encoder error")
+        }
+    }
 }
