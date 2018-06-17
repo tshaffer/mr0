@@ -44,15 +44,11 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let tagLabel = restaurantTypeTagsDictionary["label"]
                 let tag = Tag(label: tagLabel as! String)
                 
+                print("append to restaurantTypeTags in viewDidLoad")
                 self.restaurantTypeTags.append(tag)
-                
-                print("append tag")
             }
-            print ("after if statement")
             self.tagsTableView.reloadData()
-            print("viewDidLoad reloadData")
         })
-        print("after observe section")
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,6 +78,7 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         for cell in cells {
             if (cell.accessoryType == .checkmark) {
+                print("append to selectedTags")
                 selectedTags.append(self.restaurantTypeTags[cellIndex])
             }
             cellIndex += 1
@@ -93,11 +90,6 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func addTagButton(_ sender: Any) {
 
         let newTag : Tag = Tag(label: newTagNameTextField.text!)
-
-        print("addTagButton appendTag")
-        restaurantTypeTags.append(newTag)
-        
-        print("addTagButton reloadData")
         tagsTableView.reloadData()
         
 //        flibbet
@@ -109,7 +101,6 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
         encoder.outputFormatting = .prettyPrinted
         
         do {
-//            let tagObj = Tag(label : newTag)
             let data = try encoder.encode(newTag)
             print(String(data: data, encoding: .utf8)!)
             let dataAsString = String(data: data, encoding: .utf8)!
