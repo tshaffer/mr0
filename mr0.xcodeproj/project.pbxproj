@@ -116,33 +116,18 @@
 		A94EF9F1209E6A6800443AB3 /* mr0 */ = {
 			isa = PBXGroup;
 			children = (
-				A97688B620D561FD0032287D /* Models */,
+				A97688B920D6894A0032287D /* Controllers */,
+				A97688B820D688D60032287D /* Models */,
 				A94EF9F9209E6A6900443AB3 /* Assets.xcassets */,
-				A94EF9F2209E6A6800443AB3 /* AppDelegate.swift */,
-				A903F93D20AA4FC300D94A14 /* CameraHandler.swift */,
-				A9B5AF6C20CE19C200806F7B /* DatePickerViewController.swift */,
-				A9BCD13C20A732BB0083BBF7 /* FoodTypeTableViewController.swift */,
+				A97688BD20D689A70032287D /* Obsolete */,
+				A97688BE20D68AA70032287D /* Supporting Files */,
+				A97688BC20D6898B0032287D /* Views */,
 				A9BCD13E20A794890083BBF7 /* GoogleService-Info.plist */,
-				A94EF9FE209E6A6900443AB3 /* Info.plist */,
-				A92E084F20C45051007217A5 /* LandingPageViewController.swift */,
-				A94EF9FB209E6A6900443AB3 /* LaunchScreen.storyboard */,
-				A96E1F1520B1A3580095C21E /* LocationTableViewController.swift */,
-				A947578820A7AB41003FE19E /* LoginViewController.swift */,
-				A94EF9F4209E6A6800443AB3 /* MemoRappViewController.swift */,
-				A94EF9F6209E6A6800443AB3 /* Main.storyboard */,
-				A92E084D20C2CD46007217A5 /* MapViewController.swift */,
-				A9B2B1E720BC3BB000D5AB7F /* PhotoItemTableViewCell.swift */,
-				A947578A20A7ABA3003FE19E /* RegisterViewController.swift */,
-				A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */,
-				A9B5AF6A20CDEB2600806F7B /* RestaurantTVC.swift */,
-				A9E3AF0220C743220027BF06 /* RestaurantViewController.swift */,
-				A97688B320D53F070032287D /* TagsViewController.swift */,
-				A93377CE20BA20E1003D95C5 /* xbutton.png */,
 			);
 			path = mr0;
 			sourceTree = "<group>";
 		};
-		A97688B620D561FD0032287D /* Models */ = {
+		A97688B820D688D60032287D /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A947578420A7A0AF003FE19E /* Restaurant.swift */,
@@ -151,7 +136,54 @@
 				A9E3AF0420CB00970027BF06 /* RestaurantVisit.swift */,
 			);
 			path = Models;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
+		};
+		A97688B920D6894A0032287D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A903F93D20AA4FC300D94A14 /* CameraHandler.swift */,
+				A9B5AF6C20CE19C200806F7B /* DatePickerViewController.swift */,
+				A92E084F20C45051007217A5 /* LandingPageViewController.swift */,
+				A947578820A7AB41003FE19E /* LoginViewController.swift */,
+				A9B5AF6A20CDEB2600806F7B /* RestaurantTVC.swift */,
+				A947578A20A7ABA3003FE19E /* RegisterViewController.swift */,
+				A97688B320D53F070032287D /* TagsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A97688BC20D6898B0032287D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A94EF9F6209E6A6800443AB3 /* Main.storyboard */,
+				A94EF9FB209E6A6900443AB3 /* LaunchScreen.storyboard */,
+				A9B2B1E720BC3BB000D5AB7F /* PhotoItemTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A97688BD20D689A70032287D /* Obsolete */ = {
+			isa = PBXGroup;
+			children = (
+				A9BCD13C20A732BB0083BBF7 /* FoodTypeTableViewController.swift */,
+				A96E1F1520B1A3580095C21E /* LocationTableViewController.swift */,
+				A92E084D20C2CD46007217A5 /* MapViewController.swift */,
+				A94EF9F4209E6A6800443AB3 /* MemoRappViewController.swift */,
+				A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */,
+				A9E3AF0220C743220027BF06 /* RestaurantViewController.swift */,
+			);
+			path = Obsolete;
+			sourceTree = "<group>";
+		};
+		A97688BE20D68AA70032287D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A94EF9F2209E6A6800443AB3 /* AppDelegate.swift */,
+				A94EF9FE209E6A6900443AB3 /* Info.plist */,
+				A93377CE20BA20E1003D95C5 /* xbutton.png */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
