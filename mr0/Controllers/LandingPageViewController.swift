@@ -183,6 +183,13 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
             print("selectedRestaurant: \(String(describing: selectedRestaurant))")
         }
         else if selectedPlace != nil {
+            
+            selectedRestaurant = Restaurant()
+            selectedRestaurant?.name = selectedPlace!.name
+            selectedRestaurant?.location = Location(
+                latitude: selectedLocation.latitude,
+                longitude: selectedLocation.longitude)
+            
             performSegue(withIdentifier: "addRestaurantSegue", sender: self)
         }
         else
@@ -196,9 +203,10 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         print("restaurant review prepare for segue invoked")
         
         if (segue.identifier == "addRestaurantSegue") {
-            if let nextViewController = segue.destination as? RestaurantTVC {
-                nextViewController.selectedPlaceName = selectedPlace!.name
-                nextViewController.selectedLocation = selectedLocation
+            if let restaurantController = segue.destination as? RestaurantTVC {
+                restaurantController.selectedRestaurant = selectedRestaurant
+//                nextViewController.selectedPlaceName = selectedPlace!.name
+//                nextViewController.selectedLocation = selectedLocation
             }
         }
         

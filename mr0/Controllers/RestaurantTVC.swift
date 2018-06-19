@@ -20,8 +20,11 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
     @IBOutlet weak var visitDateLbl: UILabel!
 
 //    var selectedPlace: GMSPlace?
+    var selectedRestaurant: Restaurant?
     var selectedPlaceName: String?
-    var selectedLocation = CLLocationCoordinate2D()
+//    var selectedLocation = CLLocationCoordinate2D()
+    
+    var specifiedTags: [Tag] = []
     
     var visitDate: Date?
     
@@ -29,7 +32,7 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         super.viewDidLoad()
         
 //        restaurantName.text = selectedPlace!.name
-        restaurantName.text = selectedPlaceName!
+        restaurantName.text = selectedRestaurant?.name
 
         restaurantTags.textColor = UIColor.lightGray
         
@@ -47,6 +50,7 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
 
         let dateFormatter = DateFormatter()
@@ -106,6 +110,19 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
     
     func setTags(tags: [Tag]) {
         print(tags)
+        specifiedTags = tags
+    }
+    
+    @IBAction func saveRestaurant(_ sender: UIBarButtonItem) {
+        print("saveRestaurant")
+        print(restaurantName.text!)
+        print(specifiedTags)
+        print(restaurantComments.text!)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        let dateVisitLbl = dateFormatter.string(from: visitDate!)
+        print(dateVisitLbl)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -116,13 +133,6 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         else if segue.identifier == "showTagsViewControllerSegue" {
             let vc = segue.destination as! TagsViewController
             vc.setTagsDelegate = self
-
-//            var tags: [String] = []
-//            tags.append("Burgers")
-//            tags.append("Ice Cream")
-//            tags.append("Coffee")
-//            tags.append("Pizza")
-//            vc.restaurantTypeTags = tags
         }
     }
 }
