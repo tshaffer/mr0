@@ -19,7 +19,8 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
     @IBOutlet weak var restaurantComments: UITextView!
     @IBOutlet weak var visitDateLbl: UILabel!
 
-    var selectedPlace: GMSPlace?
+//    var selectedPlace: GMSPlace?
+    var selectedPlaceName: String?
     var selectedLocation = CLLocationCoordinate2D()
     
     var visitDate: Date?
@@ -27,8 +28,9 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        restaurantName.text = selectedPlace!.name
-        
+//        restaurantName.text = selectedPlace!.name
+        restaurantName.text = selectedPlaceName!
+
         restaurantTags.textColor = UIColor.lightGray
         
         restaurantComments.delegate = self

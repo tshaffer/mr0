@@ -141,8 +141,6 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         print("You didLongPressAt \(location.latitude)/\(location.longitude)")
         selectedLocation = location
     }
-
-    // flibbet
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         print("Marker tapped")
@@ -184,12 +182,8 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         if selectedRestaurant != nil {
             print("selectedRestaurant: \(String(describing: selectedRestaurant))")
         }
-        else if let selectedPlace = selectedPlace {
-            print(selectedPlace.name)
-            print(selectedPlace.formattedAddress!)
-            
+        else if selectedPlace != nil {
             performSegue(withIdentifier: "addRestaurantSegue", sender: self)
-
         }
         else
         {
@@ -203,7 +197,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         
         if (segue.identifier == "addRestaurantSegue") {
             if let nextViewController = segue.destination as? RestaurantTVC {
-                nextViewController.selectedPlace = selectedPlace
+                nextViewController.selectedPlaceName = selectedPlace!.name
                 nextViewController.selectedLocation = selectedLocation
             }
         }
