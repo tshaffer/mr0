@@ -213,7 +213,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     }
     
     @IBAction func unwindToLandingPage(unwindSegue: UIStoryboardSegue) {
-        
+        print("unwindToLandingPage")
     }
 
 }

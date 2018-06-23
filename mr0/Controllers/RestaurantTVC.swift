@@ -114,11 +114,15 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
     }
     
     @IBAction func saveRestaurant(_ sender: UIBarButtonItem) {
+        executeSaveRestaurant()
+    }
+    
+    func executeSaveRestaurant() {
         print("saveRestaurant")
         print(restaurantName.text!)
         print(specifiedTags)
         print(restaurantComments.text!)
-        
+    
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
         let dateVisitLbl = dateFormatter.string(from: visitDate!)
@@ -126,6 +130,14 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        print ("prepare: segue.identifier is: \(String(describing: segue.identifier))")
+        if segue.identifier == "saveThenUnwindToLandingPageSegue" {
+            self.executeSaveRestaurant()
+        }
+        else if (segue.identifier == "cancelThenUnwindToLandingPageSegue") {
+            print("operation cancelled");
+        }
         if segue.identifier == "setVisitDateSegue" {
             let vc = segue.destination as! DatePickerViewController
             vc.setVisitDateDelegate = self

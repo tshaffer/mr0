@@ -580,10 +580,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Restaurant" id="x1f-Ag-dQY">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2uD-80-nEC"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2uD-80-nEC">
+                            <connections>
+                                <segue destination="rRL-vu-XKU" kind="unwind" identifier="cancelThenUnwindToLandingPageSegue" unwindAction="unwindToLandingPageWithUnwindSegue:" id="VkM-JG-xow"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="QI7-Qp-g6g">
                             <connections>
                                 <action selector="saveRestaurant:" destination="Fdt-4z-zMD" id="353-7I-5f9"/>
+                                <segue destination="rRL-vu-XKU" kind="unwind" identifier="saveThenUnwindToLandingPageSegue" unwindAction="unwindToLandingPageWithUnwindSegue:" id="wIm-qV-SCq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -595,6 +600,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Krz-jj-Fc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rRL-vu-XKU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5114" y="-1608"/>
         </scene>
