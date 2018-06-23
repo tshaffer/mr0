@@ -587,7 +587,6 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="QI7-Qp-g6g">
                             <connections>
-                                <action selector="saveRestaurant:" destination="Fdt-4z-zMD" id="353-7I-5f9"/>
                                 <segue destination="rRL-vu-XKU" kind="unwind" identifier="saveThenUnwindToLandingPageSegue" unwindAction="unwindToLandingPageWithUnwindSegue:" id="wIm-qV-SCq"/>
                             </connections>
                         </barButtonItem>

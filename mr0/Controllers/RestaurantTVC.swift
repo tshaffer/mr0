@@ -113,11 +113,7 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         specifiedTags = tags
     }
     
-    @IBAction func saveRestaurant(_ sender: UIBarButtonItem) {
-        executeSaveRestaurant()
-    }
-    
-    func executeSaveRestaurant() {
+    func saveRestaurant() {
         print("saveRestaurant")
         print(restaurantName.text!)
         print(specifiedTags)
@@ -133,7 +129,7 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         
         print ("prepare: segue.identifier is: \(String(describing: segue.identifier))")
         if segue.identifier == "saveThenUnwindToLandingPageSegue" {
-            self.executeSaveRestaurant()
+            self.saveRestaurant()
         }
         else if (segue.identifier == "cancelThenUnwindToLandingPageSegue") {
             print("operation cancelled");
