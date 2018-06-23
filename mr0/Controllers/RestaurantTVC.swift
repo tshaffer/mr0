@@ -34,14 +34,19 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
 //        restaurantName.text = selectedPlace!.name
         restaurantName.text = selectedRestaurant?.name
 
-        restaurantTags.textColor = UIColor.lightGray
-        
+        if selectedRestaurant?.comments == "" {
+            restaurantComments.text = "Add restaurant comments..."
+            restaurantComments.textColor = UIColor.lightGray
+            restaurantComments.becomeFirstResponder()
+            restaurantComments.selectedTextRange = restaurantComments.textRange(from: restaurantComments.beginningOfDocument, to: restaurantComments.beginningOfDocument)
+        }
+        else {
+            restaurantComments.text = selectedRestaurant?.comments
+        }
         restaurantComments.delegate = self
-        restaurantComments.text = "Add restaurant comments..."
-        restaurantComments.textColor = UIColor.lightGray
-        restaurantComments.becomeFirstResponder()
-        restaurantComments.selectedTextRange = restaurantComments.textRange(from: restaurantComments.beginningOfDocument, to: restaurantComments.beginningOfDocument)
         
+        restaurantTags.textColor = UIColor.lightGray
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
         visitDate = Date.init()
