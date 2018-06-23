@@ -48,16 +48,17 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         let dateVisitLbl = dateFormatter.string(from: visitDate!)
         visitDateLbl.text = dateVisitLbl
     }
-    
-    // flibbet
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
 
         // update ui fields that may have changed in a downstream view controller.
-        
-        // tags field
+        updateTagsLabel()
+        updateDateLabel()
+    }
+    
+    func updateTagsLabel() {
         var tagLabel = ""
         var textColor = UIColor.black
         if specifiedTags.count == 0 {
@@ -76,8 +77,9 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         }
         restaurantTags.text = tagLabel
         restaurantTags.textColor = textColor
-        
-        // update date field
+    }
+    
+    func updateDateLabel() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
         let dateVisitLbl = dateFormatter.string(from: visitDate!)
@@ -163,9 +165,11 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
             let vc = segue.destination as! DatePickerViewController
             vc.setVisitDateDelegate = self
         }
+            // flibbet
         else if segue.identifier == "showTagsViewControllerSegue" {
             let vc = segue.destination as! TagsViewController
             vc.setTagsDelegate = self
+            vc.restaurantTags = self.specifiedTags
         }
     }
 }

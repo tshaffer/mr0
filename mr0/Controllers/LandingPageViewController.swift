@@ -116,8 +116,6 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
                 return
             }
             
-            // flibbet
-            
             self.selectedPlace = place
             self.selectedLocation = location
             
@@ -173,9 +171,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("searchBar search clicked: \(self.searchText)")
     }
-    
-    // flibbet
-    
+        
     @IBAction func addButtonPressed(_ sender: Any) {
         print("addButton pressed")
         

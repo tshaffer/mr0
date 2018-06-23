@@ -22,7 +22,9 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tagsTableView: UITableView!
     @IBOutlet weak var newTagNameTextField: UITextField!
     
+    // flibbet
     var tags = [Tag]()
+    var restaurantTags = [Tag]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,15 +49,31 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             self.tagsTableView.reloadData()
         })
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return tags.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier", for: indexPath)
-        cell.textLabel?.text = tags[indexPath.row].label
+        
+        let label = tags[indexPath.row].label
+
+        // flibbet
+        var restaurantLabels = [String]()
+        for restaurantTag in restaurantTags {
+            restaurantLabels.append(restaurantTag.label)
+        }
+        if restaurantLabels.contains(label) {
+            cell.accessoryType = .checkmark
+        }
+
+        cell.textLabel?.text = label
+
         return cell
     }
     
