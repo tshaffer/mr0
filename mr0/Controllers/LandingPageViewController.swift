@@ -62,6 +62,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         let restaurantsTable = Database.database().reference().child("Restaurants")
         restaurantsTable.observe(.childAdded, with: { (snapshot) in
             if let getData = snapshot.value as? [String:Any] {
+                
                 _ = getData["Sender"] as? String
                 let restaurantBodyJSON = getData["RestaurantBody"] as? String
                 let jsonData = restaurantBodyJSON?.data(using: .utf8)
@@ -90,6 +91,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
                 let longitude = locationDictionary["longitude"]
                 
                 var restaurant : Restaurant = Restaurant()
+                restaurant.dbId = snapshot.key
                 restaurant.name = name
                 restaurant.location = Location(latitude: latitude!, longitude: longitude!)
                 restaurant.comments = comments

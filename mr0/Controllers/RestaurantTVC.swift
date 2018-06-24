@@ -175,17 +175,25 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         // add restaurant information to the database
         let restaurantsDB = Database.database().reference().child("Restaurants")
 
+        // flibbet
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         
         do {
+
+            if (selectedRestaurant?.dbId == "") {
+                selectedRestaurant?.dbId = UUID().uuidString
+            }
+
             let data = try encoder.encode(selectedRestaurant)
             print(String(data: data, encoding: .utf8)!)
             let dataAsString = String(data: data, encoding: .utf8)!
             print(dataAsString)
             let restaurantDictionary = ["Sender": Auth.auth().currentUser?.email ?? "ted@roku.com",
                                         "RestaurantBody": dataAsString] as [String : Any]
-            restaurantsDB.childByAutoId().setValue(restaurantDictionary) {
+            
+            //            restaurantsDB.childByAutoId().setValue(restaurantDictionary) {
+            restaurantsDB.child((selectedRestaurant?.dbId)!).setValue(restaurantDictionary) {
                 (error, reference) in
                 if (error != nil) {
                     print(error!)

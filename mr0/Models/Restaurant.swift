@@ -10,7 +10,8 @@ import Foundation
 import GooglePlaces
 
 struct Restaurant: Codable {
-    
+        
+    var dbId : String = ""
     var name : String = ""
     var rating : Float = 0.0
     // cost? Priciness?
