@@ -68,11 +68,38 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
                 let dictionary = try? JSONSerialization.jsonObject(with: jsonData!, options: .mutableLeaves)
                 let restaurantDictionary = dictionary as! Dictionary<String, AnyObject>
                 
-                let name = restaurantDictionary["name"]
-//                let foodType = restaurantDictionary["foodType"]
-                let comments = restaurantDictionary["comments"]
-                _ = restaurantDictionary["dateVisited"]
+                let name : String = restaurantDictionary["name"] as! String
+                print(name)
+                let comments = restaurantDictionary["comments"] as! String
+                print(comments)
+                let tags = restaurantDictionary["tags"] as! [String]
+                print(tags.count)
+                print(tags)
+//                let restaurantVisits = restaurantDictionary["restaurantVisits"] as! [RestaurantVisit]
+                let restaurantVisits = restaurantDictionary["restaurantVisits"] as! Optional<AnyObject>
+                print(restaurantVisits)
+
+                let rV = restaurantVisits!
+                print(rV)
+                print(type(of: rV))
                 
+                let rVs = rV as! [AnyObject]
+                print(rVs)
+                print(type(of: rVs))
+                
+                print(rVs.count)
+                print(type(of: rVs[0]))
+                print(rVs[0])
+                
+                let rv0 = rVs[0] as AnyObject
+                print(rv0)
+                
+                let realRv0 = rv0 as! Dictionary<String, AnyObject>
+                print(realRv0)
+                
+                let vType = type(of: restaurantVisits)
+                print("'\(restaurantVisits)' of type '\(vType)'")
+
                 let location = restaurantDictionary["location"]
                 let locationDictionary = location as! Dictionary<String, Double>
                 let latitude = locationDictionary["latitude"]
@@ -80,10 +107,19 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
                 
                 var restaurant : Restaurant = Restaurant()
                 restaurant.name = name as! String
-//                restaurant.foodType = FoodType(rawValue: (foodType as! Int))!
                 restaurant.location = Location(latitude: latitude!, longitude: longitude!)
                 restaurant.comments = comments as! String
-                //                restaurant.dateVisited = dateVisited as! Date
+                
+                for tag in tags {
+                    restaurant.tags.append(tag)
+                }
+                
+//                for restaurantVisit in restaurantVisits {
+//                    restaurant.restaurantVisits.append(restaurantVisit)
+//                }
+                
+                print("after reading from db, add:")
+                print(restaurant)
                 self.restaurants.append(restaurant)
                 
                 var coordinates : CLLocationCoordinate2D = CLLocationCoordinate2D()

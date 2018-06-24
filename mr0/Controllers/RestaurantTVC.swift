@@ -44,11 +44,15 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         }
         restaurantComments.delegate = self
         
+        for tagLabel in (selectedRestaurant?.tags)! {
+            let newTag = Tag(label: tagLabel)
+            specifiedTags.append(newTag)
+        }
         restaurantTags.textColor = UIColor.lightGray
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
-        visitDate = Date.init()
+        visitDate = (selectedRestaurant?.restaurantVisits[0].dateVisited)!
         let dateVisitLbl = dateFormatter.string(from: visitDate)
         visitDateLbl.text = dateVisitLbl
         
@@ -76,6 +80,15 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
     }
     
     // MEMBER METHODS
+    func populateSelectedRestaurantFromUI() {
+        
+        for tag in specifiedTags {
+            selectedRestaurant?.tags.append(tag.label)
+        }
+        
+        selectedRestaurant?.comments = restaurantComments.text
+    }
+    
     func updateTagsLabel() {
         var tagLabel = ""
         var textColor = UIColor.black
@@ -151,15 +164,40 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
     }
     
     func saveRestaurant() {
+        
+        populateSelectedRestaurantFromUI()
+        
         print("saveRestaurant")
         print(restaurantName.text!)
         print(specifiedTags)
         print(restaurantComments.text!)
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy"
-        let dateVisitLbl = dateFormatter.string(from: visitDate)
-        print(dateVisitLbl)
+        // add restaurant information to the database
+        let restaurantsDB = Database.database().reference().child("Restaurants")
+
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        
+        do {
+            let data = try encoder.encode(selectedRestaurant)
+            print(String(data: data, encoding: .utf8)!)
+            let dataAsString = String(data: data, encoding: .utf8)!
+            print(dataAsString)
+            let restaurantDictionary = ["Sender": Auth.auth().currentUser?.email ?? "ted@roku.com",
+                                        "RestaurantBody": dataAsString] as [String : Any]
+            restaurantsDB.childByAutoId().setValue(restaurantDictionary) {
+                (error, reference) in
+                if (error != nil) {
+                    print(error!)
+                }
+                else {
+                    print("Restaurant saved successfully")
+                }
+            }
+        }
+        catch {
+            print("encoder error")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -175,7 +213,6 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
             let vc = segue.destination as! DatePickerViewController
             vc.setVisitDateDelegate = self
         }
-            // flibbet
         else if segue.identifier == "showTagsViewControllerSegue" {
             let vc = segue.destination as! TagsViewController
             vc.setTagsDelegate = self
