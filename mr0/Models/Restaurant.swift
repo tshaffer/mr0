@@ -13,8 +13,8 @@ struct Restaurant: Codable {
         
     var dbId : String = ""
     var name : String = ""
-    var rating : Float = 0.0
-    // cost? Priciness?
+    var rating : Float = 5.0
+    // priceRange?
 
     var tags = [String]()
     var comments : String = ""

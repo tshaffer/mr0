@@ -18,7 +18,9 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
     @IBOutlet weak var restaurantTags: UILabel!
     @IBOutlet weak var restaurantComments: UITextView!
     @IBOutlet weak var visitDateLbl: UILabel!
-
+    @IBOutlet weak var ratingSlider: UISlider!
+    @IBOutlet weak var ratingLabel: UILabel!
+    
     var selectedRestaurant: Restaurant?
     var selectedRestaurantVisitIndex: Int = 0
     var selectedPlaceName: String?
@@ -65,6 +67,7 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
 
         // update ui fields that may have changed in a downstream view controller.
         updateTagsLabel()
+        updateRatingLabel()
         updateDateLabel()
     }
     
@@ -80,6 +83,13 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
     }
     
     // MEMBER METHODS
+    @IBAction func ratingChanged(_ sender: UISlider) {
+        let rating = Float(Float(sender.value) / 10)
+        selectedRestaurant?.rating = rating
+        let ratingAsString = (String(format: "%.01f", rating))
+        ratingLabel.text = "Restaurant rating: \(ratingAsString)"
+    }
+    
     func populateSelectedRestaurantFromUI() {
         
         for tag in specifiedTags {
@@ -108,6 +118,14 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         }
         restaurantTags.text = tagLabel
         restaurantTags.textColor = textColor
+    }
+    
+    // flibbet
+    func updateRatingLabel() {
+        let rating = selectedRestaurant?.rating
+        let ratingAsString = (String(format: "%.01f", rating!))
+        ratingLabel.text = "Restaurant rating: \(ratingAsString)"
+        ratingSlider.setValue(rating! * 10, animated: true)
     }
     
     func updateDateLabel() {
@@ -175,7 +193,6 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         // add restaurant information to the database
         let restaurantsDB = Database.database().reference().child("Restaurants")
 
-        // flibbet
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         

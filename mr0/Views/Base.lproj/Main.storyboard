@@ -548,12 +548,36 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="66" id="Ajz-yu-9hd">
+                                        <rect key="frame" x="0.0" y="160" width="375" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ajz-yu-9hd" id="IwW-N3-6To">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="b6c-d4-6dH">
+                                                    <rect key="frame" x="14" y="6" width="347" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="ratingChanged:" destination="Fdt-4z-zMD" eventType="valueChanged" id="veT-hI-cau"/>
+                                                    </connections>
+                                                </slider>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD4-k3-8a6">
+                                                    <rect key="frame" x="16" y="43" width="343" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Visit Details" id="v5V-IE-Nh4">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ka3-ON-27p" style="IBUITableViewCellStyleDefault" id="c3u-EQ-tMO">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="254" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c3u-EQ-tMO" id="FT2-5s-12Z">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -593,6 +617,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="ratingLabel" destination="fD4-k3-8a6" id="rT3-Y5-hai"/>
+                        <outlet property="ratingSlider" destination="b6c-d4-6dH" id="Ux5-LR-Qg0"/>
                         <outlet property="restaurantComments" destination="ej7-LO-ccK" id="Ica-ja-ZKp"/>
                         <outlet property="restaurantName" destination="Yqg-hU-Iog" id="mN9-E0-WfH"/>
                         <outlet property="restaurantTags" destination="avF-AN-6Ag" id="yha-lC-nCf"/>
@@ -602,7 +628,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Krz-jj-Fc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rRL-vu-XKU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5114" y="-1608"/>
+            <point key="canvasLocation" x="5112.8000000000002" y="-1608.8455772113944"/>
         </scene>
         <!--Date Picker View Controller-->
         <scene sceneID="Q2R-x8-hKp">

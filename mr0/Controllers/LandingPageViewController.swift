@@ -72,6 +72,8 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
                 let name : String = restaurantDictionary["name"] as! String
                 let comments = restaurantDictionary["comments"] as! String
                 let tags = restaurantDictionary["tags"] as! [String]
+                let rating = restaurantDictionary["rating"] as! Float
+                
                 var restaurantVisits = [RestaurantVisit]()
 
                 let restaurantVisitDictionaries = restaurantDictionary["restaurantVisits"] as! [Dictionary<String, AnyObject>]
@@ -100,6 +102,8 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
                     restaurant.tags.append(tag)
                 }
 
+                restaurant.rating = rating
+                
                 restaurant.restaurantVisits = restaurantVisits
                 
                 print("after reading from db, add:")
