@@ -22,7 +22,6 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tagsTableView: UITableView!
     @IBOutlet weak var newTagNameTextField: UITextField!
     
-    // flibbet
     var tags = [Tag]()
     var restaurantTags = [Tag]()
 
@@ -63,7 +62,6 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let label = tags[indexPath.row].label
 
-        // flibbet
         var restaurantLabels = [String]()
         for restaurantTag in restaurantTags {
             restaurantLabels.append(restaurantTag.label)
