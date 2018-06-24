@@ -177,6 +177,8 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         
         if selectedRestaurant != nil {
             print("selectedRestaurant: \(String(describing: selectedRestaurant))")
+
+            performSegue(withIdentifier: "addRestaurantSegue", sender: self)
         }
         else if selectedPlace != nil {
             
@@ -201,8 +203,6 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         if (segue.identifier == "addRestaurantSegue") {
             if let restaurantController = segue.destination as? RestaurantTVC {
                 restaurantController.selectedRestaurant = selectedRestaurant
-//                nextViewController.selectedPlaceName = selectedPlace!.name
-//                nextViewController.selectedLocation = selectedLocation
             }
         }
         

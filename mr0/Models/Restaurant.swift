@@ -18,6 +18,12 @@ struct Restaurant: Codable {
     var tags = [String]()
     var comments : String = ""
     var location : Location = Location(latitude : 0, longitude : 0);
-    var restaurantVisits = [RestaurantVisit]()
     var photos = [PhotoItem]()
- }
+
+    var restaurantVisits = [RestaurantVisit]()
+    
+    init() {
+        let restaurantVisit = RestaurantVisit()
+        self.restaurantVisits.append(restaurantVisit)
+    }
+}

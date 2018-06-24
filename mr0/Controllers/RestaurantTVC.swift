@@ -19,19 +19,18 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
     @IBOutlet weak var restaurantComments: UITextView!
     @IBOutlet weak var visitDateLbl: UILabel!
 
-//    var selectedPlace: GMSPlace?
     var selectedRestaurant: Restaurant?
+    var selectedRestaurantVisitIndex: Int = 0
     var selectedPlaceName: String?
-//    var selectedLocation = CLLocationCoordinate2D()
     
     var specifiedTags: [Tag] = []
     
-    var visitDate: Date?
+    var visitDate: Date = Date.init()
     
+    // OVERRIDDEN METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        restaurantName.text = selectedPlace!.name
         restaurantName.text = selectedRestaurant?.name
 
         if selectedRestaurant?.comments == "" {
@@ -50,8 +49,10 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
         visitDate = Date.init()
-        let dateVisitLbl = dateFormatter.string(from: visitDate!)
+        let dateVisitLbl = dateFormatter.string(from: visitDate)
         visitDateLbl.text = dateVisitLbl
+        
+        selectedRestaurant?.restaurantVisits[self.selectedRestaurantVisitIndex].dateVisited = visitDate
     }
         
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +64,18 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         updateDateLabel()
     }
     
+    // DELEGATE METHODS
+    func specifyVisitDate(visitDate: Date) {
+        self.visitDate = visitDate
+        selectedRestaurant?.restaurantVisits[self.selectedRestaurantVisitIndex].dateVisited = visitDate
+    }
+    
+    func setTags(tags: [Tag]) {
+        print(tags)
+        specifiedTags = tags
+    }
+    
+    // MEMBER METHODS
     func updateTagsLabel() {
         var tagLabel = ""
         var textColor = UIColor.black
@@ -87,7 +100,8 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
     func updateDateLabel() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
-        let dateVisitLbl = dateFormatter.string(from: visitDate!)
+        let currentVisitDate : Date =         (selectedRestaurant?.restaurantVisits[self.selectedRestaurantVisitIndex].dateVisited)!
+        let dateVisitLbl = dateFormatter.string(from: currentVisitDate)
         visitDateLbl.text = dateVisitLbl
     }
     
@@ -136,15 +150,6 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         }
     }
     
-    func specifyVisitDate(visitDate: Date) {
-         self.visitDate = visitDate
-    }
-    
-    func setTags(tags: [Tag]) {
-        print(tags)
-        specifiedTags = tags
-    }
-    
     func saveRestaurant() {
         print("saveRestaurant")
         print(restaurantName.text!)
@@ -153,7 +158,7 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
-        let dateVisitLbl = dateFormatter.string(from: visitDate!)
+        let dateVisitLbl = dateFormatter.string(from: visitDate)
         print(dateVisitLbl)
     }
     
