@@ -69,36 +69,64 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
                 let restaurantDictionary = dictionary as! Dictionary<String, AnyObject>
                 
                 let name : String = restaurantDictionary["name"] as! String
-                print(name)
+//                print(name)
                 let comments = restaurantDictionary["comments"] as! String
-                print(comments)
+//                print(comments)
                 let tags = restaurantDictionary["tags"] as! [String]
-                print(tags.count)
-                print(tags)
+//                print(tags.count)
+//                print(tags)
+                
+                
 //                let restaurantVisits = restaurantDictionary["restaurantVisits"] as! [RestaurantVisit]
-                let restaurantVisits = restaurantDictionary["restaurantVisits"] as! Optional<AnyObject>
-                print(restaurantVisits)
+                var restaurantVisits = [RestaurantVisit]()
 
-                let rV = restaurantVisits!
-                print(rV)
-                print(type(of: rV))
+                let restaurantVisitDictionaries = restaurantDictionary["restaurantVisits"] as! [Dictionary<String, AnyObject>]
+                for restaurantVisitDictionary in restaurantVisitDictionaries {
+                    var restaurantVisit = RestaurantVisit()
+//                    restaurantVisit.dateVisited = restaurantVisitDictionary["dateVisited"] as! Date
+                    let val = restaurantVisitDictionary["dateVisited"] as AnyObject
+                    print(type(of: val))
+                    print(val)
+                    let tsi = val as! TimeInterval
+                    
+//                    let myDateNow = Date.init(timeIntervalSinceNow: tsi)
+//                    print(myDateNow)
+                    
+                    let myDateRD = Date.init(timeIntervalSinceReferenceDate: tsi)
+                    print(myDateRD)
+
+//                    let myDate1970 = Date.init(timeIntervalSince1970: tsi)
+//                    print(myDate1970)
+                    
+                    restaurantVisit.dateVisited = myDateRD
+
+                    restaurantVisits.append(restaurantVisit)
+                }
                 
-                let rVs = rV as! [AnyObject]
-                print(rVs)
-                print(type(of: rVs))
-                
-                print(rVs.count)
-                print(type(of: rVs[0]))
-                print(rVs[0])
-                
-                let rv0 = rVs[0] as AnyObject
-                print(rv0)
-                
-                let realRv0 = rv0 as! Dictionary<String, AnyObject>
-                print(realRv0)
-                
-                let vType = type(of: restaurantVisits)
-                print("'\(restaurantVisits)' of type '\(vType)'")
+//                let restaurantVisits = restaurantDictionary["restaurantVisits"] as AnyObject
+//                let restaurantVisits = restaurantDictionary["restaurantVisits"] as! Optional<AnyObject>
+//                print(restaurantVisits)
+//
+//                let rV = restaurantVisits
+//                print(rV)
+//                print(type(of: rV))
+//
+//                let rVs = rV as! [AnyObject]
+//                print(rVs)
+//                print(type(of: rVs))
+//
+//                print(rVs.count)
+//                print(type(of: rVs[0]))
+//                print(rVs[0])
+//
+//                let rv0 = rVs[0] as AnyObject
+//                print(rv0)
+//
+//                let realRv0 = rv0 as! Dictionary<String, AnyObject>
+//                print(realRv0)
+//
+//                let vType = type(of: restaurantVisits)
+//                print("'\(restaurantVisits)' of type '\(vType)'")
 
                 let location = restaurantDictionary["location"]
                 let locationDictionary = location as! Dictionary<String, Double>
@@ -106,13 +134,17 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
                 let longitude = locationDictionary["longitude"]
                 
                 var restaurant : Restaurant = Restaurant()
-                restaurant.name = name as! String
+                restaurant.name = name
                 restaurant.location = Location(latitude: latitude!, longitude: longitude!)
-                restaurant.comments = comments as! String
+                restaurant.comments = comments
                 
                 for tag in tags {
                     restaurant.tags.append(tag)
                 }
+
+                restaurant.restaurantVisits = restaurantVisits
+
+//                restaurant.restaurantVisits = restaurantVisits
                 
 //                for restaurantVisit in restaurantVisits {
 //                    restaurant.restaurantVisits.append(restaurantVisit)
