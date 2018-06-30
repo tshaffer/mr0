@@ -19,7 +19,9 @@ class RestaurantSummaryTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("restaurantVC viewDidLoad")
+        print("RestaurantSummaryTVC viewDidLoad")
+        print("selectedRestaurant = \(String(describing: selectedRestaurant))")
+
     }
 
     @IBAction func addMenuItem(_ sender: Any) {

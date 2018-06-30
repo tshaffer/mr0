@@ -494,7 +494,7 @@
                                 <rect key="frame" x="16" y="32" width="343" height="321"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="AaW-ke-jLB" kind="embed" id="JgT-1b-Y2z"/>
+                                    <segue destination="AaW-ke-jLB" kind="embed" identifier="showRestaurantSummarySegue" id="JgT-1b-Y2z"/>
                                 </connections>
                             </containerView>
                         </subviews>

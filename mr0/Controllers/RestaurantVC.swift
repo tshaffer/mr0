@@ -10,8 +10,13 @@ import UIKit
 
 class RestaurantVC: UIViewController {
 
+    var selectedRestaurant: Restaurant?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("RestaurantVC viewDidLoad")
+        print("selectedRestaurant = \(String(describing: selectedRestaurant))")
 
         // Do any additional setup after loading the view.
     }
@@ -32,4 +37,21 @@ class RestaurantVC: UIViewController {
     }
     */
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        print("RestaurantVC prepare invoked")
+        print("segueIdentifier = \(String(describing: segue.identifier))")
+        
+        if (segue.identifier == "showRestaurantSummarySegue") {
+            if let restaurantSummaryTVC = segue.destination as? RestaurantSummaryTVC {
+                restaurantSummaryTVC.selectedRestaurant = selectedRestaurant;
+            }
+        }
+        //        if (segue.identifier == "addRestaurantSegue") {
+        //            if let restaurantController = segue.destination as? RestaurantTVC {
+        //                restaurantController.selectedRestaurant = selectedRestaurant
+        //            }
+        //        }
+        
+    }
 }

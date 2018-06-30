@@ -223,7 +223,13 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         print("restaurant review prepare for segue invoked")
-        
+
+            if (segue.identifier == "addRestaurantSegue") {
+                if let restaurantVC = segue.destination as? RestaurantVC {
+                    restaurantVC.selectedRestaurant = selectedRestaurant
+                }
+            }
+
 //        if (segue.identifier == "addRestaurantSegue") {
 //            if let restaurantController = segue.destination as? RestaurantTVC {
 //                restaurantController.selectedRestaurant = selectedRestaurant
