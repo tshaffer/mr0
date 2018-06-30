@@ -30,6 +30,7 @@
 		A9BCD13B20A71FD70083BBF7 /* RestaurantReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */; };
 		A9BCD13D20A732BB0083BBF7 /* FoodTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCD13C20A732BB0083BBF7 /* FoodTypeTableViewController.swift */; };
 		A9BCD13F20A794890083BBF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9BCD13E20A794890083BBF7 /* GoogleService-Info.plist */; };
+		A9C9B74220E7C0DB00AD159A /* RestaurantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C9B74120E7C0DA00AD159A /* RestaurantVC.swift */; };
 		A9E3AF0320C743220027BF06 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3AF0220C743220027BF06 /* RestaurantViewController.swift */; };
 		A9E3AF0520CB00970027BF06 /* RestaurantVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3AF0420CB00970027BF06 /* RestaurantVisit.swift */; };
 		B2A991AA84B304D13F74C8E6 /* Pods_mr0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DBC85C18745294B11BA196 /* Pods_mr0.framework */; };
@@ -62,6 +63,7 @@
 		A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantReviewViewController.swift; sourceTree = "<group>"; };
 		A9BCD13C20A732BB0083BBF7 /* FoodTypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypeTableViewController.swift; sourceTree = "<group>"; };
 		A9BCD13E20A794890083BBF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9C9B74120E7C0DA00AD159A /* RestaurantVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantVC.swift; sourceTree = "<group>"; };
 		A9E3AF0220C743220027BF06 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		A9E3AF0420CB00970027BF06 /* RestaurantVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantVisit.swift; sourceTree = "<group>"; };
 		CFC3A796DB3C51727B13BFD2 /* Pods-mr0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mr0.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mr0/Pods-mr0.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				A947578820A7AB41003FE19E /* LoginViewController.swift */,
 				A9B5AF6A20CDEB2600806F7B /* RestaurantTVC.swift */,
 				A947578A20A7ABA3003FE19E /* RegisterViewController.swift */,
+				A9C9B74120E7C0DA00AD159A /* RestaurantVC.swift */,
 				A97688B320D53F070032287D /* TagsViewController.swift */,
 			);
 			path = Controllers;
@@ -377,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C9B74220E7C0DB00AD159A /* RestaurantVC.swift in Sources */,
 				A947578920A7AB41003FE19E /* LoginViewController.swift in Sources */,
 				A9E3AF0320C743220027BF06 /* RestaurantViewController.swift in Sources */,
 				A9B5AF6D20CE19C200806F7B /* DatePickerViewController.swift in Sources */,
