@@ -8,34 +8,39 @@
 
 import UIKit
 
-class RestaurantVC: UIViewController {
-
+class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var menuItemsTable: UITableView!
+    
     var selectedRestaurant: Restaurant?
+
+    var menuItems = [MenuItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        menuItemsTable.delegate = self
+        menuItemsTable.dataSource = self
+        
         print("RestaurantVC viewDidLoad")
         print("selectedRestaurant = \(String(describing: selectedRestaurant))")
 
-        // Do any additional setup after loading the view.
+        var mi = MenuItem(label: "Burrito - Pollo Borracho")
+        menuItems.append(mi)
+        mi = MenuItem(label: "Tres Tacos")
+        menuItems.append(mi)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return menuItems.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier", for: indexPath)
+        let label = menuItems[indexPath.row].label
+        cell.textLabel?.text = label
+        return cell
     }
-    */
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

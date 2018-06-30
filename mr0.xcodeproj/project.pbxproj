@@ -14,6 +14,7 @@
 		A93377CF20BA20E1003D95C5 /* xbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A93377CE20BA20E1003D95C5 /* xbutton.png */; };
 		A9356FCE20E7CCE300D596C1 /* RestaurantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9356FCD20E7CCE300D596C1 /* RestaurantVC.swift */; };
 		A9356FD220E7CE2D00D596C1 /* RestaurantSummaryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9356FD120E7CE2D00D596C1 /* RestaurantSummaryTVC.swift */; };
+		A9356FD420E8403600D596C1 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9356FD320E8403600D596C1 /* MenuItem.swift */; };
 		A947578520A7A0AF003FE19E /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578420A7A0AF003FE19E /* Restaurant.swift */; };
 		A947578920A7AB41003FE19E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578820A7AB41003FE19E /* LoginViewController.swift */; };
 		A947578B20A7ABA3003FE19E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578A20A7ABA3003FE19E /* RegisterViewController.swift */; };
@@ -46,6 +47,7 @@
 		A93377CE20BA20E1003D95C5 /* xbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xbutton.png; sourceTree = "<group>"; };
 		A9356FCD20E7CCE300D596C1 /* RestaurantVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantVC.swift; sourceTree = "<group>"; };
 		A9356FD120E7CE2D00D596C1 /* RestaurantSummaryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSummaryTVC.swift; sourceTree = "<group>"; };
+		A9356FD320E8403600D596C1 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		A947578420A7A0AF003FE19E /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		A947578820A7AB41003FE19E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A947578A20A7ABA3003FE19E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				A9B2B1E520BC391400D5AB7F /* PhotoItem.swift */,
 				A9E3AF0420CB00970027BF06 /* RestaurantVisit.swift */,
 				A929283120D69EB80086EEEC /* Tag.swift */,
+				A9356FD320E8403600D596C1 /* MenuItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9356FD420E8403600D596C1 /* MenuItem.swift in Sources */,
 				A9356FCE20E7CCE300D596C1 /* RestaurantVC.swift in Sources */,
 				A947578920A7AB41003FE19E /* LoginViewController.swift in Sources */,
 				A9E3AF0320C743220027BF06 /* RestaurantViewController.swift in Sources */,
