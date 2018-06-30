@@ -10,17 +10,17 @@ import UIKit
 
 class RestaurantVC: UIViewController {
 
-    @IBOutlet weak var summaryTable: UITableView!
-    @IBOutlet weak var restaurantName: UILabel!
-    @IBOutlet weak var restaurantTags: UILabel!
-    @IBOutlet weak var restaurantComments: UITextView!
-    
-    @IBOutlet weak var menuItemsTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }    
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 
     /*
     // MARK: - Navigation
