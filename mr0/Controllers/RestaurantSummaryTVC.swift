@@ -11,7 +11,6 @@ import UIKit
 class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDelegate {
 
     @IBOutlet var restaurantSummaryTableView: UITableView!
-    @IBOutlet weak var name: UILabel!
     @IBOutlet weak var tags: UILabel!
     @IBOutlet weak var comments: UITextView!
     
@@ -25,8 +24,6 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
         print("restaurantSummaryTableView: \(String(describing: restaurantSummaryTableView))")
         
         print("tableViewHeader: \(String(describing: restaurantSummaryTableView.tableHeaderView ))")
-        
-        name.text = selectedRestaurant?.name
         
         if selectedRestaurant?.comments == "" {
             comments.text = "Add restaurant comments..."
@@ -47,7 +44,6 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
         
         print("RestaurantSummaryTVC viewDidLoad")
         print("selectedRestaurant = \(String(describing: selectedRestaurant))")
-
     }
 
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -56,33 +52,6 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
             header.textLabel?.text = selectedRestaurant?.name
         }
     }
-    
-//    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
-//    {
-//        let header = view as! UITableViewHeaderFooterView
-//        header.textLabel?.font = UIFont(name: "Futura", size: 38)!
-//        header.textLabel?.textColor = UIColor.lightGrayColor()
-//    }
-    
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let headerView = UIView()
-//        headerView.backgroundColor = UIColor.lightGray
-//
-//        let headerLabel = UILabel(frame: CGRect(x: 30, y: 0, width:
-//            tableView.bounds.size.width, height: tableView.bounds.size.height))
-//        headerLabel.font = UIFont(name: "Verdana", size: 20)
-//        headerLabel.textColor = UIColor.white
-//        if (section == 0) {
-//            headerLabel.text = selectedRestaurant?.name
-//        }
-//        else {
-//            headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
-//        }
-//        headerLabel.sizeToFit()
-//        headerView.addSubview(headerLabel)
-//
-//        return headerView
-//    }
     
     override func viewWillAppear(_ animated: Bool) {
         
