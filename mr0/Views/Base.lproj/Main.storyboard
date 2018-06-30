@@ -427,7 +427,7 @@
             <objects>
                 <viewController id="xZE-HM-MxJ" customClass="TagsViewController" customModule="mr0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yPc-m1-KfT">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="227"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="221"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ts6-Tc-xk3">
@@ -491,7 +491,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ghg-DB-p0R">
-                                <rect key="frame" x="16" y="32" width="343" height="227"/>
+                                <rect key="frame" x="16" y="32" width="343" height="221"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="AaW-ke-jLB" kind="embed" identifier="showRestaurantSummarySegue" id="JgT-1b-Y2z"/>
@@ -529,7 +529,7 @@
             <objects>
                 <tableViewController id="AaW-ke-jLB" customClass="RestaurantSummaryTVC" customModule="mr0" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="-1" id="AS6-6B-nB1">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="227"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="221"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
