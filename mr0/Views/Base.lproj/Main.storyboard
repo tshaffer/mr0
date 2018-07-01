@@ -427,7 +427,7 @@
             <objects>
                 <viewController id="xZE-HM-MxJ" customClass="TagsViewController" customModule="mr0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yPc-m1-KfT">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="221"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ts6-Tc-xk3">
@@ -497,16 +497,16 @@
                                     <segue destination="AaW-ke-jLB" kind="embed" identifier="showRestaurantSummarySegue" id="JgT-1b-Y2z"/>
                                 </connections>
                             </containerView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="76N-97-hvx">
-                                <rect key="frame" x="16" y="276" width="343" height="371"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="76N-97-hvx">
+                                <rect key="frame" x="16" y="261" width="343" height="386"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellReuseIdentifier" id="2Al-nZ-GQE">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellReuseIdentifier" id="2Al-nZ-GQE">
+                                        <rect key="frame" x="0.0" y="1" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Al-nZ-GQE" id="vVG-17-ccb">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -524,6 +524,56 @@
             </objects>
             <point key="canvasLocation" x="5192.8000000000002" y="-1759.0704647676164"/>
         </scene>
+        <!--Menu Item View Controller-->
+        <scene sceneID="1ag-rT-SDR">
+            <objects>
+                <viewController id="Ou4-sz-l70" customClass="MenuItemViewController" customModule="mr0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qbc-l6-Mfy" customClass="MenuItemViewContoller" customModule="mr0">
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6vr-AY-ekK">
+                                <rect key="frame" x="16" y="126" width="311" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="H3L-bd-Nnu">
+                                        <rect key="frame" x="62" y="11" width="243" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDM-EL-Oiq">
+                                        <rect key="frame" x="0.0" y="15" width="56" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add menu item comments..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6kL-5r-GX0">
+                                <rect key="frame" x="16" y="203" width="311" height="239"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter menu item name..." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Npu-V5-usH">
+                                <rect key="frame" x="16" y="74" width="311" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="4ZS-St-6YU"/>
+                    </view>
+                    <size key="freeformSize" width="343" height="667"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X4j-Ze-6hQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6716" y="-2438.6806596701649"/>
+        </scene>
         <!--Restaurant SummaryTVC-->
         <scene sceneID="bBl-EY-uxe">
             <objects>
@@ -533,7 +583,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
-                            <tableViewSection headerTitle="Restaurant Summary" id="1NQ-1U-Xdo">
+                            <tableViewSection headerTitle="&lt;restaurant name placeholder&gt;" id="1NQ-1U-Xdo">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="eO4-3J-6tt">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
@@ -594,6 +644,7 @@
                                                             <state key="normal" title="+ Add a menu item..."/>
                                                             <connections>
                                                                 <action selector="addMenuItem:" destination="AaW-ke-jLB" eventType="touchUpInside" id="c4F-Av-sHy"/>
+                                                                <segue destination="Ou4-sz-l70" kind="show" id="gmw-9J-PrD"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -766,7 +817,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Krz-jj-Fc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rRL-vu-XKU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6682" y="-1759"/>
+            <point key="canvasLocation" x="6743" y="-1759"/>
         </scene>
         <!--Date Picker View Controller-->
         <scene sceneID="Q2R-x8-hKp">
@@ -793,7 +844,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNj-Vn-hh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7386" y="-1759"/>
+            <point key="canvasLocation" x="7585" y="-1759"/>
         </scene>
         <!--Places-->
         <scene sceneID="QJQ-ZP-RVD">
@@ -1082,6 +1133,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bwZ-NY-maU"/>
-        <segue reference="3Sb-kW-wef"/>
+        <segue reference="fGy-Ro-z9F"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,7 @@
 		A9356FCE20E7CCE300D596C1 /* RestaurantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9356FCD20E7CCE300D596C1 /* RestaurantVC.swift */; };
 		A9356FD220E7CE2D00D596C1 /* RestaurantSummaryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9356FD120E7CE2D00D596C1 /* RestaurantSummaryTVC.swift */; };
 		A9356FD420E8403600D596C1 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9356FD320E8403600D596C1 /* MenuItem.swift */; };
+		A9356FD620E916A100D596C1 /* MenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9356FD520E916A100D596C1 /* MenuItemViewController.swift */; };
 		A947578520A7A0AF003FE19E /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578420A7A0AF003FE19E /* Restaurant.swift */; };
 		A947578920A7AB41003FE19E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578820A7AB41003FE19E /* LoginViewController.swift */; };
 		A947578B20A7ABA3003FE19E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947578A20A7ABA3003FE19E /* RegisterViewController.swift */; };
@@ -48,6 +49,7 @@
 		A9356FCD20E7CCE300D596C1 /* RestaurantVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantVC.swift; sourceTree = "<group>"; };
 		A9356FD120E7CE2D00D596C1 /* RestaurantSummaryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSummaryTVC.swift; sourceTree = "<group>"; };
 		A9356FD320E8403600D596C1 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		A9356FD520E916A100D596C1 /* MenuItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemViewController.swift; sourceTree = "<group>"; };
 		A947578420A7A0AF003FE19E /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		A947578820A7AB41003FE19E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A947578A20A7ABA3003FE19E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				A9B5AF6A20CDEB2600806F7B /* RestaurantTVC.swift */,
 				A947578A20A7ABA3003FE19E /* RegisterViewController.swift */,
 				A97688B320D53F070032287D /* TagsViewController.swift */,
+				A9356FD520E916A100D596C1 /* MenuItemViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				A9B2B1E820BC3BB000D5AB7F /* PhotoItemTableViewCell.swift in Sources */,
 				A92E085020C45051007217A5 /* LandingPageViewController.swift in Sources */,
 				A9BCD13B20A71FD70083BBF7 /* RestaurantReviewViewController.swift in Sources */,
+				A9356FD620E916A100D596C1 /* MenuItemViewController.swift in Sources */,
 				A9356FD220E7CE2D00D596C1 /* RestaurantSummaryTVC.swift in Sources */,
 				A903F93E20AA4FC300D94A14 /* CameraHandler.swift in Sources */,
 				A97688B420D53F070032287D /* TagsViewController.swift in Sources */,
