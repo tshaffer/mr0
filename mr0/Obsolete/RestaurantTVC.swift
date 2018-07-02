@@ -82,6 +82,7 @@ class RestaurantTVC: UITableViewController, UITextViewDelegate, SetVisitDateDele
         specifiedTags = tags
     }
     
+    // FLIBBET
     // MEMBER METHODS
     @IBAction func ratingChanged(_ sender: UISlider) {
         let rating = Float(Float(sender.value) / 10)

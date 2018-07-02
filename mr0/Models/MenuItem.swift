@@ -11,6 +11,7 @@ import Foundation
 struct MenuItem: Codable {
     
     var label : String
+    var rating : Float = 5.0
     
     init(label : String) {
         self.label = label

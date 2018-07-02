@@ -153,16 +153,15 @@
 		A97688B920D6894A0032287D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A9356FD120E7CE2D00D596C1 /* RestaurantSummaryTVC.swift */,
-				A9356FCD20E7CCE300D596C1 /* RestaurantVC.swift */,
 				A903F93D20AA4FC300D94A14 /* CameraHandler.swift */,
 				A9B5AF6C20CE19C200806F7B /* DatePickerViewController.swift */,
 				A92E084F20C45051007217A5 /* LandingPageViewController.swift */,
 				A947578820A7AB41003FE19E /* LoginViewController.swift */,
-				A9B5AF6A20CDEB2600806F7B /* RestaurantTVC.swift */,
-				A947578A20A7ABA3003FE19E /* RegisterViewController.swift */,
-				A97688B320D53F070032287D /* TagsViewController.swift */,
 				A9356FD520E916A100D596C1 /* MenuItemViewController.swift */,
+				A947578A20A7ABA3003FE19E /* RegisterViewController.swift */,
+				A9356FD120E7CE2D00D596C1 /* RestaurantSummaryTVC.swift */,
+				A9356FCD20E7CCE300D596C1 /* RestaurantVC.swift */,
+				A97688B320D53F070032287D /* TagsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +184,7 @@
 				A92E084D20C2CD46007217A5 /* MapViewController.swift */,
 				A94EF9F4209E6A6800443AB3 /* MemoRappViewController.swift */,
 				A9BCD13A20A71FD70083BBF7 /* RestaurantReviewViewController.swift */,
+				A9B5AF6A20CDEB2600806F7B /* RestaurantTVC.swift */,
 				A9E3AF0220C743220027BF06 /* RestaurantViewController.swift */,
 			);
 			path = Obsolete;

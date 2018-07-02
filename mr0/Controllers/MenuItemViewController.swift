@@ -10,17 +10,27 @@ import UIKit
 
 class MenuItemViewController: UIViewController {
 
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var comments: UITextView!
+    @IBOutlet weak var ratingSlider: UISlider!
+    @IBOutlet weak var ratingLabel: UILabel!
+    
+    var menuItem: MenuItem?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // FLIBBET
     
+    @IBAction func ratingChanged(_ sender: UISlider) {
+        let rating = Float(Float(sender.value) / 10)
+        menuItem?.rating = rating
+        let ratingAsString = (String(format: "%.01f", rating))
+        ratingLabel.text = "MenuItem rating: \(ratingAsString)"
+    }
 
     /*
     // MARK: - Navigation

@@ -482,7 +482,7 @@
             </objects>
             <point key="canvasLocation" x="6181.6000000000004" y="-833.43328335832086"/>
         </scene>
-        <!--RestaurantVC-->
+        <!--Restaurant-->
         <scene sceneID="n5g-Lp-Al8">
             <objects>
                 <viewController id="TWV-Ec-Bnc" customClass="RestaurantVC" customModule="mr0" customModuleProvider="target" sceneMemberID="viewController">
@@ -516,6 +516,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4i4-dj-Lf4"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Restaurant" id="jfk-Z3-ND9">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="CPc-Zk-tgv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="0na-R0-UTQ"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="menuItemsTable" destination="76N-97-hvx" id="yTb-bq-YkH"/>
                     </connections>
@@ -524,7 +528,7 @@
             </objects>
             <point key="canvasLocation" x="5192.8000000000002" y="-1759.0704647676164"/>
         </scene>
-        <!--Menu Item View Controller-->
+        <!--MenuItem-->
         <scene sceneID="1ag-rT-SDR">
             <objects>
                 <viewController id="Ou4-sz-l70" customClass="MenuItemViewController" customModule="mr0" customModuleProvider="target" sceneMemberID="viewController">
@@ -539,6 +543,9 @@
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="H3L-bd-Nnu">
                                         <rect key="frame" x="62" y="11" width="243" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="ratingChanged:" destination="Ou4-sz-l70" eventType="valueChanged" id="9Q8-Rv-Qh9"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDM-EL-Oiq">
                                         <rect key="frame" x="0.0" y="15" width="56" height="21"/>
@@ -568,7 +575,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4ZS-St-6YU"/>
                     </view>
+                    <navigationItem key="navigationItem" title="MenuItem" id="hfD-kn-672">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="zns-mi-Rca"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="oju-iG-Ite"/>
+                    </navigationItem>
                     <size key="freeformSize" width="343" height="667"/>
+                    <connections>
+                        <outlet property="comments" destination="6kL-5r-GX0" id="ntW-hK-eFB"/>
+                        <outlet property="name" destination="Npu-V5-usH" id="ai6-7K-LNj"/>
+                        <outlet property="ratingLabel" destination="mDM-EL-Oiq" id="5kM-Rq-y0C"/>
+                        <outlet property="ratingSlider" destination="H3L-bd-Nnu" id="Vdh-Bt-PiQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4j-Ze-6hQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -644,7 +661,7 @@
                                                             <state key="normal" title="+ Add a menu item..."/>
                                                             <connections>
                                                                 <action selector="addMenuItem:" destination="AaW-ke-jLB" eventType="touchUpInside" id="c4F-Av-sHy"/>
-                                                                <segue destination="Ou4-sz-l70" kind="show" id="gmw-9J-PrD"/>
+                                                                <segue destination="Ou4-sz-l70" kind="show" identifier="addMenuItemSegue" id="yR9-Sp-x2s"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
