@@ -427,7 +427,7 @@
             <objects>
                 <viewController id="xZE-HM-MxJ" customClass="TagsViewController" customModule="mr0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yPc-m1-KfT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="221"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ts6-Tc-xk3">
@@ -540,15 +540,15 @@
                                 <rect key="frame" x="16" y="126" width="311" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="H3L-bd-Nnu">
-                                        <rect key="frame" x="62" y="11" width="243" height="30"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="H3L-bd-Nnu">
+                                        <rect key="frame" x="97" y="11" width="208" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="ratingChanged:" destination="Ou4-sz-l70" eventType="valueChanged" id="9Q8-Rv-Qh9"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDM-EL-Oiq">
-                                        <rect key="frame" x="0.0" y="15" width="56" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDM-EL-Oiq">
+                                        <rect key="frame" x="0.0" y="15" width="91" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -557,14 +557,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add menu item comments..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6kL-5r-GX0">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6kL-5r-GX0">
                                 <rect key="frame" x="16" y="203" width="311" height="239"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter menu item name..." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Npu-V5-usH">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter menu item name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Npu-V5-usH">
                                 <rect key="frame" x="16" y="74" width="311" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -576,8 +576,16 @@
                         <viewLayoutGuide key="safeArea" id="4ZS-St-6YU"/>
                     </view>
                     <navigationItem key="navigationItem" title="MenuItem" id="hfD-kn-672">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="zns-mi-Rca"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="oju-iG-Ite"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="zns-mi-Rca">
+                            <connections>
+                                <segue destination="vMl-vQ-Jw9" kind="unwind" identifier="cancelThenUnwindToRestaurantReviewSegue" unwindAction="unwindToRestaurantReviewWithUnwindSegue:" id="gBA-Dm-04B"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="oju-iG-Ite">
+                            <connections>
+                                <segue destination="vMl-vQ-Jw9" kind="unwind" identifier="saveThenUnwindToRestaurantReviewSegue" unwindAction="unwindToRestaurantReviewWithUnwindSegue:" id="DSw-Ha-QQ2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="343" height="667"/>
                     <connections>
@@ -588,8 +596,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4j-Ze-6hQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vMl-vQ-Jw9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6716" y="-2438.6806596701649"/>
+            <point key="canvasLocation" x="6716" y="-2439.130434782609"/>
         </scene>
         <!--Restaurant SummaryTVC-->
         <scene sceneID="bBl-EY-uxe">
@@ -1149,7 +1158,7 @@
         <image name="AddIcon" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bwZ-NY-maU"/>
-        <segue reference="fGy-Ro-z9F"/>
+        <segue reference="qQU-dI-hXo"/>
+        <segue reference="3Sb-kW-wef"/>
     </inferredMetricsTieBreakers>
 </document>

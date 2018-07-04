@@ -25,23 +25,30 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         print("RestaurantVC viewDidLoad")
         print("selectedRestaurant = \(String(describing: selectedRestaurant))")
 
-        var mi = MenuItem(label: "Burrito - Pollo Borracho")
+        var mi = MenuItem(name: "Burrito - Pollo Borracho")
         menuItems.append(mi)
-        mi = MenuItem(label: "Tres Tacos")
+        mi = MenuItem(name: "Tres Tacos")
         menuItems.append(mi)
     }
 
+    @IBAction func unwindToRestaurantReview(unwindSegue: UIStoryboardSegue) {
+        print("unwindToRestaurantReview")
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier", for: indexPath)
-        let label = menuItems[indexPath.row].label
+        let label = menuItems[indexPath.row].name
         cell.textLabel?.text = label
         return cell
     }
 
+    @IBAction func unwindToRestaurantReview(segue: UIStoryboardSegue) {
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         print("RestaurantVC prepare invoked")
