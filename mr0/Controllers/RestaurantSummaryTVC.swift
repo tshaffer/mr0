@@ -8,15 +8,17 @@
 
 import UIKit
 
-class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDelegate {
-
-    @IBOutlet var restaurantSummaryTableView: UITableView!
+// flibbet
+class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDelegate, SaveMenuItemDelegate {
+    
+        @IBOutlet var restaurantSummaryTableView: UITableView!
     @IBOutlet weak var tags: UILabel!
     @IBOutlet weak var comments: UITextView!
     
     var selectedRestaurant: Restaurant?
 
     var specifiedTags: [Tag] = []
+    var menuItems: [MenuItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +69,10 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
     func setTags(tags: [Tag]) {
         print(tags)
         specifiedTags = tags
+    }
+    
+    func saveMenuItem(menuItem: MenuItem) {
+        menuItems.append(menuItem)
     }
     
     // MEMBER METHODS
@@ -152,7 +158,7 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
         }
     }
     
-    
+    // flibbet
     @IBAction func addMenuItem(_ sender: Any) {
         print("addMenuItem")
     }

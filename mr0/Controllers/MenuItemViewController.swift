@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol SaveMenuItemDelegate {
+    func saveMenuItem(menuItem: MenuItem)
+}
+
 // flibbet
 class MenuItemViewController: UIViewController, UITextViewDelegate  {
+
+    var saveMenuItemDelegate : SaveMenuItemDelegate?
 
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var comments: UITextView!
@@ -63,10 +69,10 @@ class MenuItemViewController: UIViewController, UITextViewDelegate  {
             textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
         }
             
-            // Else if the text view's placeholder is showing and the
-            // length of the replacement string is greater than 0, set
-            // the text color to black then set its text to the
-            // replacement string
+        // Else if the text view's placeholder is showing and the
+        // length of the replacement string is greater than 0, set
+        // the text color to black then set its text to the
+        // replacement string
         else if textView.textColor == UIColor.lightGray && !text.isEmpty {
             textView.textColor = UIColor.black
             textView.text = text
@@ -121,5 +127,7 @@ class MenuItemViewController: UIViewController, UITextViewDelegate  {
         menuItem.comments = comments.text!
         menuItem.rating = ratingSlider.value / 10
         print("MenuItem: ", menuItem)
+        
+        saveMenuItemDelegate?.saveMenuItem(menuItem: menuItem)
     }
 }
