@@ -517,14 +517,23 @@
                         <viewLayoutGuide key="safeArea" id="4i4-dj-Lf4"/>
                     </view>
                     <navigationItem key="navigationItem" title="Restaurant" id="jfk-Z3-ND9">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="CPc-Zk-tgv"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="0na-R0-UTQ"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="CPc-Zk-tgv">
+                            <connections>
+                                <segue destination="yDh-Gw-jW2" kind="unwind" identifier="cancelThenUnwindToLandingPageSegue" unwindAction="unwindToLandingPageWithUnwindSegue:" id="kPL-Jn-rZl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="0na-R0-UTQ">
+                            <connections>
+                                <segue destination="yDh-Gw-jW2" kind="unwind" identifier="saveThenUnwindToLandingPageSegue" unwindAction="unwindToLandingPageWithUnwindSegue:" id="RT7-e2-hMK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuItemsTable" destination="76N-97-hvx" id="yTb-bq-YkH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mL5-UQ-lgy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="yDh-Gw-jW2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5192.8000000000002" y="-1759.0704647676164"/>
         </scene>

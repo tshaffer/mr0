@@ -12,7 +12,6 @@ protocol SaveMenuItemDelegate {
     func saveMenuItem(menuItem: MenuItem)
 }
 
-// flibbet
 class MenuItemViewController: UIViewController, UITextViewDelegate  {
 
     var saveMenuItemDelegate : SaveMenuItemDelegate?
@@ -27,7 +26,7 @@ class MenuItemViewController: UIViewController, UITextViewDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        comments.text = "Add restaurant comments..."
+        comments.text = "Add menu item comments..."
         comments.textColor = UIColor.lightGray
         comments.becomeFirstResponder()
         comments.selectedTextRange = comments.textRange(from: comments.beginningOfDocument, to: comments.beginningOfDocument)

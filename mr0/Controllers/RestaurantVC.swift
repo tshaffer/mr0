@@ -8,13 +8,15 @@
 
 import UIKit
 
-class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SaveCommentsDelegate, SetTagsDelegate, SaveMenuItemDelegate {
     
     @IBOutlet weak var menuItemsTable: UITableView!
     
     var selectedRestaurant: Restaurant?
-
-    var menuItems = [MenuItem]()
+    
+    var comments: String = ""
+    var specifiedTags: [Tag] = []
+    var menuItems: [MenuItem] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +33,16 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         menuItems.append(mi)
     }
 
-    @IBAction func unwindToRestaurantReview(unwindSegue: UIStoryboardSegue) {
-        print("unwindToRestaurantReview")
+    func saveComments(comments: String) {
+        self.comments = comments
+    }
+    
+    func saveMenuItem(menuItem: MenuItem) {
+        menuItems.append(menuItem)
+    }
+    
+    func setTags(tags: [Tag]) {
+        specifiedTags = tags
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,24 +56,24 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         return cell
     }
 
-    @IBAction func unwindToRestaurantReview(segue: UIStoryboardSegue) {
-    }
+//    @IBAction func unwindToRestaurantReview(segue: UIStoryboardSegue) {
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        print("RestaurantVC prepare invoked")
-        print("segueIdentifier = \(String(describing: segue.identifier))")
+        print ("RestaurantVC#prepare: segue.identifier is: \(String(describing: segue.identifier))")
         
         if (segue.identifier == "showRestaurantSummarySegue") {
             if let restaurantSummaryTVC = segue.destination as? RestaurantSummaryTVC {
+                restaurantSummaryTVC.saveCommentsDelegate = self
+                restaurantSummaryTVC.setTagsDelegate = self
+                restaurantSummaryTVC.saveMenuItemDelegate = self
                 restaurantSummaryTVC.selectedRestaurant = selectedRestaurant;
             }
         }
-        //        if (segue.identifier == "addRestaurantSegue") {
-        //            if let restaurantController = segue.destination as? RestaurantTVC {
-        //                restaurantController.selectedRestaurant = selectedRestaurant
-        //            }
-        //        }
-        
+    }
+    
+    @IBAction func unwindToRestaurantReview(unwindSegue: UIStoryboardSegue) {
+        print("unwindToRestaurantReview")
     }
 }

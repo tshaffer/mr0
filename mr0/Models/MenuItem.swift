@@ -10,7 +10,7 @@ import Foundation
 
 struct MenuItem: Codable {
     
-    var name : String
+    var name : String = ""
     var comments : String = ""
     var rating : Float = 5.0
     

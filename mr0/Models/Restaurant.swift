@@ -20,6 +20,7 @@ struct Restaurant: Codable {
     var comments : String = ""
     var location : Location = Location(latitude : 0, longitude : 0);
     var photos = [PhotoItem]()
+    var menuItems = [MenuItem]()
 
     var restaurantVisits = [RestaurantVisit]()
     

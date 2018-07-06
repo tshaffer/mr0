@@ -8,10 +8,18 @@
 
 import UIKit
 
+protocol SaveCommentsDelegate {
+    func saveComments(comments: String)
+}
+
 // flibbet
 class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDelegate, SaveMenuItemDelegate {
     
-        @IBOutlet var restaurantSummaryTableView: UITableView!
+    var saveCommentsDelegate : SaveCommentsDelegate?
+    var setTagsDelegate : SetTagsDelegate?
+    var saveMenuItemDelegate : SaveMenuItemDelegate?
+    
+    @IBOutlet var restaurantSummaryTableView: UITableView!
     @IBOutlet weak var tags: UILabel!
     @IBOutlet weak var comments: UITextView!
     
@@ -65,14 +73,21 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
 //        updateDateLabel()
     }
     
+    // FLIBBET
+    // need to invoke delegate methods on RestaurantVC to save Tags and comments
+    
     // DELEGATE METHODS
     func setTags(tags: [Tag]) {
         print(tags)
         specifiedTags = tags
+        
+        setTagsDelegate?.setTags(tags: specifiedTags)
     }
     
+    // flibbet
     func saveMenuItem(menuItem: MenuItem) {
         menuItems.append(menuItem)
+        saveMenuItemDelegate?.saveMenuItem(menuItem: menuItem)
     }
     
     // MEMBER METHODS
@@ -120,6 +135,8 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
         let currentText:String = textView.text
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
         
+        saveCommentsDelegate?.saveComments(comments: updatedText)
+
         // If updated text view will be empty, add the placeholder
         // and set the cursor to the beginning of the text view
         if updatedText.isEmpty {
@@ -165,7 +182,7 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        print ("prepare: segue.identifier is: \(String(describing: segue.identifier))")
+        print ("RestaurantSummaryTVC#prepare: segue.identifier is: \(String(describing: segue.identifier))")
         
         if segue.identifier == "saveThenUnwindToLandingPageSegue" {
 //            self.saveRestaurant()
@@ -182,7 +199,67 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
             vc.setTagsDelegate = self
             vc.restaurantTags = self.specifiedTags
         }
+        else if segue.identifier == "addMenuItemSegue" {
+            let vc = segue.destination as! MenuItemViewController
+            vc.saveMenuItemDelegate = self
+        }
     }
+    
+    // flibbet
+    
+//    func saveRestaurant() {
+//        
+//        populateSelectedRestaurantFromUI()
+//        
+//        print("saveRestaurant")
+//        print(restaurantName.text!)
+//        print(specifiedTags)
+//        print(restaurantComments.text!)
+//        
+//        // add restaurant information to the database
+//        let restaurantsDB = Database.database().reference().child("Restaurants")
+//        
+//        let encoder = JSONEncoder()
+//        encoder.outputFormatting = .prettyPrinted
+//        
+//        do {
+//            
+//            if (selectedRestaurant?.dbId == "") {
+//                selectedRestaurant?.dbId = UUID().uuidString
+//            }
+//            
+//            let data = try encoder.encode(selectedRestaurant)
+//            print(String(data: data, encoding: .utf8)!)
+//            let dataAsString = String(data: data, encoding: .utf8)!
+//            print(dataAsString)
+//            let restaurantDictionary = ["Sender": Auth.auth().currentUser?.email ?? "ted@roku.com",
+//                                        "RestaurantBody": dataAsString] as [String : Any]
+//            
+//            //            restaurantsDB.childByAutoId().setValue(restaurantDictionary) {
+//            restaurantsDB.child((selectedRestaurant?.dbId)!).setValue(restaurantDictionary) {
+//                (error, reference) in
+//                if (error != nil) {
+//                    print(error!)
+//                }
+//                else {
+//                    print("Restaurant saved successfully")
+//                }
+//            }
+//        }
+//        catch {
+//            print("encoder error")
+//        }
+//    }
+//    
+//    func populateSelectedRestaurantFromUI() {
+//        
+//        for tag in specifiedTags {
+//            selectedRestaurant?.tags.append(tag.label)
+//        }
+//        
+//        selectedRestaurant?.comments = restaurantComments.text
+//    }
+    
     // MARK: - Table view data source
 
 //    override func numberOfSections(in tableView: UITableView) -> Int {
