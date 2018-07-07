@@ -45,6 +45,7 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func saveMenuItem(menuItem: MenuItem) {
         menuItems.append(menuItem)
+        menuItemsTable.reloadData()
     }
     
     func setTags(tags: [Tag]) {
