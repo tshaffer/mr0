@@ -98,6 +98,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
                 restaurant.location = Location(latitude: latitude!, longitude: longitude!)
                 restaurant.comments = comments
                 
+                restaurant.tags.removeAll()
                 for tag in tags {
                     restaurant.tags.append(tag)
                 }
@@ -224,18 +225,11 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         
         print("restaurant review prepare for segue invoked")
 
-            if (segue.identifier == "addRestaurantSegue") {
-                if let restaurantVC = segue.destination as? RestaurantVC {
-                    restaurantVC.selectedRestaurant = selectedRestaurant
-                }
+        if (segue.identifier == "addRestaurantSegue") {
+            if let restaurantVC = segue.destination as? RestaurantVC {
+                restaurantVC.selectedRestaurant = selectedRestaurant
             }
-
-//        if (segue.identifier == "addRestaurantSegue") {
-//            if let restaurantController = segue.destination as? RestaurantTVC {
-//                restaurantController.selectedRestaurant = selectedRestaurant
-//            }
-//        }
-        
+        }
     }
     
     @IBAction func unwindToLandingPage(unwindSegue: UIStoryboardSegue) {

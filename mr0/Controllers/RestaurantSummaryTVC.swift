@@ -29,6 +29,9 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
     var menuItems: [MenuItem] = []
     
     override func viewDidLoad() {
+        
+        print ("RestaurantSummaryTVC viewDidLoad")
+
         super.viewDidLoad()
         
         print("restaurantSummaryTableView: \(String(describing: restaurantSummaryTableView))")
@@ -46,6 +49,7 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
         }
         comments.delegate = self
 
+        specifiedTags.removeAll()
         for tagLabel in (selectedRestaurant?.tags)! {
             let newTag = Tag(label: tagLabel)
             specifiedTags.append(newTag)
@@ -100,6 +104,7 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
     
     func populateSelectedRestaurantFromUI() {
         
+        selectedRestaurant?.tags.removeAll()
         for tag in specifiedTags {
             selectedRestaurant?.tags.append(tag.label)
         }
@@ -184,17 +189,17 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
         
         print ("RestaurantSummaryTVC#prepare: segue.identifier is: \(String(describing: segue.identifier))")
         
-        if segue.identifier == "saveThenUnwindToLandingPageSegue" {
-//            self.saveRestaurant()
-        }
-        else if (segue.identifier == "cancelThenUnwindToLandingPageSegue") {
-            print("operation cancelled");
-        }
-        if segue.identifier == "setVisitDateSegue" {
-            let vc = segue.destination as! DatePickerViewController
-//            vc.setVisitDateDelegate = self
-        }
-        else if segue.identifier == "showTagsViewControllerSegue" {
+//        if segue.identifier == "saveThenUnwindToLandingPageSegue" {
+////            self.saveRestaurant()
+//        }
+//        else if (segue.identifier == "cancelThenUnwindToLandingPageSegue") {
+//            print("operation cancelled");
+//        }
+//        if segue.identifier == "setVisitDateSegue" {
+//            let vc = segue.destination as! DatePickerViewController
+////            vc.setVisitDateDelegate = self
+//        }
+        if segue.identifier == "showTagsViewControllerSegue" {
             let vc = segue.destination as! TagsViewController
             vc.setTagsDelegate = self
             vc.restaurantTags = self.specifiedTags
@@ -204,127 +209,4 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
             vc.saveMenuItemDelegate = self
         }
     }
-    
-    // flibbet
-    
-//    func saveRestaurant() {
-//        
-//        populateSelectedRestaurantFromUI()
-//        
-//        print("saveRestaurant")
-//        print(restaurantName.text!)
-//        print(specifiedTags)
-//        print(restaurantComments.text!)
-//        
-//        // add restaurant information to the database
-//        let restaurantsDB = Database.database().reference().child("Restaurants")
-//        
-//        let encoder = JSONEncoder()
-//        encoder.outputFormatting = .prettyPrinted
-//        
-//        do {
-//            
-//            if (selectedRestaurant?.dbId == "") {
-//                selectedRestaurant?.dbId = UUID().uuidString
-//            }
-//            
-//            let data = try encoder.encode(selectedRestaurant)
-//            print(String(data: data, encoding: .utf8)!)
-//            let dataAsString = String(data: data, encoding: .utf8)!
-//            print(dataAsString)
-//            let restaurantDictionary = ["Sender": Auth.auth().currentUser?.email ?? "ted@roku.com",
-//                                        "RestaurantBody": dataAsString] as [String : Any]
-//            
-//            //            restaurantsDB.childByAutoId().setValue(restaurantDictionary) {
-//            restaurantsDB.child((selectedRestaurant?.dbId)!).setValue(restaurantDictionary) {
-//                (error, reference) in
-//                if (error != nil) {
-//                    print(error!)
-//                }
-//                else {
-//                    print("Restaurant saved successfully")
-//                }
-//            }
-//        }
-//        catch {
-//            print("encoder error")
-//        }
-//    }
-//    
-//    func populateSelectedRestaurantFromUI() {
-//        
-//        for tag in specifiedTags {
-//            selectedRestaurant?.tags.append(tag.label)
-//        }
-//        
-//        selectedRestaurant?.comments = restaurantComments.text
-//    }
-    
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 2
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

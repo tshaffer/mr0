@@ -11,8 +11,6 @@ import Firebase
 import FirebaseStorage
 import FirebaseUI
 
-// flibbet
-
 protocol SetTagsDelegate {
     func setTags(tags: [Tag])
 }

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
+import FirebaseUI
 
 class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SaveCommentsDelegate, SetTagsDelegate, SaveMenuItemDelegate {
     
@@ -19,6 +22,9 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var menuItems: [MenuItem] = []
 
     override func viewDidLoad() {
+        
+        print ("RestaurantVC viewDidLoad")
+        
         super.viewDidLoad()
         
         menuItemsTable.delegate = self
@@ -56,9 +62,6 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         return cell
     }
 
-//    @IBAction func unwindToRestaurantReview(segue: UIStoryboardSegue) {
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         print ("RestaurantVC#prepare: segue.identifier is: \(String(describing: segue.identifier))")
@@ -71,9 +74,61 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 restaurantSummaryTVC.selectedRestaurant = selectedRestaurant;
             }
         }
+        else if (segue.identifier == "saveThenUnwindToLandingPageSegue") {
+            saveRestaurant()
+        }
     }
     
     @IBAction func unwindToRestaurantReview(unwindSegue: UIStoryboardSegue) {
         print("unwindToRestaurantReview")
+    }
+    
+    func populateSelectedRestaurantFromUI() {
+        
+        selectedRestaurant?.comments = comments
+        
+        selectedRestaurant?.tags.removeAll()
+        for tag in specifiedTags {
+            selectedRestaurant?.tags.append(tag.label)
+        }
+        
+        selectedRestaurant?.menuItems = menuItems
+    }
+    
+    func saveRestaurant() {
+
+        populateSelectedRestaurantFromUI()
+
+        let restaurantsDB = Database.database().reference().child("Restaurants")
+
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+
+        do {
+
+            if (selectedRestaurant?.dbId == "") {
+                selectedRestaurant?.dbId = UUID().uuidString
+            }
+
+            let data = try encoder.encode(selectedRestaurant)
+            print(String(data: data, encoding: .utf8)!)
+            let dataAsString = String(data: data, encoding: .utf8)!
+            print(dataAsString)
+            let restaurantDictionary = ["Sender": Auth.auth().currentUser?.email ?? "ted@roku.com",
+                                        "RestaurantBody": dataAsString] as [String : Any]
+
+            restaurantsDB.child((selectedRestaurant?.dbId)!).setValue(restaurantDictionary) {
+                (error, reference) in
+                if (error != nil) {
+                    print(error!)
+                }
+                else {
+                    print("Restaurant saved successfully")
+                }
+            }
+        }
+        catch {
+            print("encoder error")
+        }
     }
 }
