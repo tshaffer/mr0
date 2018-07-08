@@ -84,6 +84,42 @@ class DBInterface {
                 let comments = restaurantDictionary["comments"] as! String
                 let tags = restaurantDictionary["tags"] as! [String]
                 let rating = restaurantDictionary["rating"] as! Float
+
+                var menuItems = [MenuItem]()
+                
+                let menuItemsDictionaryArray = restaurantDictionary["menuItems"] as! [Dictionary<String, AnyObject>]
+                for menuItemO in menuItemsDictionaryArray {
+                    let menuItemDictionary = menuItemO as Dictionary<String, AnyObject>
+                    let menuItemName = menuItemDictionary["name"]
+                    let menuItemComments = menuItemDictionary["comments"]
+                    let menuItemRating = menuItemDictionary["rating"]
+                    
+                    var menuItem = MenuItem(name: menuItemName as! String)
+                    menuItem.comments = menuItemComments as! String
+                    menuItem.rating = menuItemRating as! Float
+                    
+                    menuItems.append(menuItem)
+                    
+                }
+//                print("????? menuItem + \(String(describing: restaurantDictionary["menuItems"]))")
+//
+////                let myMenuItems : [Any] = restaurantDictionary["menuItems"] as! [Any]
+////                print(myMenuItems)
+//
+//                let alsoMyMenuItems = restaurantDictionary["menuItems"] as! [Dictionary<String, AnyObject>]
+//                print(alsoMyMenuItems)
+//
+////                let myMenuItems : [MenuItem] = restaurantDictionary["menuItems"] as! [MenuItem]
+//                for o in alsoMyMenuItems {
+//                    print(o)
+//
+//                    let z = o as Dictionary<String, AnyObject>
+//                    print(z)
+//
+//                    let q = z["name"] as! String
+//                    print(q)
+//
+//                }
                 
                 var restaurantVisits = [RestaurantVisit]()
                 
@@ -113,6 +149,8 @@ class DBInterface {
                 for tag in tags {
                     restaurant.tags.append(tag)
                 }
+                
+                restaurant.menuItems = menuItems
                 
                 restaurant.rating = rating
                 
