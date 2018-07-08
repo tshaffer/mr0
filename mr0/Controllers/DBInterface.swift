@@ -87,17 +87,11 @@ class DBInterface {
 
                 var menuItems = [MenuItem]()
                 
-                let menuItemsDictionaryArray = restaurantDictionary["menuItems"] as! [Dictionary<String, AnyObject>]
-                for menuItemDictionary in menuItemsDictionaryArray {
-//                    let menuItemDictionary = menuItemDictionaryItem as Dictionary<String, AnyObject>
-                    let menuItemName = menuItemDictionary["name"]
-                    let menuItemComments = menuItemDictionary["comments"]
-                    let menuItemRating = menuItemDictionary["rating"]
-                    
-                    var menuItem = MenuItem(name: menuItemName as! String)
-                    menuItem.comments = menuItemComments as! String
-                    menuItem.rating = menuItemRating as! Float
-                    
+                let menuItemDictionaries = restaurantDictionary["menuItems"] as! [Dictionary<String, AnyObject>]
+                for menuItemDictionary in menuItemDictionaries {
+                    var menuItem = MenuItem(name: menuItemDictionary["name"] as! String)
+                    menuItem.comments = menuItemDictionary["comments"] as! String
+                    menuItem.rating = menuItemDictionary["rating"]as! Float
                     menuItems.append(menuItem)
                 }
                 
