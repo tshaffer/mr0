@@ -11,8 +11,8 @@ import Firebase
 import GoogleMaps
 import GooglePlaces
 
-class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelegate {
-
+class LandingPageViewController: UIViewController, DBInterfaceDelegate, GMSMapViewDelegate, UISearchBarDelegate {
+    
     @IBOutlet weak var landingPageMapView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var resultsView: UIView!
@@ -38,6 +38,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DBInterface.dbInterfaceDelegate = self
         searchBar.delegate = self
         
         placesClient = GMSPlacesClient.shared()
@@ -58,72 +59,32 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
         
         mapView.isHidden = false
                 
-        // load restaurants from firebase
-        let restaurantsTable = Database.database().reference().child("Restaurants")
-        restaurantsTable.observe(.childAdded, with: { (snapshot) in
-            if let getData = snapshot.value as? [String:Any] {
-                
-                _ = getData["Sender"] as? String
-                let restaurantBodyJSON = getData["RestaurantBody"] as? String
-                let jsonData = restaurantBodyJSON?.data(using: .utf8)
-                let dictionary = try? JSONSerialization.jsonObject(with: jsonData!, options: .mutableLeaves)
-                let restaurantDictionary = dictionary as! Dictionary<String, AnyObject>
-                
-                let name : String = restaurantDictionary["name"] as! String
-                let comments = restaurantDictionary["comments"] as! String
-                let tags = restaurantDictionary["tags"] as! [String]
-                let rating = restaurantDictionary["rating"] as! Float
-                
-                var restaurantVisits = [RestaurantVisit]()
+        // load database
+        DBInterface.loadDB()
+        
+        self.landingPageMapView.bringSubview(toFront: self.searchBar)
+    }
 
-                let restaurantVisitDictionaries = restaurantDictionary["restaurantVisits"] as! [Dictionary<String, AnyObject>]
-                for restaurantVisitDictionary in restaurantVisitDictionaries {
-                    
-                    var restaurantVisit = RestaurantVisit()
-                    
-                    let visitDate = restaurantVisitDictionary["dateVisited"] as! TimeInterval
-                    restaurantVisit.dateVisited = Date.init(timeIntervalSinceReferenceDate: visitDate)
-
-                    restaurantVisits.append(restaurantVisit)
-                }
-                
-                let location = restaurantDictionary["location"]
-                let locationDictionary = location as! Dictionary<String, Double>
-                let latitude = locationDictionary["latitude"]
-                let longitude = locationDictionary["longitude"]
-                
-                var restaurant : Restaurant = Restaurant()
-                restaurant.dbId = snapshot.key
-                restaurant.name = name
-                restaurant.location = Location(latitude: latitude!, longitude: longitude!)
-                restaurant.comments = comments
-                
-                restaurant.tags.removeAll()
-                for tag in tags {
-                    restaurant.tags.append(tag)
-                }
-
-                restaurant.rating = rating
-                
-                restaurant.restaurantVisits = restaurantVisits
-                
-                print("after reading from db, add:")
-                print(restaurant)
-                self.restaurants.append(restaurant)
-                
-                var coordinates : CLLocationCoordinate2D = CLLocationCoordinate2D()
-                coordinates.latitude = restaurant.location.latitude;
-                coordinates.longitude = restaurant.location.longitude;
-                
-                let marker = GMSMarker(position: (coordinates))
-                marker.title = restaurant.name
-                marker.snippet = restaurant.comments
-                marker.map = self.mapView
-                marker.userData = restaurant
-            }
+    func dbLoaded() {
+        
+        // retrieve restaurants
+        restaurants = DBInterface.getRestaurants()
+        
+        for restaurant in restaurants {
             
-            self.landingPageMapView.bringSubview(toFront: self.searchBar)
-        })
+            var coordinates : CLLocationCoordinate2D = CLLocationCoordinate2D()
+            coordinates.latitude = restaurant.location.latitude;
+            coordinates.longitude = restaurant.location.longitude;
+            
+            let marker = GMSMarker(position: (coordinates))
+            marker.title = restaurant.name
+            marker.snippet = restaurant.comments
+            marker.map = self.mapView
+            marker.userData = restaurant
+            
+            print("add marker for \(restaurant.name)")
+            print("location \(coordinates)")
+        }
     }
 
     func mapView(_ mapView: GMSMapView, didTapPOIWithPlaceID placeID: String,
@@ -148,11 +109,6 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
             self.resultsLabel2.text = place.formattedAddress!
 
             self.selectedRestaurant = nil
-
-//            print("Place name \(place.name)")
-//            print("Place address \(place.formattedAddress)")
-//            print("Place placeID \(place.placeID)")
-//            print("Place attributions \(place.attributions)")
         })
     }
     
@@ -168,7 +124,7 @@ class LandingPageViewController: UIViewController, GMSMapViewDelegate, UISearchB
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         print("Marker tapped")
         print ("marker is: \(marker)")
-        print("Marker userData: \(marker.userData)")
+        print("Marker userData: \(String(describing: marker.userData))")
         
         let restaurant = (marker.userData as! Restaurant)
         let location = restaurant.location
