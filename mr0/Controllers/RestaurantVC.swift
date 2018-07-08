@@ -38,11 +38,13 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         print("RestaurantVC viewDidLoad")
         print("selectedRestaurant = \(String(describing: selectedRestaurant))")
-
-        var mi = MenuItem(name: "Burrito - Pollo Borracho")
-        menuItems.append(mi)
-        mi = MenuItem(name: "Tres Tacos")
-        menuItems.append(mi)
+        
+        for tagLabel in (selectedRestaurant?.tags)! {
+            let tag = Tag(label: tagLabel)
+            specifiedTags.append(tag)
+        }
+        
+        menuItems = (selectedRestaurant?.menuItems)!
     }
 
     func getSelectedRestaurant() -> Restaurant {

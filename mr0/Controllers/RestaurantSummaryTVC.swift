@@ -42,14 +42,6 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate {
             comments.text = selectedRestaurant.comments
         }
         comments.delegate = self
-
-        var specifiedTags = (restaurantDelegate?.getSpecifiedTags())!
-        specifiedTags.removeAll()
-        for tagLabel in (selectedRestaurant.tags) {
-            let newTag = Tag(label: tagLabel)
-            specifiedTags.append(newTag)
-        }
-        tags.textColor = UIColor.lightGray
         
         print("RestaurantSummaryTVC viewDidLoad")
         print("selectedRestaurant = \(String(describing: selectedRestaurant))")
