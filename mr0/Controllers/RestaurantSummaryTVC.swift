@@ -82,19 +82,6 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate {
 //        ratingLabel.text = "Restaurant rating: \(ratingAsString)"
 //    }
     
-    func populateSelectedRestaurantFromUI() {
-        
-        var selectedRestaurant: Restaurant = (restaurantDelegate?.getSelectedRestaurant())!
-        let specifiedTags = (restaurantDelegate?.getSpecifiedTags())!
-
-        selectedRestaurant.tags.removeAll()
-        for tag in specifiedTags {
-            selectedRestaurant.tags.append(tag.label)
-        }
-        
-        selectedRestaurant.comments = comments.text
-    }
-    
     func updateTagsLabel() {
         
         let specifiedTags = (restaurantDelegate?.getSpecifiedTags())!
