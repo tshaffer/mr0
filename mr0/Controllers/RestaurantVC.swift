@@ -21,6 +21,8 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     @IBOutlet weak var menuItemsTable: UITableView!
     
+    var controllerDelegate: ControllerDelegate?
+
     var selectedRestaurant: Restaurant?
     
     var comments: String = ""
@@ -36,8 +38,7 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         menuItemsTable.delegate = self
         menuItemsTable.dataSource = self
         
-        print("RestaurantVC viewDidLoad")
-        print("selectedRestaurant = \(String(describing: selectedRestaurant))")
+//        print("selectedRestaurant = \(String(describing: selectedRestaurant))")
         
         for tagLabel in (selectedRestaurant?.tags)! {
             let tag = Tag(label: tagLabel)
@@ -119,5 +120,6 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     func saveRestaurant() {
         populateSelectedRestaurantFromUI()
         DBInterface.saveRestaurant(restaurantIn: selectedRestaurant!)
+        controllerDelegate?.updateRestaurant(restaurant: selectedRestaurant!)
     }
 }

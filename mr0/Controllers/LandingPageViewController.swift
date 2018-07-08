@@ -11,7 +11,11 @@ import Firebase
 import GoogleMaps
 import GooglePlaces
 
-class LandingPageViewController: UIViewController, DBInterfaceDelegate, GMSMapViewDelegate, UISearchBarDelegate {
+protocol ControllerDelegate {
+    func updateRestaurant(restaurant: Restaurant)
+}
+
+class LandingPageViewController: UIViewController, DBInterfaceDelegate, GMSMapViewDelegate, UISearchBarDelegate, ControllerDelegate {
     
     @IBOutlet weak var landingPageMapView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -20,6 +24,8 @@ class LandingPageViewController: UIViewController, DBInterfaceDelegate, GMSMapVi
     @IBOutlet weak var resultsLabel1: UILabel!
     @IBOutlet weak var resultsLabel2: UILabel!
     
+    var markersByRestaurant: [String: GMSMarker] = [:]
+
     var mapView: GMSMapView!
     var zoomLevel: Float = 15.0
     
@@ -82,11 +88,22 @@ class LandingPageViewController: UIViewController, DBInterfaceDelegate, GMSMapVi
             marker.map = self.mapView
             marker.userData = restaurant
             
-            print("add marker for \(restaurant.name)")
-            print("location \(coordinates)")
+            // need to add an entry to markersByRestaurant
+            markersByRestaurant[restaurant.dbId] = marker
+            
+//            print("add marker for \(restaurant.name)")
+//            print("location \(coordinates)")
         }
     }
 
+    func updateRestaurant(restaurant: Restaurant) {
+        
+        let marker = markersByRestaurant[restaurant.dbId]
+        marker?.userData = restaurant
+        
+//        print("updateRestaurant \(marker?.userData as! Restaurant)")
+    }
+    
     func mapView(_ mapView: GMSMapView, didTapPOIWithPlaceID placeID: String,
                  name: String, location: CLLocationCoordinate2D) {
         print("You didTapPOIWithPlaceID \(name): \(placeID), \(location.latitude)/\(location.longitude)")
@@ -154,10 +171,10 @@ class LandingPageViewController: UIViewController, DBInterfaceDelegate, GMSMapVi
     }
         
     @IBAction func addButtonPressed(_ sender: Any) {
-        print("addButton pressed")
+//        print("addButton pressed")
         
         if selectedRestaurant != nil {
-            print("selectedRestaurant: \(String(describing: selectedRestaurant))")
+//            print("selectedRestaurant: \(String(describing: selectedRestaurant))")
 
             performSegue(withIdentifier: "addRestaurantSegue", sender: self)
         }
@@ -183,6 +200,7 @@ class LandingPageViewController: UIViewController, DBInterfaceDelegate, GMSMapVi
 
         if (segue.identifier == "addRestaurantSegue") {
             if let restaurantVC = segue.destination as? RestaurantVC {
+                restaurantVC.controllerDelegate = self
                 restaurantVC.selectedRestaurant = selectedRestaurant
             }
         }

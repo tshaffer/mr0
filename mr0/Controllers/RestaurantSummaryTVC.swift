@@ -44,7 +44,7 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate {
         comments.delegate = self
         
         print("RestaurantSummaryTVC viewDidLoad")
-        print("selectedRestaurant = \(String(describing: selectedRestaurant))")
+//        print("selectedRestaurant = \(String(describing: selectedRestaurant))")
     }
 
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
