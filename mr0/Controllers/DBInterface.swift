@@ -27,6 +27,44 @@ class DBInterface {
         return restaurants
     }
     
+    static func saveRestaurant(restaurantIn: Restaurant) {
+        
+        // TODO - don't understand the error message that occurred when I didn't include this shenanigans
+        var restaurant : Restaurant = restaurantIn
+        
+        let restaurantsDB = Database.database().reference().child("Restaurants")
+        
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        
+        do {
+            
+            if (restaurant.dbId == "") {
+                restaurant.dbId = UUID().uuidString
+            }
+            
+            let data = try encoder.encode(restaurant)
+            print(String(data: data, encoding: .utf8)!)
+            let dataAsString = String(data: data, encoding: .utf8)!
+            print(dataAsString)
+            let restaurantDictionary = ["Sender": Auth.auth().currentUser?.email ?? "ted@roku.com",
+                                        "RestaurantBody": dataAsString] as [String : Any]
+            
+            restaurantsDB.child((restaurant.dbId)).setValue(restaurantDictionary) {
+                (error, reference) in
+                if (error != nil) {
+                    print(error!)
+                }
+                else {
+                    print("Restaurant saved successfully")
+                }
+            }
+        }
+        catch {
+            print("encoder error")
+        }
+    }
+    
     static func loadRestaurants() {
         
         // load restaurants from firebase

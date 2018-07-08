@@ -115,39 +115,7 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func saveRestaurant() {
-
         populateSelectedRestaurantFromUI()
-
-        let restaurantsDB = Database.database().reference().child("Restaurants")
-
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-
-        do {
-
-            if (selectedRestaurant?.dbId == "") {
-                selectedRestaurant?.dbId = UUID().uuidString
-            }
-
-            let data = try encoder.encode(selectedRestaurant)
-            print(String(data: data, encoding: .utf8)!)
-            let dataAsString = String(data: data, encoding: .utf8)!
-            print(dataAsString)
-            let restaurantDictionary = ["Sender": Auth.auth().currentUser?.email ?? "ted@roku.com",
-                                        "RestaurantBody": dataAsString] as [String : Any]
-
-            restaurantsDB.child((selectedRestaurant?.dbId)!).setValue(restaurantDictionary) {
-                (error, reference) in
-                if (error != nil) {
-                    print(error!)
-                }
-                else {
-                    print("Restaurant saved successfully")
-                }
-            }
-        }
-        catch {
-            print("encoder error")
-        }
+        DBInterface.saveRestaurant(restaurantIn: selectedRestaurant!)
     }
 }
