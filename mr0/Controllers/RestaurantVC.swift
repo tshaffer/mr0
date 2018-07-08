@@ -11,7 +11,13 @@ import Firebase
 import FirebaseStorage
 import FirebaseUI
 
-class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SaveCommentsDelegate, SetTagsDelegate, SaveMenuItemDelegate {
+protocol RestaurantDelegate {
+    func getSelectedRestaurant() -> Restaurant
+    func getSpecifiedTags() -> [Tag]
+    func getMenuItems() -> [MenuItem]
+}
+
+class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SaveCommentsDelegate, SetTagsDelegate, SaveMenuItemDelegate, RestaurantDelegate {
     
     @IBOutlet weak var menuItemsTable: UITableView!
     
@@ -39,6 +45,18 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         menuItems.append(mi)
     }
 
+    func getSelectedRestaurant() -> Restaurant {
+        return selectedRestaurant!
+    }
+    
+    func getSpecifiedTags() -> [Tag] {
+        return specifiedTags
+    }
+    
+    func getMenuItems() -> [MenuItem] {
+        return menuItems
+    }
+    
     func saveComments(comments: String) {
         self.comments = comments
     }
@@ -69,10 +87,10 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         if (segue.identifier == "showRestaurantSummarySegue") {
             if let restaurantSummaryTVC = segue.destination as? RestaurantSummaryTVC {
+                restaurantSummaryTVC.restaurantDelegate = self
                 restaurantSummaryTVC.saveCommentsDelegate = self
                 restaurantSummaryTVC.setTagsDelegate = self
                 restaurantSummaryTVC.saveMenuItemDelegate = self
-                restaurantSummaryTVC.selectedRestaurant = selectedRestaurant;
             }
         }
         else if (segue.identifier == "saveThenUnwindToLandingPageSegue") {

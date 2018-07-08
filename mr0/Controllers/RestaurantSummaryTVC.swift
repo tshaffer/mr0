@@ -13,8 +13,9 @@ protocol SaveCommentsDelegate {
 }
 
 // flibbet
-class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDelegate, SaveMenuItemDelegate {
+class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate {
     
+    var restaurantDelegate: RestaurantDelegate?
     var saveCommentsDelegate : SaveCommentsDelegate?
     var setTagsDelegate : SetTagsDelegate?
     var saveMenuItemDelegate : SaveMenuItemDelegate?
@@ -23,34 +24,28 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
     @IBOutlet weak var tags: UILabel!
     @IBOutlet weak var comments: UITextView!
     
-    var selectedRestaurant: Restaurant?
-
-    var specifiedTags: [Tag] = []
-    var menuItems: [MenuItem] = []
-    
     override func viewDidLoad() {
         
         print ("RestaurantSummaryTVC viewDidLoad")
 
         super.viewDidLoad()
         
-        print("restaurantSummaryTableView: \(String(describing: restaurantSummaryTableView))")
+        let selectedRestaurant: Restaurant = (restaurantDelegate?.getSelectedRestaurant())!
         
-        print("tableViewHeader: \(String(describing: restaurantSummaryTableView.tableHeaderView ))")
-        
-        if selectedRestaurant?.comments == "" {
+        if selectedRestaurant.comments == "" {
             comments.text = "Add restaurant comments..."
             comments.textColor = UIColor.lightGray
             comments.becomeFirstResponder()
             comments.selectedTextRange = comments.textRange(from: comments.beginningOfDocument, to: comments.beginningOfDocument)
         }
         else {
-            comments.text = selectedRestaurant?.comments
+            comments.text = selectedRestaurant.comments
         }
         comments.delegate = self
 
+        var specifiedTags = (restaurantDelegate?.getSpecifiedTags())!
         specifiedTags.removeAll()
-        for tagLabel in (selectedRestaurant?.tags)! {
+        for tagLabel in (selectedRestaurant.tags) {
             let newTag = Tag(label: tagLabel)
             specifiedTags.append(newTag)
         }
@@ -63,7 +58,8 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if (section == 0) {
             let header = view as! UITableViewHeaderFooterView
-            header.textLabel?.text = selectedRestaurant?.name
+            let selectedRestaurant: Restaurant = (restaurantDelegate?.getSelectedRestaurant())!
+            header.textLabel?.text = selectedRestaurant.name
         }
     }
     
@@ -77,22 +73,6 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
 //        updateDateLabel()
     }
     
-    // FLIBBET
-    // need to invoke delegate methods on RestaurantVC to save Tags and comments
-    
-    // DELEGATE METHODS
-    func setTags(tags: [Tag]) {
-        print(tags)
-        specifiedTags = tags
-        
-        setTagsDelegate?.setTags(tags: specifiedTags)
-    }
-    
-    // flibbet
-    func saveMenuItem(menuItem: MenuItem) {
-        menuItems.append(menuItem)
-        saveMenuItemDelegate?.saveMenuItem(menuItem: menuItem)
-    }
     
     // MEMBER METHODS
 //    @IBAction func ratingChanged(_ sender: UISlider) {
@@ -104,15 +84,21 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
     
     func populateSelectedRestaurantFromUI() {
         
-        selectedRestaurant?.tags.removeAll()
+        var selectedRestaurant: Restaurant = (restaurantDelegate?.getSelectedRestaurant())!
+        let specifiedTags = (restaurantDelegate?.getSpecifiedTags())!
+
+        selectedRestaurant.tags.removeAll()
         for tag in specifiedTags {
-            selectedRestaurant?.tags.append(tag.label)
+            selectedRestaurant.tags.append(tag.label)
         }
         
-        selectedRestaurant?.comments = comments.text
+        selectedRestaurant.comments = comments.text
     }
     
     func updateTagsLabel() {
+        
+        let specifiedTags = (restaurantDelegate?.getSpecifiedTags())!
+
         var tagLabel = ""
         var textColor = UIColor.black
         if specifiedTags.count == 0 {
@@ -201,12 +187,12 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate, SetTagsDe
 //        }
         if segue.identifier == "showTagsViewControllerSegue" {
             let vc = segue.destination as! TagsViewController
-            vc.setTagsDelegate = self
-            vc.restaurantTags = self.specifiedTags
+            vc.setTagsDelegate = self.setTagsDelegate
+            vc.restaurantTags = (restaurantDelegate?.getSpecifiedTags())!
         }
         else if segue.identifier == "addMenuItemSegue" {
             let vc = segue.destination as! MenuItemViewController
-            vc.saveMenuItemDelegate = self
+            vc.saveMenuItemDelegate = self.saveMenuItemDelegate
         }
     }
 }
