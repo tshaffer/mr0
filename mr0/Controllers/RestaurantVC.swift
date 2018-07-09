@@ -37,9 +37,7 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         menuItemsTable.delegate = self
         menuItemsTable.dataSource = self
-        
-//        print("selectedRestaurant = \(String(describing: selectedRestaurant))")
-        
+                
         for tagLabel in (selectedRestaurant?.tags)! {
             let tag = Tag(label: tagLabel)
             specifiedTags.append(tag)

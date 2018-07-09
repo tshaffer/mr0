@@ -88,11 +88,7 @@ class LandingPageViewController: UIViewController, DBInterfaceDelegate, GMSMapVi
             marker.map = self.mapView
             marker.userData = restaurant
             
-            // need to add an entry to markersByRestaurant
             markersByRestaurant[restaurant.dbId] = marker
-            
-//            print("add marker for \(restaurant.name)")
-//            print("location \(coordinates)")
         }
     }
 
@@ -100,8 +96,6 @@ class LandingPageViewController: UIViewController, DBInterfaceDelegate, GMSMapVi
         
         let marker = markersByRestaurant[restaurant.dbId]
         marker?.userData = restaurant
-        
-//        print("updateRestaurant \(marker?.userData as! Restaurant)")
     }
     
     func mapView(_ mapView: GMSMapView, didTapPOIWithPlaceID placeID: String,
@@ -139,10 +133,6 @@ class LandingPageViewController: UIViewController, DBInterfaceDelegate, GMSMapVi
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        print("Marker tapped")
-        print ("marker is: \(marker)")
-        print("Marker userData: \(String(describing: marker.userData))")
-        
         let restaurant = (marker.userData as! Restaurant)
         let location = restaurant.location
         self.selectedLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
@@ -171,11 +161,8 @@ class LandingPageViewController: UIViewController, DBInterfaceDelegate, GMSMapVi
     }
         
     @IBAction func addButtonPressed(_ sender: Any) {
-//        print("addButton pressed")
         
         if selectedRestaurant != nil {
-//            print("selectedRestaurant: \(String(describing: selectedRestaurant))")
-
             performSegue(withIdentifier: "addRestaurantSegue", sender: self)
         }
         else if selectedPlace != nil {

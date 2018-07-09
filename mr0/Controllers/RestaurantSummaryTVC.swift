@@ -12,7 +12,6 @@ protocol SaveCommentsDelegate {
     func saveComments(comments: String)
 }
 
-// flibbet
 class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate {
     
     var restaurantDelegate: RestaurantDelegate?
@@ -26,8 +25,6 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         
-        print ("RestaurantSummaryTVC viewDidLoad")
-
         super.viewDidLoad()
         
         let selectedRestaurant: Restaurant = (restaurantDelegate?.getSelectedRestaurant())!
@@ -42,9 +39,6 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate {
             comments.text = selectedRestaurant.comments
         }
         comments.delegate = self
-        
-        print("RestaurantSummaryTVC viewDidLoad")
-//        print("selectedRestaurant = \(String(describing: selectedRestaurant))")
     }
 
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -145,7 +139,6 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate {
         }
     }
     
-    // flibbet
     @IBAction func addMenuItem(_ sender: Any) {
         print("addMenuItem")
     }
