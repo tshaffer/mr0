@@ -96,6 +96,8 @@ class LandingPageViewController: UIViewController, DBInterfaceDelegate, GMSMapVi
         
         let marker = markersByRestaurant[restaurant.dbId]
         marker?.userData = restaurant
+        
+        selectedRestaurant = restaurant
     }
     
     func mapView(_ mapView: GMSMapView, didTapPOIWithPlaceID placeID: String,
