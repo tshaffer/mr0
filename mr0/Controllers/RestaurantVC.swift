@@ -26,9 +26,7 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 
     var selectedRestaurant: Restaurant?
     
-    var comments: String = ""
     var specifiedTags: [Tag] = []
-    var menuItems: [MenuItem] = []
 
     override func viewDidLoad() {
         
@@ -43,8 +41,6 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             let tag = Tag(label: tagLabel)
             specifiedTags.append(tag)
         }
-        
-        menuItems = (selectedRestaurant?.menuItems)!
     }
 
     func getSelectedRestaurant() -> Restaurant {
@@ -63,17 +59,15 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func getMenuItems() -> [MenuItem] {
-        return menuItems
+        return (selectedRestaurant?.menuItems)!
     }
     
     func saveComments(comments: String) {
-        self.comments = comments
         selectedRestaurant?.comments = comments
     }
     
     func saveMenuItem(menuItem: MenuItem) {
         selectedRestaurant?.menuItems.append(menuItem)
-        menuItems.append(menuItem)
         menuItemsTable.reloadData()
     }
     
@@ -87,12 +81,12 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuItems.count
+        return selectedRestaurant!.menuItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier", for: indexPath)
-        let label = menuItems[indexPath.row].name
+        let label = selectedRestaurant?.menuItems[indexPath.row].name
         cell.textLabel?.text = label
         return cell
     }
