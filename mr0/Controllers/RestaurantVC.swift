@@ -14,6 +14,7 @@ import FirebaseUI
 protocol RestaurantDelegate {
     func getSelectedRestaurant() -> Restaurant
     func getSpecifiedTags() -> [Tag]
+    func setSpecifiedTags(tags: [Tag])
     func getMenuItems() -> [MenuItem]
 }
 
@@ -54,21 +55,35 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         return specifiedTags
     }
     
+    func setSpecifiedTags(tags:  [Tag]) {
+        selectedRestaurant?.tags.removeAll()
+        for tag in tags {
+            selectedRestaurant?.tags.append(tag.label)
+        }
+    }
+    
     func getMenuItems() -> [MenuItem] {
         return menuItems
     }
     
     func saveComments(comments: String) {
         self.comments = comments
+        selectedRestaurant?.comments = comments
     }
     
     func saveMenuItem(menuItem: MenuItem) {
+        selectedRestaurant?.menuItems.append(menuItem)
         menuItems.append(menuItem)
         menuItemsTable.reloadData()
     }
     
     func setTags(tags: [Tag]) {
         specifiedTags = tags
+        
+        selectedRestaurant?.tags.removeAll()
+        for tag in tags {
+            selectedRestaurant?.tags.append(tag.label)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,20 +118,8 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         print("unwindToRestaurantReview")
     }
     
-    func populateSelectedRestaurantFromUI() {
-        
-        selectedRestaurant?.comments = comments
-        
-        selectedRestaurant?.tags.removeAll()
-        for tag in specifiedTags {
-            selectedRestaurant?.tags.append(tag.label)
-        }
-        
-        selectedRestaurant?.menuItems = menuItems
-    }
     
     func saveRestaurant() {
-        populateSelectedRestaurantFromUI()
         DBInterface.saveRestaurant(restaurantIn: selectedRestaurant!)
         controllerDelegate?.updateRestaurant(restaurant: selectedRestaurant!)
     }

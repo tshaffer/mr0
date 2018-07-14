@@ -90,6 +90,8 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate {
         }
         tags.text = tagLabel
         tags.textColor = textColor
+        
+        (restaurantDelegate?.setSpecifiedTags(tags: specifiedTags))!
     }
 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
