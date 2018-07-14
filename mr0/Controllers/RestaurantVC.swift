@@ -15,7 +15,6 @@ protocol RestaurantDelegate {
     func getSelectedRestaurant() -> Restaurant
     func getSpecifiedTags() -> [Tag]
     func setSpecifiedTags(tags: [Tag])
-    func getMenuItems() -> [MenuItem]
 }
 
 class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SaveCommentsDelegate, SetTagsDelegate, SaveMenuItemDelegate, RestaurantDelegate {
@@ -56,10 +55,6 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         for tag in tags {
             selectedRestaurant?.tags.append(tag.label)
         }
-    }
-    
-    func getMenuItems() -> [MenuItem] {
-        return (selectedRestaurant?.menuItems)!
     }
     
     func saveComments(comments: String) {
