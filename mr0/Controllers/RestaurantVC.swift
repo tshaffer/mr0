@@ -24,6 +24,7 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var controllerDelegate: ControllerDelegate?
 
     var selectedRestaurant: Restaurant?
+    var selectedMenuItem: MenuItem? = nil
     
     var specifiedTags: [Tag] = []
 
@@ -85,7 +86,17 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         cell.textLabel?.text = label
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+//        let cells = tableView.visibleCells
+//        var cellIndex = 0
+        
+        selectedMenuItem = selectedRestaurant!.menuItems[indexPath.row]
+        print("selectedMenuItem: \(String(describing: selectedMenuItem))")
+//        performSegue(withIdentifier: "unwindToRestaurantReview", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         print ("RestaurantVC#prepare: segue.identifier is: \(String(describing: segue.identifier))")
@@ -100,6 +111,11 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         else if (segue.identifier == "saveThenUnwindToLandingPageSegue") {
             saveRestaurant()
+        }
+        else if (segue.identifier == "showMenuItemSegue") {
+            if let vc = segue.destination as? MenuItemViewController {
+                vc.selectedMenuItem = selectedMenuItem
+            }
         }
     }
     

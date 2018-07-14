@@ -299,6 +299,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Ou4-sz-l70" kind="show" identifier="showMenuItemSegue" id="p54-vh-lUA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -397,7 +400,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4j-Ze-6hQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="vMl-vQ-Jw9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="7143" y="99"/>
+            <point key="canvasLocation" x="7142" y="181"/>
         </scene>
         <!--Restaurant SummaryTVC-->
         <scene sceneID="bBl-EY-uxe">
@@ -494,7 +497,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CRg-X4-FpI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6111" y="-154"/>
+            <point key="canvasLocation" x="6113" y="-176"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1pc-47-rU8">
@@ -519,4 +522,7 @@
     <resources>
         <image name="AddIcon" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="p54-vh-lUA"/>
+    </inferredMetricsTieBreakers>
 </document>

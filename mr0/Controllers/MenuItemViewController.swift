@@ -21,7 +21,7 @@ class MenuItemViewController: UIViewController, UITextViewDelegate  {
     @IBOutlet weak var ratingSlider: UISlider!
     @IBOutlet weak var ratingLabel: UILabel!
     
-    var menuItem: MenuItem?
+    var selectedMenuItem: MenuItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +104,6 @@ class MenuItemViewController: UIViewController, UITextViewDelegate  {
     
     @IBAction func ratingChanged(_ sender: UISlider) {
         let rating = Float(Float(sender.value) / 10)
-        menuItem?.rating = rating
         let ratingAsString = (String(format: "%.01f", rating))
         ratingLabel.text = "Rating: \(ratingAsString)"
     }

@@ -167,6 +167,7 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate {
         else if segue.identifier == "addMenuItemSegue" {
             let vc = segue.destination as! MenuItemViewController
             vc.saveMenuItemDelegate = self.saveMenuItemDelegate
+            vc.selectedMenuItem = nil
         }
     }
 }
