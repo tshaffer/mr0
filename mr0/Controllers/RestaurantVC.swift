@@ -87,16 +87,6 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        let cells = tableView.visibleCells
-//        var cellIndex = 0
-        
-        selectedMenuItem = selectedRestaurant!.menuItems[indexPath.row]
-        print("selectedMenuItem: \(String(describing: selectedMenuItem))")
-//        performSegue(withIdentifier: "showMenuItemSegue", sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         print ("RestaurantVC#prepare: segue.identifier is: \(String(describing: segue.identifier))")
