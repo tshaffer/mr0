@@ -30,15 +30,30 @@ class MenuItemViewController: UIViewController, UITextViewDelegate  {
         comments.textColor = UIColor.lightGray
         comments.becomeFirstResponder()
         comments.selectedTextRange = comments.textRange(from: comments.beginningOfDocument, to: comments.beginningOfDocument)
-//        if selectedRestaurant?.comments == "" {
-//            comments.text = "Add restaurant comments..."
-//            comments.textColor = UIColor.lightGray
-//            comments.becomeFirstResponder()
-//            comments.selectedTextRange = comments.textRange(from: comments.beginningOfDocument, to: comments.beginningOfDocument)
-//        }
-//        else {
-//            comments.text = selectedRestaurant?.comments
-//        }
+
+        if selectedMenuItem != nil {
+            
+            name.text = selectedMenuItem?.name
+            
+            let rating = (selectedMenuItem?.rating)! * 10
+            ratingSlider.value = rating
+            ratingLabel.text = (String(format: "%.01f", rating / 10))
+
+            comments.text = selectedMenuItem?.comments
+        }
+        else {
+            
+            name.text = ""
+            
+            ratingSlider.value = 50.0
+            ratingLabel.text = "5.0"
+            
+            comments.text = "Add restaurant comments..."
+            comments.textColor = UIColor.lightGray
+            comments.becomeFirstResponder()
+            comments.selectedTextRange = comments.textRange(from: comments.beginningOfDocument, to: comments.beginningOfDocument)
+        }
+        
         comments.delegate = self
 
     }
