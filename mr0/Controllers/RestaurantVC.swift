@@ -94,7 +94,7 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         selectedMenuItem = selectedRestaurant!.menuItems[indexPath.row]
         print("selectedMenuItem: \(String(describing: selectedMenuItem))")
-//        performSegue(withIdentifier: "unwindToRestaurantReview", sender: self)
+//        performSegue(withIdentifier: "showMenuItemSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -113,6 +113,12 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             saveRestaurant()
         }
         else if (segue.identifier == "showMenuItemSegue") {
+            
+            let cell = sender as! UITableViewCell
+            let index = menuItemsTable.indexPath(for: cell)
+            selectedMenuItem = selectedRestaurant!.menuItems[(index?.row)!]
+            print("selectedMenuItem: \(String(describing: selectedMenuItem))")
+            
             if let vc = segue.destination as? MenuItemViewController {
                 vc.selectedMenuItem = selectedMenuItem
             }
