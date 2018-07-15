@@ -299,6 +299,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Ou4-sz-l70" kind="show" identifier="showMenuItemSegue" id="WrS-s5-M25"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -519,4 +522,7 @@
     <resources>
         <image name="AddIcon" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="WrS-s5-M25"/>
+    </inferredMetricsTieBreakers>
 </document>

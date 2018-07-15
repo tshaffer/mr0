@@ -111,10 +111,14 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         let ratingAsString = "Rating " + (String(format: "%.01f", (selectedRestaurant?.menuItems[indexPath.row].rating)!)) + "/10"
         cell.rating?.text = ratingAsString
-        
-//        let label = selectedRestaurant?.menuItems[indexPath.row].name
-//        cell.textLabel?.text = label
+
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let menuItemCustomCell = tableView.cellForRow(at: indexPath) as! menuItemCustomCell
+        performSegue(withIdentifier: "showMenuItemSegue", sender: menuItemCustomCell)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -134,7 +138,7 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         else if (segue.identifier == "showMenuItemSegue") {
             
-            let cell = sender as! UITableViewCell
+            let cell = sender as! menuItemCustomCell
             let index = menuItemsTable.indexPath(for: cell)
             selectedMenuItem = selectedRestaurant!.menuItems[(index?.row)!]
             print("selectedMenuItem: \(String(describing: selectedMenuItem))")
