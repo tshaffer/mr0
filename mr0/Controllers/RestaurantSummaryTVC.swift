@@ -39,6 +39,12 @@ class RestaurantSummaryTVC: UITableViewController, UITextViewDelegate {
             comments.text = selectedRestaurant.comments
         }
         comments.delegate = self
+        
+        comments.textContainerInset = UIEdgeInsetsMake(
+            0,
+            -comments.textContainer.lineFragmentPadding,
+            0,
+            -comments.textContainer.lineFragmentPadding);
     }
 
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
