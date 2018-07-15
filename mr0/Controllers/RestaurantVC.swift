@@ -109,7 +109,7 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         cell.label?.text = selectedRestaurant?.menuItems[indexPath.row].name
         
-        let ratingAsString = (String(format: "%.01f", (selectedRestaurant?.menuItems[indexPath.row].rating)! / 10))
+        let ratingAsString = "Rating " + (String(format: "%.01f", (selectedRestaurant?.menuItems[indexPath.row].rating)!)) + "/10"
         cell.rating?.text = ratingAsString
         
 //        let label = selectedRestaurant?.menuItems[indexPath.row].name
