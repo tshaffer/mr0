@@ -45,10 +45,6 @@ class LandingPageViewController: UIViewController, DBInterfaceDelegate, GMSMapVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        
-        
         DBInterface.dbInterfaceDelegate = self
         searchBar.delegate = self
         
@@ -152,6 +148,8 @@ class LandingPageViewController: UIViewController, DBInterfaceDelegate, GMSMapVi
         self.resultsLabel1.text = restaurant.name
         self.resultsLabel2.text = ""
         self.selectedRestaurant = restaurant
+
+        performSegue(withIdentifier: "addRestaurantSegue", sender: self)
 
         return true
     }
