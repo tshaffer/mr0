@@ -36,7 +36,9 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         menuItemsTable.delegate = self
         menuItemsTable.dataSource = self
-                
+        menuItemsTable.register(UINib(nibName: "menuItemCustomCell", bundle: nil),
+                                forCellReuseIdentifier: "menuItemCustomCell")
+        
         for tagLabel in (selectedRestaurant?.tags)! {
             let tag = Tag(label: tagLabel)
             specifiedTags.append(tag)
@@ -103,9 +105,15 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier", for: indexPath)
-        let label = selectedRestaurant?.menuItems[indexPath.row].name
-        cell.textLabel?.text = label
+        let cell = tableView.dequeueReusableCell(withIdentifier: "menuItemCustomCell", for: indexPath) as! menuItemCustomCell
+        
+        cell.label?.text = selectedRestaurant?.menuItems[indexPath.row].name
+        
+        let ratingAsString = (String(format: "%.01f", (selectedRestaurant?.menuItems[indexPath.row].rating)! / 10))
+        cell.rating?.text = ratingAsString
+        
+//        let label = selectedRestaurant?.menuItems[indexPath.row].name
+//        cell.textLabel?.text = label
         return cell
     }
     
