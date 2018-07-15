@@ -35,7 +35,7 @@ class MenuItemViewController: UIViewController, UITextViewDelegate  {
             ratingLabel.text = (String(format: "%.01f", rating / 10))
 
             comments.text = selectedMenuItem?.comments
-            var textColor = UIColor.black
+            comments.textColor = UIColor.black
         }
         else {
             name.text = ""

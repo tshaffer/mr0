@@ -106,6 +106,8 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier", for: indexPath)
         let label = selectedRestaurant?.menuItems[indexPath.row].name
         cell.textLabel?.text = label
+        cell.menuItemLabel.text = label
+        cell.menuItemRating.text = "Rating: 6.9"
         return cell
     }
     
