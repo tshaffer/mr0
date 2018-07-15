@@ -10,6 +10,7 @@ import UIKit
 
 protocol SaveMenuItemDelegate {
     func saveMenuItem(menuItem: MenuItem)
+    func overwriteMenuItem(menuItem: MenuItem)
 }
 
 class MenuItemViewController: UIViewController, UITextViewDelegate  {
@@ -26,13 +27,7 @@ class MenuItemViewController: UIViewController, UITextViewDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        comments.text = "Add menu item comments..."
-        comments.textColor = UIColor.lightGray
-        comments.becomeFirstResponder()
-        comments.selectedTextRange = comments.textRange(from: comments.beginningOfDocument, to: comments.beginningOfDocument)
-
         if selectedMenuItem != nil {
-            
             name.text = selectedMenuItem?.name
             
             let rating = (selectedMenuItem?.rating)! * 10
@@ -40,9 +35,9 @@ class MenuItemViewController: UIViewController, UITextViewDelegate  {
             ratingLabel.text = (String(format: "%.01f", rating / 10))
 
             comments.text = selectedMenuItem?.comments
+            var textColor = UIColor.black
         }
         else {
-            
             name.text = ""
             
             ratingSlider.value = 50.0
@@ -141,6 +136,11 @@ class MenuItemViewController: UIViewController, UITextViewDelegate  {
         menuItem.rating = ratingSlider.value / 10
         print("MenuItem: ", menuItem)
         
-        saveMenuItemDelegate?.saveMenuItem(menuItem: menuItem)
+        if (selectedMenuItem != nil) {
+            saveMenuItemDelegate?.overwriteMenuItem(menuItem: menuItem)
+        }
+        else {
+            saveMenuItemDelegate?.saveMenuItem(menuItem: menuItem)
+        }
     }
 }

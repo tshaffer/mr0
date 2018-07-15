@@ -63,8 +63,30 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func saveMenuItem(menuItem: MenuItem) {
+        print("saveMenuItem")
         selectedRestaurant?.menuItems.append(menuItem)
         menuItemsTable.reloadData()
+    }
+   
+    func getMatchingMenuItem(menuItemToMatch: MenuItem) -> Int
+    {
+        var index = 0;
+        for menuItem in (selectedRestaurant?.menuItems)! {
+            if (menuItem.name == menuItemToMatch.name) {
+                return index;
+            }
+            index = index + 1
+        }
+        
+        return -1
+    }
+    func overwriteMenuItem(menuItem: MenuItem) {
+        print("overwriteMenuItem")
+        let menuItemIndex = getMatchingMenuItem(menuItemToMatch: menuItem)
+        if (menuItemIndex >= 0) {
+            selectedRestaurant?.menuItems[menuItemIndex] = menuItem
+            menuItemsTable.reloadData()
+        }
     }
     
     func setTags(tags: [Tag]) {
@@ -111,6 +133,7 @@ class RestaurantVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             
             if let vc = segue.destination as? MenuItemViewController {
                 vc.selectedMenuItem = selectedMenuItem
+                vc.saveMenuItemDelegate = self
             }
         }
     }
